@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EUI Voice Assistant - Qian Zhao Portfolio</title>
+    <meta name="description" content="A mobile voice assistant experience exploring smoother command flows, feedback, and visualized voice interaction." />
+    <link rel="icon" type="image/png" href="https://cdn.prod.website-files.com/61df1511efa778a02b260c1c/61e1f174f4a5e11f9a74e916_ICO32%402x.png" />
+    <script>document.documentElement.classList.add("case-motion-pending");</script>
+    <link rel="stylesheet" href="../styles/case-study.css" />
+    <link rel="stylesheet" href="../styles/webflow-project.css" />
+    <script defer src="../assets/vendor/gsap.min.js"></script>
+    <script defer src="../assets/vendor/ScrollTrigger.min.js"></script>
+    <script defer src="../scripts/case-study.js"></script>
+    <script defer src="../scripts/cursor-fx.js"></script>
+    <script defer src="../scripts/hero-rays.js"></script>
+  </head>
+  <body>
+    <header class="portfolio-nav" aria-label="Portfolio navigation">
+      <div class="portfolio-nav__blur" aria-hidden="true"><div></div><div></div><div></div><div></div><div></div><div></div></div>
+      <div class="portfolio-nav__inner">
+        <a class="portfolio-nav__brand" href="../index.html" aria-label="Qian Zhao portfolio home">Qian Zhao</a>
+        <nav class="portfolio-nav__links" aria-label="Main navigation">
+          <a class="portfolio-nav__link" href="../index.html"><span class="portfolio-nav__link-label">Work</span></a>
+          <a class="portfolio-nav__link" href="./resume.html"><span class="portfolio-nav__link-label">Resume</span></a>
+          <a class="portfolio-nav__link" href="https://qian-zhao-portfolio.webflow.io/about"><span class="portfolio-nav__link-label">About Me</span></a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="legacy-project">
+      <section class="legacy-hero" aria-labelledby="project-title">
+        <div class="legacy-hero__copy">
+          <p class="legacy-hero__eyebrow">UI UX Design / Motion</p>
+          <h1 id="project-title" data-gsap-reveal>EUI Voice Assistant</h1>
+          <p class="legacy-hero__summary" data-gsap-reveal>A mobile voice assistant experience exploring smoother command flows, feedback, and visualized voice interaction.</p>
+          <div class="legacy-hero__meta" aria-label="Project tags" data-gsap-reveal>
+            <span>UI UX Design</span>
+            <span>VUI</span>
+            <span>Motion</span>
+          </div>
+        </div>
+        <figure class="legacy-hero__media" data-gsap-reveal>
+          <img src="../assets/webflow-projects/eui-voice-assistant/image-01.png" alt="EUI Voice Assistant hero visual" />
+        </figure>
+      </section>
+
+      <section class="legacy-content" aria-label="Project story">
+        <p class="legacy-content__rail" data-gsap-reveal>Case Study</p>
+        <div class="legacy-content__body">
+            <section class="legacy-section" aria-labelledby="section-1">
+              <h2 id="section-1" data-gsap-reveal>Overview</h2>
+              <p data-gsap-reveal>Team Manager, Designer, Engineer</p>
+            </section>
+            <section class="legacy-section" aria-labelledby="section-2">
+              <h2 id="section-2" data-gsap-reveal>Summary</h2>
+              <p data-gsap-reveal>Voice Assistant is a project I worked on at LeEco in 2015. The project explored the use of voice interaction to control mobile phones and the use of user scenarios and user usage. It also sought to build a function that was suitable for a variety of people. In terms of the user experience, the improvement of the success rate of tasks was the main focus. Users hoped to make the voice assistant into a real assistant, not just a chatting robot. Because voice commands are non-linear, we hoped to find the unique value of voice control itself. The project used innovative means of breaking voice interaction restrictions through online testing, thereby improving the product. Similar functions appeared on iOS and other voice assistants after we launched.</p>
+            </section>
+            <section class="legacy-section" aria-labelledby="section-3">
+              <h2 id="section-3" data-gsap-reveal>Background</h2>
+              <p data-gsap-reveal>The voice assistant is an application built into the Letv phone. We want to define it as an assistant for the user, using his voice for operation.</p>
+            </section>
+            <section class="legacy-section" aria-labelledby="section-4">
+              <h2 id="section-4" data-gsap-reveal>Problems</h2>
+              <p data-gsap-reveal>The difficulty of the design lies in the process of handling the speech interaction smoothly, as we do not want to frustrate the users when they use this function. Also, should the speech interaction operate in the same way as other types, such as speech interaction without screen? These are the answers that this project is looking for.</p>
+            </section>
+            <section class="legacy-section" aria-labelledby="section-5">
+              <h2 id="section-5" data-gsap-reveal>What I did</h2>
+              <ul data-gsap-reveal>
+                <li>research on product usage scenarios</li>
+                <li>research into user journeys</li>
+                <li>created design rules for card-based concepts and provided standards to third parties</li>
+                <li>Creation of a set of interactive effects for the VUI</li>
+              </ul>
+            </section>
+            <section class="legacy-section" aria-labelledby="section-6">
+              <h2 id="section-6" data-gsap-reveal>User Scene</h2>
+              <p data-gsap-reveal>According to research on users, the voice assistant is often not utilized in outdoor or mobile scenarios. More often, it is used in relatively idle, non-emergency circumstances.It is different from the non-screen operation mode of a smart speaker. The voice assistant of a mobile phone is often utilized in close proximity and replaces some of the phone’s touch functions with higher operation levels.According to the display of user data, the voice assistant is used 1.2 times on average, with low success and repeated activation rate. The function usually appears shortly after the machine is powered on, indicating that the user would generally try the voice assistant function right away, but due to its low success rate, people are not as interested in the voice assistant as before, which has led to a lower frequency of use.</p>
+            </section>
+            <section class="legacy-section" aria-labelledby="section-7">
+              <h2 id="section-7" data-gsap-reveal>Problem analysis</h2>
+              <p data-gsap-reveal>After integrating all the experiences and user feedback, we found that the issues might be:</p>
+              <ul data-gsap-reveal>
+                <li>The voice assistant is not so smart after all.</li>
+                <li>It’s just a voice assistant that forces users to continually speak. Operation is not smooth, and it interrupts the users’ daily routines. It has low recognition rate and high error rate.</li>
+                <li>It needs to be stopped manually.</li>
+                <li>The functions of voice assistant are not clear to users. There are too many limits and functions that cannot be controlled by voice assistant.</li>
+              </ul>
+            </section>
+            <section class="legacy-section" aria-labelledby="section-8">
+              <h2 id="section-8" data-gsap-reveal>Summary</h2>
+              <p data-gsap-reveal>Therefore, the problem of voice assistant lies in the fact that although it’s made intelligent, its technology is underdeveloped, which reveals all its disadvantages. In terms of scenarios of use, the interaction with the voice assistant is not made to replace touch functions. Instead, it provides another way of interaction. Also, the screen of the mobile phone can be included in the speech interaction, thus providing a supplementary visual cue.As for the user’s experience, the improvement of the success rate of tasks would be the main focus. Users hope to change the voice assistant into a real assistant, not just a chatting robot. As voice commands are non-linear, we hope to find the unique value of the voice control itself.</p>
+              <ul data-gsap-reveal>
+                <li>Modify the interaction level of voice commands</li>
+                <li>Three-Tiered-Confidence</li>
+                <li>Floating action UI</li>
+                <li>Break the boundaries of voice control</li>
+                <li>Common command teaching</li>
+                <li>Invisible confirmation</li>
+              </ul>
+            </section>
+            <section class="legacy-section" aria-labelledby="section-9">
+              <h2 id="section-9" data-gsap-reveal>Expert function</h2>
+              <p data-gsap-reveal>Advanced users can customize commands The user recording steps uses voice activation to integrate common multi-step tasks into one step. At the same time, the advanced user can share the completed steps with the community, and an amateur can use it without editing.</p>
+            </section>
+            <section class="legacy-section" aria-labelledby="section-10">
+              <h2 id="section-10" data-gsap-reveal>Overview</h2>
+              <p data-gsap-reveal>Visualization for VUI What we hope to convey is an enthusiastic, friendly, and positive image of voice command. We have tried different methods toward this purpose — cartoon image, linear type, point-like visual expression, and so forth — and we finally chose the dot pattern with an obvious motion and a very clear status display.The voice motion design has the following seven states. Various states can be connected to each other to indicate the current state of the program quickly.</p>
+              <p data-gsap-reveal>After on-line data The number and percentage of users activating the program has greatly increased, especially after we started receiving positive feedback from users. Most people using the program frequently choose the custom command function. My Role UX &amp; Motion Designer</p>
+            </section>
+        </div>
+      </section>
+
+      <section class="legacy-gallery" aria-label="Project visuals">
+        <figure class="legacy-gallery__item" data-gsap-reveal>
+          <img src="../assets/webflow-projects/eui-voice-assistant/image-02.png" alt="EUI Voice Assistant project visual 2" loading="lazy" />
+        </figure>
+        <figure class="legacy-gallery__item" data-gsap-reveal>
+          <img src="../assets/webflow-projects/eui-voice-assistant/image-03.png" alt="EUI Voice Assistant project visual 3" loading="lazy" />
+        </figure>
+        <figure class="legacy-gallery__item" data-gsap-reveal>
+          <img src="../assets/webflow-projects/eui-voice-assistant/image-04.png" alt="EUI Voice Assistant project visual 4" loading="lazy" />
+        </figure>
+        <figure class="legacy-gallery__item" data-gsap-reveal>
+          <img src="../assets/webflow-projects/eui-voice-assistant/image-05.png" alt="EUI Voice Assistant project visual 5" loading="lazy" />
+        </figure>
+        <figure class="legacy-gallery__item" data-gsap-reveal>
+          <img src="../assets/webflow-projects/eui-voice-assistant/image-06.png" alt="EUI Voice Assistant project visual 6" loading="lazy" />
+        </figure>
+        <figure class="legacy-gallery__item legacy-gallery__item--compact" data-gsap-reveal>
+          <img src="../assets/webflow-projects/eui-voice-assistant/image-07.gif" alt="EUI Voice Assistant project visual 7" loading="lazy" />
+        </figure>
+        <figure class="legacy-gallery__item" data-gsap-reveal>
+          <img src="../assets/webflow-projects/eui-voice-assistant/image-08.png" alt="EUI Voice Assistant project visual 8" loading="lazy" />
+        </figure>
+        <figure class="legacy-gallery__item" data-gsap-reveal>
+          <img src="../assets/webflow-projects/eui-voice-assistant/image-09.png" alt="EUI Voice Assistant project visual 9" loading="lazy" />
+        </figure>
+        <figure class="legacy-gallery__item" data-gsap-reveal>
+          <img src="../assets/webflow-projects/eui-voice-assistant/image-10.png" alt="EUI Voice Assistant project visual 10" loading="lazy" />
+        </figure>
+      </section>
+    </main>
+
+    <footer class="case-footer" aria-label="Portfolio footer">
+      <div class="case-footer__inner" data-gsap-reveal>
+        <a class="case-footer__brand" href="../index.html">Qian Zhao</a>
+        <nav class="case-footer__links" aria-label="Social links">
+          <a href="https://dribbble.com/zhaoian">Dribbble</a>
+          <a href="https://www.instagram.com/oioaono/">Instagram</a>
+          <a href="https://twitter.com/oioaon">Twitter</a>
+          <a href="https://www.linkedin.com/in/qian-zhao-20bb66203/">Linkedin</a>
+        </nav>
+        <p class="case-footer__year">© 2026</p>
+      </div>
+    </footer>
+  </body>
+</html>

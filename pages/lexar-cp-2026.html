@@ -5,9 +5,9 @@
   Two-column case-study/review page: a scaled front-end preview on the left,
   project information on the right. Static HTML/CSS/JS — no build step.
 
-  TODO: set the .iframe-shell iframe `src` to the deployed CP+ 2026 page URL.
-  (An external site may block being framed via X-Frame-Options / CSP; if so,
-  deploy a copy you control — e.g. Vercel — like the other projects.)
+  The left panel shows a static full-page screenshot (assets/lexar-cp/preview.webp)
+  in a scrollable frame, since there is no live URL to iframe. Swap it back to a live
+  <iframe> (like the Web3Payments reviewer page) if a deployable URL becomes available.
 -->
 <html lang="en">
   <head>
@@ -24,6 +24,18 @@
       href="https://cdn.prod.website-files.com/61df1511efa778a02b260c1c/61e1f174f4a5e11f9a74e916_ICO32%402x.png"
     />
     <link rel="stylesheet" href="../styles/reviewer.css" />
+    <style>
+      /* Static image preview (no live URL): scrollable full-page screenshot. */
+      .preview-image {
+        overflow-x: hidden;
+        overflow-y: auto;
+      }
+      .preview-image img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+    </style>
     <script defer src="../scripts/reviewer.js"></script>
   </head>
   <body>
@@ -46,8 +58,8 @@
       <main class="reviewer-layout">
         <!-- Left: scaled live preview. Swap the iframe src to the deployed CP+ 2026 page. -->
         <section class="preview-panel" aria-label="Website preview">
-          <div class="iframe-shell">
-            <iframe src="about:blank" title="Lexar at CP+ 2026 website preview"></iframe>
+          <div class="iframe-shell preview-image">
+            <img src="../assets/lexar-cp/preview.webp" alt="Lexar at CP+ 2026 landing page — full design" />
           </div>
         </section>
 
