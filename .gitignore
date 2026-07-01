@@ -1,0 +1,22 @@
+# OS / editor cruft
+.DS_Store
+
+# Dependencies & build output
+node_modules/
+dist/
+
+# Tooling scratch
+.playwright-cli/
+.playwright-mcp/
+output/
+figma*.png
+
+# Local agent/config scratch
+.agents/
+.claude/
+skills-lock.json
+
+# Local experiments and generated previews
+archive/
+projects/
+previews/

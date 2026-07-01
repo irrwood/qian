@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Best Wallet - Qian Zhao Portfolio</title>
+    <meta
+      name="description"
+      content="Best Wallet case study by Qian Zhao, covering end-to-end product design for a next-generation non-custodial crypto wallet."
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="https://cdn.prod.website-files.com/61df1511efa778a02b260c1c/61e1f174f4a5e11f9a74e916_ICO32%402x.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      href="https://cdn.prod.website-files.com/61df1511efa778a02b260c1c/61e1f17e45ddce744233ec3a_ICO32.png"
+    />
+    <script>
+      document.documentElement.classList.add("case-motion-pending");
+    </script>
+    <link rel="stylesheet" href="../styles/case-study.css" />
+    <script defer src="../assets/vendor/gsap.min.js"></script>
+    <script defer src="../assets/vendor/ScrollTrigger.min.js"></script>
+    <script defer src="../scripts/case-study.js"></script>
+    <script defer src="../scripts/cursor-fx.js"></script>
+    <script defer src="../scripts/hero-rays.js"></script>
+  </head>
+  <body>
+    <header class="portfolio-nav" aria-label="Portfolio navigation">
+      <div class="portfolio-nav__blur" aria-hidden="true">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <div class="portfolio-nav__inner">
+        <a class="portfolio-nav__brand" href="/" aria-label="Qian Zhao portfolio home">Qian Zhao</a>
+        <nav class="portfolio-nav__links" aria-label="Main navigation">
+          <a class="portfolio-nav__link" href="/"><span class="portfolio-nav__link-label">Work</span></a>
+          <a
+            class="portfolio-nav__link"
+            href="https://drive.google.com/file/d/1svFnbHrI3eUySMd4yCo3z5QvS8sx9stc/view?usp=sharing"
+          >
+            <span class="portfolio-nav__link-label">Resume</span>
+          </a>
+          <a class="portfolio-nav__link" href="/about"><span class="portfolio-nav__link-label">About</span></a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="case-study">
+      <section class="case-hero" aria-labelledby="case-title">
+        <div class="case-hero__intro">
+          <h1 id="case-title">Best Wallet</h1>
+          <p>
+            Best Wallet is a next-generation, non-custodial crypto wallet designed to simplify
+            access to Web3 for both newcomers and experienced crypto users.
+          </p>
+          <div class="case-hero__date" aria-label="Project date September 2023">
+            <svg aria-hidden="true" viewBox="0 0 24 24" focusable="false">
+              <path d="M17 2.99997C17.5523 2.99997 18 3.4477 18 3.99997V5.15817C18.307 5.22162 18.5724 5.31118 18.8164 5.43552L19.0918 5.58981C19.7183 5.9741 20.2289 6.52509 20.5645 7.18356L20.6406 7.34763C20.9999 8.18394 21 9.30003 21 11.4004V14.5996L20.9932 16.084C20.9908 16.2331 20.9876 16.3755 20.9834 16.5117C20.958 17.3284 20.8936 17.9237 20.7305 18.415C20.7033 18.4968 20.6735 18.5757 20.6406 18.6523L20.5645 18.8164C20.5225 18.8988 20.478 18.9797 20.4307 19.0586C20.1469 19.5315 19.7687 19.94 19.3213 20.2588C19.2468 20.3119 19.1701 20.3621 19.0918 20.4101L18.8164 20.5644C18.7628 20.5917 18.7082 20.6176 18.6523 20.6416C17.816 21.0006 16.6995 21 14.5996 21H9.40039C7.30054 21 6.184 21.0006 5.34766 20.6416C5.29175 20.6176 5.2372 20.5917 5.18359 20.5644C5.08955 20.5165 4.99769 20.465 4.9082 20.4101C4.37115 20.0807 3.91929 19.6288 3.58984 19.0918C3.53495 19.0023 3.48347 18.9104 3.43555 18.8164C3.39472 18.7363 3.35774 18.6538 3.32422 18.5683C3.12279 18.0548 3.04649 17.4319 3.01758 16.5478C3.01277 16.4007 3.00939 16.2463 3.00684 16.084L3 14.5996V11.4004C3 9.16015 2.99957 8.03921 3.43555 7.18356C3.81902 6.43106 4.43109 5.81898 5.18359 5.43552C5.4275 5.31124 5.6932 5.2236 6 5.16013V3.99997C6.00001 3.4477 6.44772 2.99997 7 2.99997C7.55228 2.99997 7.99999 3.4477 8 3.99997V5.00583C8.41275 5.00027 8.87589 4.99997 9.40039 4.99997H11V3.99997C11 3.4477 11.4477 2.99997 12 2.99997C12.5523 2.99997 13 3.4477 13 3.99997V4.99997H14.5996L16 5.00583V3.99997C16 3.4477 16.4477 2.99997 17 2.99997ZM9.40039 8.99997C8.24728 8.99997 7.50222 9.00152 6.93555 9.04782C6.39231 9.09221 6.19068 9.16736 6.0918 9.21774C5.71554 9.40948 5.40951 9.71551 5.21777 10.0918C5.16739 10.1906 5.09224 10.3923 5.04785 10.9355C5.00155 11.5022 5 12.2473 5 13.4004V14.5996C5 15.7527 5.00155 16.4977 5.04785 17.0644C5.09224 17.6077 5.16739 17.8093 5.21777 17.9082C5.40951 18.2844 5.71554 18.5905 6.0918 18.7822C6.19068 18.8326 6.39231 18.9077 6.93555 18.9521C7.50222 18.9984 8.24728 19 9.40039 19H14.5996C15.1761 19 15.6506 18.9993 16.0518 18.9931C16.4531 18.987 16.7811 18.9753 17.0645 18.9521C17.6077 18.9077 17.8093 18.8326 17.9082 18.7822C18.2845 18.5905 18.5905 18.2844 18.7822 17.9082C18.8326 17.8093 18.9078 17.6077 18.9521 17.0644C18.9984 16.4977 19 15.7527 19 14.5996V13.4004L18.9932 11.9482C18.987 11.5469 18.9753 11.2189 18.9521 10.9355C18.9078 10.3923 18.8326 10.1906 18.7822 10.0918C18.5905 9.71551 18.2845 9.40948 17.9082 9.21774C17.8093 9.16736 17.6077 9.09221 17.0645 9.04782C16.4978 9.00152 15.7527 8.99997 14.5996 8.99997H9.40039ZM8 15C8.27927 15 8.41899 14.9998 8.53125 15.039C8.73232 15.1094 8.89058 15.2676 8.96094 15.4687C9.00022 15.581 9 15.7207 9 16C9 16.2792 9.00021 16.419 8.96094 16.5312C8.89058 16.7323 8.73232 16.8905 8.53125 16.9609C8.41899 17.0002 8.27928 17 8 17C7.72072 17 7.58101 17.0002 7.46875 16.9609C7.26768 16.8905 7.10942 16.7323 7.03906 16.5312C6.99979 16.419 7 16.2792 7 16C7 15.7207 6.99978 15.581 7.03906 15.4687C7.10942 15.2676 7.26768 15.1094 7.46875 15.039C7.58101 14.9998 7.72073 15 8 15ZM12 15C12.2793 15 12.419 14.9998 12.5312 15.039C12.7323 15.1094 12.8906 15.2676 12.9609 15.4687C13.0002 15.581 13 15.7207 13 16C13 16.2792 13.0002 16.419 12.9609 16.5312C12.8906 16.7323 12.7323 16.8905 12.5312 16.9609C12.419 17.0002 12.2793 17 12 17C11.7207 17 11.581 17.0002 11.4688 16.9609C11.2677 16.8905 11.1094 16.7323 11.0391 16.5312C10.9998 16.419 11 16.2792 11 16C11 15.7207 10.9998 15.581 11.0391 15.4687C11.1094 15.2676 11.2677 15.1094 11.4688 15.039C11.581 14.9998 11.7207 15 12 15ZM16 15C16.2793 15 16.419 14.9998 16.5312 15.039C16.7323 15.1094 16.8906 15.2676 16.9609 15.4687C17.0002 15.581 17 15.7207 17 16C17 16.2792 17.0002 16.419 16.9609 16.5312C16.8906 16.7323 16.7323 16.8905 16.5312 16.9609C16.419 17.0002 16.2793 17 16 17C15.7207 17 15.581 17.0002 15.4688 16.9609C15.2677 16.8905 15.1094 16.7323 15.0391 16.5312C14.9998 16.419 15 16.2792 15 16C15 15.7207 14.9998 15.581 15.0391 15.4687C15.1094 15.2676 15.2677 15.1094 15.4688 15.039C15.581 14.9998 15.7207 15 16 15ZM8 11C8.27927 11 8.41899 10.9998 8.53125 11.039C8.73232 11.1094 8.89058 11.2676 8.96094 11.4687C9.00022 11.581 9 11.7207 9 12C9 12.2792 9.00021 12.419 8.96094 12.5312C8.89058 12.7323 8.73232 12.8905 8.53125 12.9609C8.41899 13.0002 8.27928 13 8 13C7.72072 13 7.58101 13.0002 7.46875 12.9609C7.26768 12.8905 7.10942 12.7323 7.03906 12.5312C6.99979 12.419 7 12.2792 7 12C7 11.7207 6.99978 11.581 7.03906 11.4687C7.10942 11.2676 7.26768 11.1094 7.46875 11.039C7.58101 10.9998 7.72073 11 8 11ZM12 11C12.2793 11 12.419 10.9998 12.5312 11.039C12.7323 11.1094 12.8906 11.2676 12.9609 11.4687C13.0002 11.581 13 11.7207 13 12C13 12.2792 13.0002 12.419 12.9609 12.5312C12.8906 12.7323 12.7323 12.8905 12.5312 12.9609C12.419 13.0002 12.2793 13 12 13C11.7207 13 11.581 13.0002 11.4688 12.9609C11.2677 12.8905 11.1094 12.7323 11.0391 12.5312C10.9998 12.419 11 12.2792 11 12C11 11.7207 10.9998 11.581 11.0391 11.4687C11.1094 11.2676 11.2677 11.1094 11.4688 11.039C11.581 10.9998 11.7207 11 12 11ZM16 11C16.2793 11 16.419 10.9998 16.5312 11.039C16.7323 11.1094 16.8906 11.2676 16.9609 11.4687C17.0002 11.581 17 11.7207 17 12C17 12.2792 17.0002 12.419 16.9609 12.5312C16.8906 12.7323 16.7323 12.8905 16.5312 12.9609C16.419 13.0002 16.2793 13 16 13C15.7207 13 15.581 13.0002 15.4688 12.9609C15.2677 12.8905 15.1094 12.7323 15.0391 12.5312C14.9998 12.419 15 12.2792 15 12C15 11.7207 14.9998 11.581 15.0391 11.4687C15.1094 11.2676 15.2677 11.1094 15.4688 11.039C15.581 10.9998 15.7207 11 16 11Z" fill="currentColor" />
+            </svg>
+            <span>Sept 2023</span>
+          </div>
+        </div>
+
+        <figure class="case-hero__media">
+          <video
+            class="case-video"
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="metadata"
+            aria-label="Best Wallet marketing website hero animation with a blue gradient, wallet logo, and app store download buttons."
+          >
+            <source src="../assets/best-wallet/hero.mp4" type="video/mp4" />
+          </video>
+        </figure>
+      </section>
+
+      <section class="case-copy case-copy--overview" aria-labelledby="overview-title">
+        <h2 id="overview-title" data-gsap-reveal>Overview</h2>
+        <div class="case-copy__body">
+          <p data-gsap-reveal>
+            Crypto wallets tend to force a trade-off between security and usability — powerful for
+            experts, intimidating for everyone else. The goal was to make self-custody approachable
+            without hiding the control that experienced users expect.
+          </p>
+          <p data-gsap-reveal>
+            As the Lead Product Designer, I was responsible for designing the end-to-end product
+            experience across the marketing website, wallet onboarding, presale ecosystem, and Web3
+            payment flows.
+          </p>
+          <ul data-gsap-reveal>
+            <li>
+              Balancing the complexity of blockchain technology with an intuitive experience that
+              still supports rapid growth and conversion.
+            </li>
+            <li>Building a scalable design system for a rapidly evolving, multi-product platform.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="case-media-grid" aria-label="Best Wallet brand and product visuals">
+        <figure class="case-media-card" data-gsap-reveal>
+          <video
+            class="case-video"
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="metadata"
+            poster="./assets/best-wallet/brand-symbol.png"
+            aria-label="Best Wallet blue brand symbol animation with a white leaf-like mark."
+          >
+            <source src="../assets/best-wallet/brand-symbol.mp4" type="video/mp4" />
+          </video>
+        </figure>
+        <figure class="case-media-card" data-gsap-reveal>
+          <video
+            class="case-video"
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="metadata"
+            poster="./assets/best-wallet/wallet-card.png"
+            aria-label="Angled Best Wallet mobile wallet card animation on a pale lavender background."
+          >
+            <source src="../assets/best-wallet/wallet-card.mp4" type="video/mp4" />
+          </video>
+        </figure>
+      </section>
+
+      <section class="case-copy case-copy--role" aria-labelledby="role-title">
+        <h2 id="role-title" data-gsap-reveal>My Role</h2>
+        <div class="case-copy__body">
+          <p data-gsap-reveal>
+            As Lead Product Designer, I owned the end-to-end design process. My responsibilities
+            spanned strategy through delivery:
+          </p>
+          <ul data-gsap-reveal>
+            <li>Product Strategy, UX Design, and Information Architecture</li>
+            <li>UI Design, Motion Design, and Design System</li>
+            <li>Responsive Design and Developer Handoff</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="case-showcase" aria-label="Best Wallet mobile app screens" data-gsap-reveal>
+        <div class="case-showcase__viewport">
+          <div class="case-showcase__track">
+            <div class="case-showcase__set">
+              <img class="case-showcase__item" src="../assets/best-wallet/best-wallet-1.png" alt="Best Wallet edit wallet screen with color and watermark controls." />
+              <img class="case-showcase__item" src="../assets/best-wallet/best-wallet-2.png" alt="Best Wallet wallet list screen with stacked colored wallet cards and QR code." />
+              <img class="case-showcase__item" src="../assets/best-wallet/best-wallet-3.png" alt="Best Wallet settings screen with account, security, and developer mode options." />
+              <video class="case-showcase__item" autoplay muted loop playsinline preload="metadata" aria-label="Best Wallet mobile app screen animation four.">
+                <source src="../assets/best-wallet/best-wallet-4.mp4" type="video/mp4" />
+              </video>
+              <img class="case-showcase__item" src="../assets/best-wallet/best-wallet-5.png" alt="Best Wallet name claim confirmation screen." />
+              <img class="case-showcase__item" src="../assets/best-wallet/best-wallet-6.png" alt="Best Wallet email verification screen." />
+              <video class="case-showcase__item" autoplay muted loop playsinline preload="metadata" aria-label="Best Wallet mobile app screen animation seven.">
+                <source src="../assets/best-wallet/best-wallet-7.mp4" type="video/mp4" />
+              </video>
+              <video class="case-showcase__item" autoplay muted loop playsinline preload="metadata" aria-label="Best Wallet mobile app screen animation eight.">
+                <source src="../assets/best-wallet/best-wallet-8.mp4" type="video/mp4" />
+              </video>
+              <img class="case-showcase__item" src="../assets/best-wallet/best-wallet-9.png" alt="Best Wallet completed swap detail screen." />
+              <video class="case-showcase__item" autoplay muted loop playsinline preload="metadata" aria-label="Best Wallet card detail screen animation.">
+                <source src="../assets/best-wallet/best-wallet-10.mp4" type="video/mp4" />
+              </video>
+              <video class="case-showcase__item" autoplay muted loop playsinline preload="metadata" aria-label="Best Wallet home screen animation.">
+                <source src="../assets/best-wallet/best-wallet-11.mp4" type="video/mp4" />
+              </video>
+            </div>
+            <div class="case-showcase__set" aria-hidden="true">
+              <img class="case-showcase__item" src="../assets/best-wallet/best-wallet-1.png" alt="" />
+              <img class="case-showcase__item" src="../assets/best-wallet/best-wallet-2.png" alt="" />
+              <img class="case-showcase__item" src="../assets/best-wallet/best-wallet-3.png" alt="" />
+              <video class="case-showcase__item" autoplay muted loop playsinline preload="metadata">
+                <source src="../assets/best-wallet/best-wallet-4.mp4" type="video/mp4" />
+              </video>
+              <img class="case-showcase__item" src="../assets/best-wallet/best-wallet-5.png" alt="" />
+              <img class="case-showcase__item" src="../assets/best-wallet/best-wallet-6.png" alt="" />
+              <video class="case-showcase__item" autoplay muted loop playsinline preload="metadata">
+                <source src="../assets/best-wallet/best-wallet-7.mp4" type="video/mp4" />
+              </video>
+              <video class="case-showcase__item" autoplay muted loop playsinline preload="metadata">
+                <source src="../assets/best-wallet/best-wallet-8.mp4" type="video/mp4" />
+              </video>
+              <img class="case-showcase__item" src="../assets/best-wallet/best-wallet-9.png" alt="" />
+              <video class="case-showcase__item" autoplay muted loop playsinline preload="metadata">
+                <source src="../assets/best-wallet/best-wallet-10.mp4" type="video/mp4" />
+              </video>
+              <video class="case-showcase__item" autoplay muted loop playsinline preload="metadata">
+                <source src="../assets/best-wallet/best-wallet-11.mp4" type="video/mp4" />
+              </video>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="case-footer" aria-label="Portfolio footer">
+      <div class="case-footer__inner" data-gsap-reveal>
+        <a class="case-footer__brand" href="/">Qian Zhao</a>
+        <nav class="case-footer__links" aria-label="Social links">
+          <a href="https://dribbble.com/zhaoian">Dribbble</a>
+          <a href="https://www.instagram.com/oioaono/">Instagram</a>
+          <a href="https://twitter.com/oioaon">Twitter</a>
+          <a href="https://www.linkedin.com/in/qian-zhao-20bb66203/">Linkedin</a>
+        </nav>
+        <p class="case-footer__year">© 2026</p>
+      </div>
+    </footer>
+  </body>
+</html>

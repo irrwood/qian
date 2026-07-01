@@ -1,0 +1,87 @@
+<!doctype html>
+<!--
+  Reviewer template
+  ------------------
+  A two-column case-study/review page: a scaled front-end preview on the left,
+  project information on the right. Static HTML/CSS/JS — no build step.
+
+  To reuse for another project, copy this file and swap:
+    1. The iframe `src` in .iframe-shell   -> point at the page to preview
+    2. The .project-heading / .project-tags / .project-date / .project-description content
+  Styling lives in ../styles/reviewer.css; iframe scaling in ../scripts/reviewer.js.
+-->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web3Payments Presale Campaign — Qian Zhao</title>
+    <meta
+      name="description"
+      content="A portfolio review page with a front-end preview on the left and project information on the right."
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="https://cdn.prod.website-files.com/61df1511efa778a02b260c1c/61e1f174f4a5e11f9a74e916_ICO32%402x.png"
+    />
+    <link rel="stylesheet" href="../styles/reviewer.css" />
+    <script defer src="../scripts/reviewer.js"></script>
+  </head>
+  <body>
+    <div class="reviewer-page">
+      <!-- Top navigation (shared portfolio style) -->
+      <header class="portfolio-nav" aria-label="Portfolio navigation">
+        <div class="portfolio-nav__blur" aria-hidden="true">
+          <div></div><div></div><div></div><div></div><div></div><div></div>
+        </div>
+        <div class="portfolio-nav__inner">
+          <a class="portfolio-nav__brand" href="../index.html" aria-label="Qian Zhao portfolio home">Qian Zhao</a>
+          <nav class="portfolio-nav__links" aria-label="Main navigation">
+            <a class="portfolio-nav__link" href="../index.html"><span class="portfolio-nav__link-label">Work</span></a>
+            <a class="portfolio-nav__link" href="./resume.html"><span class="portfolio-nav__link-label">Resume</span></a>
+            <a class="portfolio-nav__link" href="https://qian-zhao-portfolio.webflow.io/about"><span class="portfolio-nav__link-label">About</span></a>
+          </nav>
+        </div>
+      </header>
+
+      <main class="reviewer-layout">
+        <!-- Left: scaled live preview. Swap the iframe src to preview another page. -->
+        <section class="preview-panel" aria-label="Website preview">
+          <div class="iframe-shell">
+            <iframe src="https://w3p-meme.vercel.app" title="Website preview"></iframe>
+          </div>
+        </section>
+
+        <!-- Right: project information -->
+        <aside class="project-info" aria-label="Project information">
+          <div class="project-heading">
+            <h1>Web3Payments Presale Campaign</h1>
+            <p>An easy-to-use PayPal for crypto, simple for businesses.</p>
+            <ul class="project-tags" aria-label="Project tags">
+              <li>Presale</li>
+              <li>Crypto</li>
+              <li>Payments</li>
+            </ul>
+          </div>
+
+          <div class="project-date" aria-label="Project date 2026">
+            <svg aria-hidden="true" class="project-date__icon" viewBox="0 0 24 24" focusable="false">
+              <path
+                d="M17 3c.55 0 1 .45 1 1v1.16c.31.06.57.15.82.28l.27.15c.63.38 1.14.94 1.47 1.59l.08.17C21 8.18 21 9.3 21 11.4v3.2l-.01 1.48c-.03 1.21-.12 1.88-.35 2.57l-.08.17a4.92 4.92 0 0 1-1.47 1.59l-.27.15c-.82.42-1.94.44-4.22.44H9.4c-2.1 0-3.22 0-4.05-.36l-.16-.08-.27-.15a4.92 4.92 0 0 1-1.49-1.59l-.11-.25c-.2-.51-.28-1.14-.3-2.02L3 14.6v-3.2c0-2.24 0-3.36.44-4.22.38-.75.99-1.36 1.74-1.75.24-.12.51-.21.82-.27V4a1 1 0 1 1 2 0v1.01C8.41 5 8.88 5 9.4 5H11V4a1 1 0 1 1 2 0v1h1.6l1.4.01V4c0-.55.45-1 1-1ZM5 13.4v1.2c0 1.15 0 1.9.05 2.46.04.55.12.75.17.85.2.37.5.68.87.87.1.05.3.13.85.17.56.05 1.31.05 2.46.05h5.2c1.15 0 1.9 0 2.46-.05.55-.04.75-.12.85-.17.37-.19.68-.5.87-.87.05-.1.13-.3.17-.85.05-.56.05-1.31.05-2.46v-1.2c0-1.15 0-1.9-.05-2.46-.04-.55-.12-.75-.17-.85a2.01 2.01 0 0 0-.87-.87c-.1-.05-.3-.13-.85-.17C16.5 9 15.75 9 14.6 9H9.4c-1.15 0-1.9 0-2.46.05-.55.04-.75.12-.85.17-.37.2-.68.5-.87.87-.05.1-.13.3-.17.85C5 11.5 5 12.25 5 13.4Z"
+                fill="currentColor"
+              />
+            </svg>
+            <span>2026</span>
+          </div>
+
+          <p class="project-description">
+            A launch campaign for Web3Payments, a crypto payment product designed to make accepting
+            digital assets feel as familiar as traditional checkout. The page introduces the presale
+            story, explains the business value, and turns a technical product into a simple,
+            approachable payment experience.
+          </p>
+        </aside>
+      </main>
+    </div>
+  </body>
+</html>

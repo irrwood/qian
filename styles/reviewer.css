@@ -1,0 +1,408 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
+
+:root {
+  --ink: #141414;
+  --muted: #5c5c5c;
+  --soft: #f5f5f5;
+  --line: #e6e6e6;
+  --accent: #0059ff;
+  --nav-height: 72px;
+  --nav-max: 1200px;
+  --page-max: 1200px;
+  --font-main: "Montserrat", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  height: 100%;
+  background: #ffffff;
+  color: var(--ink);
+  font-family: var(--font-main);
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+#root {
+  height: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
+.reviewer-page {
+  height: 100dvh;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+.portfolio-nav {
+  position: fixed;
+  z-index: 20;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--nav-height);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 30px;
+  background: transparent;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.portfolio-nav__blur {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.portfolio-nav__blur > div {
+  position: absolute;
+  inset: 0;
+}
+
+.portfolio-nav__blur > div:nth-child(1) {
+  -webkit-backdrop-filter: blur(0.5px) saturate(150%);
+  backdrop-filter: blur(0.5px) saturate(150%);
+  -webkit-mask-image: linear-gradient(to top, transparent 0%, #000 12.5%, #000 25%, transparent 37.5%);
+  mask-image: linear-gradient(to top, transparent 0%, #000 12.5%, #000 25%, transparent 37.5%);
+}
+
+.portfolio-nav__blur > div:nth-child(2) {
+  -webkit-backdrop-filter: blur(1px) saturate(150%);
+  backdrop-filter: blur(1px) saturate(150%);
+  -webkit-mask-image: linear-gradient(to top, transparent 12.5%, #000 25%, #000 37.5%, transparent 50%);
+  mask-image: linear-gradient(to top, transparent 12.5%, #000 25%, #000 37.5%, transparent 50%);
+}
+
+.portfolio-nav__blur > div:nth-child(3) {
+  -webkit-backdrop-filter: blur(2px) saturate(155%);
+  backdrop-filter: blur(2px) saturate(155%);
+  -webkit-mask-image: linear-gradient(to top, transparent 25%, #000 37.5%, #000 50%, transparent 62.5%);
+  mask-image: linear-gradient(to top, transparent 25%, #000 37.5%, #000 50%, transparent 62.5%);
+}
+
+.portfolio-nav__blur > div:nth-child(4) {
+  -webkit-backdrop-filter: blur(4px) saturate(160%);
+  backdrop-filter: blur(4px) saturate(160%);
+  -webkit-mask-image: linear-gradient(to top, transparent 37.5%, #000 50%, #000 62.5%, transparent 75%);
+  mask-image: linear-gradient(to top, transparent 37.5%, #000 50%, #000 62.5%, transparent 75%);
+}
+
+.portfolio-nav__blur > div:nth-child(5) {
+  -webkit-backdrop-filter: blur(8px) saturate(165%);
+  backdrop-filter: blur(8px) saturate(165%);
+  -webkit-mask-image: linear-gradient(to top, transparent 50%, #000 62.5%, #000 75%, transparent 87.5%);
+  mask-image: linear-gradient(to top, transparent 50%, #000 62.5%, #000 75%, transparent 87.5%);
+}
+
+.portfolio-nav__blur > div:nth-child(6) {
+  -webkit-backdrop-filter: blur(12px) saturate(170%);
+  backdrop-filter: blur(12px) saturate(170%);
+  -webkit-mask-image: linear-gradient(to top, transparent 62.5%, #000 75%, #000 100%);
+  mask-image: linear-gradient(to top, transparent 62.5%, #000 75%, #000 100%);
+}
+
+.portfolio-nav__blur::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0.22) 55%, rgba(255, 255, 255, 0) 100%);
+}
+
+.portfolio-nav__inner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: var(--nav-max);
+  height: var(--nav-height);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.portfolio-nav__brand {
+  color: #000000;
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 20px;
+  white-space: nowrap;
+}
+
+.portfolio-nav__links {
+  display: flex;
+  align-items: stretch;
+  height: var(--nav-height);
+}
+
+.portfolio-nav__link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--nav-height);
+  padding: 0 20px;
+  color: #000000;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 24px;
+  transition: color 200ms ease;
+}
+
+.portfolio-nav__link::before {
+  content: "";
+  position: absolute;
+  inset: 17px 8px;
+  border: 1.5px solid currentColor;
+  border-radius: 999px;
+  opacity: 0;
+  transform: scale(0.92);
+  transform-origin: center;
+  transition:
+    transform 200ms ease,
+    opacity 200ms ease;
+}
+
+.portfolio-nav__link:focus-visible {
+  color: var(--accent);
+}
+
+.portfolio-nav__link:focus-visible::before {
+  opacity: 1;
+  transform: scale(1);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .portfolio-nav__link:hover {
+    color: var(--accent);
+  }
+
+  .portfolio-nav__link:hover::before {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.reviewer-layout {
+  width: min(calc(100% - 48px), var(--page-max));
+  height: 100dvh;
+  margin: 0 auto;
+  padding: var(--nav-height) 0 24px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 322px;
+  gap: 34px;
+  align-items: stretch;
+}
+
+.preview-panel {
+  min-width: 0;
+  min-height: 0;
+  height: 100%;
+  overflow: hidden;
+  padding: 10px;
+  border-radius: 20px;
+  background: #f5f5f5;
+}
+
+.iframe-shell {
+  position: relative;
+  min-height: 0;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 12px;
+  background: var(--soft);
+}
+
+.iframe-shell iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: 0;
+  background: #ffffff;
+  transform-origin: top left;
+}
+
+.project-info {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.project-heading {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.project-heading h1,
+.project-heading p,
+.project-description {
+  margin: 0;
+}
+
+.project-heading h1 {
+  color: #000000;
+  font-size: 23px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.project-heading p {
+  color: var(--muted);
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.project-tags li {
+  display: inline-flex;
+  min-height: 28px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #7e7e7e;
+  border-radius: 28px;
+  color: #7e7e7e;
+  padding: 6px 10px;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.project-date {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+}
+
+.project-date__icon {
+  width: 24px;
+  height: 24px;
+  flex: 0 0 auto;
+}
+
+.project-date span {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.project-description {
+  color: var(--muted);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+
+@media (max-width: 980px) {
+  .reviewer-layout {
+    grid-template-columns: 1fr;
+    grid-template-rows: minmax(0, 1fr) auto;
+  }
+
+  .preview-panel {
+    height: 100%;
+    min-height: 0;
+  }
+
+  .iframe-shell {
+    height: 100%;
+    min-height: 0;
+  }
+
+  .project-info {
+    width: min(100%, 640px);
+  }
+}
+
+@media (max-width: 680px) {
+  :root {
+    --nav-height: 60px;
+  }
+
+  .portfolio-nav {
+    padding: 0 18px;
+  }
+
+  .portfolio-nav__brand {
+    font-size: 20px;
+  }
+
+  .portfolio-nav__link {
+    padding: 0 10px;
+    font-size: 13px;
+  }
+
+  .portfolio-nav__link::before {
+    inset: 16px 3px;
+  }
+
+  .reviewer-layout {
+    width: min(calc(100% - 32px), var(--page-max));
+    padding: var(--nav-height) 0 16px;
+    gap: 20px;
+  }
+
+  .preview-panel {
+    min-height: 0;
+    border-radius: 16px;
+  }
+
+  .iframe-shell {
+    min-height: 0;
+  }
+
+  .project-heading h1 {
+    font-size: 22px;
+  }
+
+  .project-heading p {
+    font-size: 18px;
+  }
+}
