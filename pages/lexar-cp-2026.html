@@ -1,23 +1,22 @@
 <!doctype html>
 <!--
-  Reviewer template
-  ------------------
-  A two-column case-study/review page: a scaled front-end preview on the left,
+  Reviewer template — Lexar at CP+ 2026
+  -------------------------------------
+  Two-column case-study/review page: a scaled front-end preview on the left,
   project information on the right. Static HTML/CSS/JS — no build step.
 
-  To reuse for another project, copy this file and swap:
-    1. The iframe `src` in .iframe-shell   -> point at the page to preview
-    2. The .project-heading / .project-tags / .project-date / .project-description content
-  Styling lives in ../styles/reviewer.css; iframe scaling in ../scripts/reviewer.js.
+  TODO: set the .iframe-shell iframe `src` to the deployed CP+ 2026 page URL.
+  (An external site may block being framed via X-Frame-Options / CSP; if so,
+  deploy a copy you control — e.g. Vercel — like the other projects.)
 -->
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Web3Payments Presale Campaign — Qian Zhao</title>
+    <title>Lexar at CP+ 2026 — Qian Zhao</title>
     <meta
       name="description"
-      content="A portfolio review page with a front-end preview on the left and project information on the right."
+      content="Lexar at CP+ 2026 — a digital event experience for Lexar's presence at the Camera & Photo Imaging Show in Yokohama."
     />
     <link
       rel="icon"
@@ -45,22 +44,22 @@
       </header>
 
       <main class="reviewer-layout">
-        <!-- Left: scaled live preview. Swap the iframe src to preview another page. -->
+        <!-- Left: scaled live preview. Swap the iframe src to the deployed CP+ 2026 page. -->
         <section class="preview-panel" aria-label="Website preview">
           <div class="iframe-shell">
-            <iframe src="https://w3p-meme.vercel.app" title="Website preview"></iframe>
+            <iframe src="about:blank" title="Lexar at CP+ 2026 website preview"></iframe>
           </div>
         </section>
 
         <!-- Right: project information -->
         <aside class="project-info" aria-label="Project information">
           <div class="project-heading">
-            <h1>Web3Payments Presale Campaign</h1>
-            <p>An easy-to-use PayPal for crypto, simple for businesses.</p>
+            <h1>Lexar at CP+ 2026</h1>
+            <p>Designing a Digital Event Experience</p>
             <ul class="project-tags" aria-label="Project tags">
-              <li>Presale</li>
-              <li>Crypto</li>
-              <li>Payments</li>
+              <li>Web Design</li>
+              <li>Event</li>
+              <li>Campaign</li>
             </ul>
           </div>
 
@@ -75,10 +74,10 @@
           </div>
 
           <p class="project-description">
-            A launch campaign for Web3Payments, a crypto payment product designed to make accepting
-            digital assets feel as familiar as traditional checkout. The page introduces the presale
-            story, explains the business value, and turns a technical product into a simple,
-            approachable payment experience.
+            A digital event experience for Lexar's presence at CP+ 2026, the Camera &amp; Photo
+            Imaging Show in Yokohama. The landing page brings the on-site experience online —
+            introducing the memory-card lineup, guiding visitors through the booth schedule, and
+            spotlighting the speaker sessions, all wrapped in a bold anniversary brand look.
           </p>
         </aside>
       </main>
