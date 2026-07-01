@@ -22,7 +22,9 @@
       return;
     }
 
-    const heroItems = gsap.utils.toArray(".legacy-hero [data-gsap-reveal]");
+    const hero = document.querySelector(".legacy-hero, .about-hero");
+    const heroMedia = document.querySelector(".legacy-hero__media img, .about-hero__media img");
+    const heroItems = hero ? gsap.utils.toArray("[data-gsap-reveal]", hero) : [];
     const belowFoldItems = revealItems.filter((item) => !heroItems.includes(item));
 
     gsap.set(heroItems, { y: 20, autoAlpha: 0, force3D: true });
@@ -57,16 +59,18 @@
       },
     });
 
-    gsap.to(".legacy-hero__media img", {
-      yPercent: -4,
-      ease: "none",
-      scrollTrigger: {
-        trigger: ".legacy-hero",
-        start: "top top",
-        end: "bottom top",
-        scrub: 0.8,
-      },
-    });
+    if (hero && heroMedia) {
+      gsap.to(heroMedia, {
+        yPercent: -4,
+        ease: "none",
+        scrollTrigger: {
+          trigger: hero,
+          start: "top top",
+          end: "bottom top",
+          scrub: 0.8,
+        },
+      });
+    }
 
     window.addEventListener("load", () => ScrollTrigger.refresh(), { once: true });
     document.fonts?.ready.then(() => ScrollTrigger.refresh()).catch(() => {});

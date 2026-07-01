@@ -233,7 +233,7 @@ a.project-card {
   aspect-ratio: 638 / 420;
   border-radius: 20px;
   object-fit: cover;
-  background: var(--project-blue);
+  background: var(--white);
   clip-path: inset(0 round 20px);
   isolation: isolate;
   backface-visibility: hidden;
