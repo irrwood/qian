@@ -142,10 +142,16 @@
   margin: 0 auto;
 }
 
-.legacy-gallery img {
+.legacy-gallery img,
+.legacy-gallery video {
   width: 100%;
   border-radius: 8px;
   background: #f3f3f3;
+}
+
+.legacy-gallery video {
+  height: auto;
+  object-fit: contain;
 }
 
 .legacy-gallery__item--compact {
