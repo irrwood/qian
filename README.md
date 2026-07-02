@@ -1,4 +1,4 @@
-# Qian Zhao — Portfolio
+# Qian's Portfolio
 
 A static portfolio site (plain HTML/CSS/JS, no build step). Open `index.html`
 directly in a browser, or serve the folder with any static host.
