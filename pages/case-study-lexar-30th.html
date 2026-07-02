@@ -20,11 +20,18 @@
     <script>
       document.documentElement.classList.add("case-motion-pending");
     </script>
+    <link rel="stylesheet" href="../styles/tokens.css" />
     <link rel="stylesheet" href="../styles/case-study.css" />
     <style>
       /* Match media containers to the source video aspect ratios (no cropping). */
       .case-hero__media {
+        width: min(980px, calc(100% - 48px));
         aspect-ratio: 1440 / 1008;
+      }
+      @media (max-width: 680px) {
+        .case-hero__media {
+          width: calc(100% - 32px);
+        }
       }
       .case-media-grid {
         align-items: start;
@@ -45,6 +52,7 @@
     <script defer src="../scripts/case-study.js"></script>
     <script defer src="../scripts/cursor-fx.js"></script>
     <script defer src="../scripts/hero-rays.js"></script>
+    <script defer src="../scripts/media-guard.js"></script>
   </head>
   <body>
     <header class="portfolio-nav" aria-label="Portfolio navigation">

@@ -1,12 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
 
+/* Brand values alias styles/tokens.css — do not put raw brand colors here. */
 :root {
   --about-ink: #111111;
   --about-muted: #626262;
   --about-border: #e8e8e8;
-  --about-accent: #0059ff;
+  --about-accent: var(--brand-accent);
   --about-surface: #f6f6f6;
-  --font-main: "Montserrat", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-main: var(--brand-font);
 }
 
 body {

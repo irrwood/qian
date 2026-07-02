@@ -75,6 +75,13 @@
   object-fit: contain;
 }
 
+.legacy-project--copper .legacy-hero__media img,
+.legacy-project--copper .legacy-flow__media img,
+.legacy-project--eui .legacy-hero__media img,
+.legacy-project--eui .legacy-flow__media img {
+  border-radius: 8px;
+}
+
 .legacy-content {
   display: grid;
   grid-template-columns: minmax(220px, 0.36fr) minmax(0, 0.64fr);
@@ -183,6 +190,10 @@
   height: auto;
   border-radius: 8px;
   background: #f3f3f3;
+}
+
+.legacy-project--memo .legacy-flow__media img {
+  background: transparent;
 }
 
 .legacy-flow__media--phone video {

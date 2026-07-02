@@ -1,15 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
 
+/* Brand values alias styles/tokens.css — do not put raw brand colors here. */
 :root {
-  --ink: #141414;
-  --muted: #5c5c5c;
-  --soft: #f5f5f5;
-  --line: #e6e6e6;
-  --accent: #0059ff;
+  --ink: var(--brand-ink);
+  --muted: var(--brand-muted);
+  --soft: var(--brand-soft);
+  --line: var(--brand-line);
+  --accent: var(--brand-accent);
   --nav-height: 72px;
-  --nav-max: 1200px;
-  --page-max: 1200px;
-  --font-main: "Montserrat", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --nav-max: var(--brand-nav-max);
+  --page-max: var(--brand-nav-max);
+  --font-main: var(--brand-font);
 }
 
 * {
@@ -232,6 +233,20 @@ a:focus-visible {
   overflow: hidden;
   border-radius: 12px;
   background: var(--soft);
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.iframe-shell::-webkit-scrollbar,
+.preview-image::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  display: none;
+}
+
+.preview-image {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 .iframe-shell iframe {
@@ -329,6 +344,26 @@ a:focus-visible {
   line-height: 1.6;
 }
 
+.project-description-toggle {
+  display: none;
+  align-self: flex-start;
+  margin: -12px 0 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--accent);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 20px;
+  cursor: pointer;
+}
+
+.project-description-toggle:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -404,5 +439,22 @@ a:focus-visible {
 
   .project-heading p {
     font-size: 18px;
+  }
+
+  .project-description {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+  }
+
+  .project-description.is-expanded {
+    display: block;
+    overflow: visible;
+    -webkit-line-clamp: unset;
+  }
+
+  .project-description-toggle {
+    display: inline-flex;
   }
 }

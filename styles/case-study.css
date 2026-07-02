@@ -1,15 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
 
+/* Brand values alias styles/tokens.css — do not put raw brand colors here. */
 :root {
-  --case-ink: #141414;
-  --case-muted: #5c5c5c;
-  --case-border: #e6e6e6;
-  --case-band: #f5f5f5;
-  --case-white: #ffffff;
-  --case-accent: #0059ff;
-  --font-main: "Montserrat", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --case-ink: var(--brand-ink);
+  --case-muted: var(--brand-muted);
+  --case-border: var(--brand-line);
+  --case-band: var(--brand-soft);
+  --case-white: var(--brand-white);
+  --case-accent: var(--brand-accent);
+  --font-main: var(--brand-font);
   --nav-height: 72px;
-  --nav-max: 1200px;
+  --nav-max: var(--brand-nav-max);
   --hero-max: 1120px;
   --copy-max: 720px;
   --copy-left: calc(50% - 383px);
