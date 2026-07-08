@@ -1,4 +1,54 @@
 (() => {
+  const initPendingCards = () => {
+    const pendingCards = Array.from(document.querySelectorAll(".project-card--pending"));
+
+    if (!pendingCards.length) {
+      return;
+    }
+
+    let statusTimer;
+
+    const hideStatus = (exceptCard = null) => {
+      pendingCards.forEach((card) => {
+        if (card !== exceptCard) {
+          card.classList.remove("is-status-visible");
+        }
+      });
+    };
+
+    const showStatus = (card) => {
+      hideStatus(card);
+      card.classList.add("is-status-visible");
+      window.clearTimeout(statusTimer);
+      statusTimer = window.setTimeout(() => {
+        card.classList.remove("is-status-visible");
+      }, 2200);
+    };
+
+    pendingCards.forEach((card) => {
+      card.addEventListener("click", (event) => {
+        event.stopPropagation();
+        showStatus(card);
+      });
+
+      card.addEventListener("keydown", (event) => {
+        if (event.key !== "Enter" && event.key !== " ") {
+          return;
+        }
+
+        event.preventDefault();
+        showStatus(card);
+      });
+    });
+
+    document.addEventListener("click", () => hideStatus());
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        hideStatus();
+      }
+    });
+  };
+
   const initHomeMotion = () => {
     const gsap = window.gsap;
     const ScrollTrigger = window.ScrollTrigger;
@@ -181,8 +231,12 @@
   };
 
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initHomeMotion, { once: true });
+    document.addEventListener("DOMContentLoaded", () => {
+      initPendingCards();
+      initHomeMotion();
+    }, { once: true });
   } else {
+    initPendingCards();
     initHomeMotion();
   }
 })();
