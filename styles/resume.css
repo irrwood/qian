@@ -73,9 +73,16 @@ a:hover {
   color: var(--color-deep-link-blue);
 }
 
+.cv-actions {
+  width: min(100% - 48px, var(--page-max-width));
+  margin: 28px auto 0;
+  display: flex;
+  justify-content: center;
+}
+
 .sheet {
   width: min(100% - 48px, var(--page-max-width));
-  margin: 56px auto;
+  margin: 24px auto 56px;
   padding: 72px 64px 80px;
   display: grid;
   grid-template-columns: minmax(0, 1fr) 280px;
@@ -122,6 +129,36 @@ h3 {
 
 h3 strong {
   font-weight: var(--font-weight-bold);
+}
+
+.download-cv {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: var(--color-button-blue);
+  color: var(--color-paper);
+  font-size: var(--text-body-sm);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--leading-body-sm);
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  transition:
+    background 160ms ease,
+    transform 160ms ease;
+}
+
+.download-cv:hover {
+  background: var(--color-deep-link-blue);
+  color: var(--color-paper);
+  transform: translateY(-1px);
+}
+
+.download-cv:focus-visible {
+  outline: 3px solid rgba(41, 151, 255, 0.28);
+  outline-offset: 3px;
 }
 
 .summary {
@@ -344,6 +381,11 @@ ul {
     line-height: var(--leading-body);
   }
 
+  .cv-actions {
+    width: min(100% - 24px, var(--page-max-width));
+    margin-top: 16px;
+  }
+
   .sheet {
     display: block;
     width: min(100% - 24px, var(--page-max-width));
@@ -404,6 +446,10 @@ ul {
 }
 
 @media print {
+  .cv-actions {
+    display: none;
+  }
+
   html,
   body {
     background: var(--color-paper);

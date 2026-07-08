@@ -16,6 +16,13 @@
   --leading-body: 1.45;
   --leading-ui: 1.25;
   --leading-tag: 1.1;
+
+  /* Fluid vertical rhythm — scales with viewport, clamped to an 8px scale.
+     Hierarchy: page-top ≥ section > grid row > grid column > card internals. */
+  --space-page-top: clamp(40px, 5.5vw, 72px);
+  --space-section: clamp(40px, 5vw, 64px);
+  --space-row: clamp(28px, 3.5vw, 40px);
+  --space-col: clamp(20px, 2.5vw, 28px);
 }
 
 * {
@@ -61,15 +68,75 @@ body {
     transform 260ms ease;
 }
 
-.topbar::before {
-  content: "";
+/* Progressive blur (danial.si recipe): 8 stacked layers, radius doubling
+   from 0.06px to 7.5px, each masked to an overlapping 12.5% band (to top).
+   Content dissolves into the blur — no white wash. */
+.topbar__blur {
+  position: absolute;
+  inset: 0 0 -24px; /* let the weakest bands dissolve a little past the bar */
+  z-index: 0;
+  pointer-events: none;
+}
+
+.topbar__blur > div {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.82), rgba(255, 255, 255, 0));
-  -webkit-backdrop-filter: blur(12px) saturate(150%);
-  backdrop-filter: blur(12px) saturate(150%);
-  -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 72%, transparent 100%);
-  mask-image: linear-gradient(180deg, #000 0%, #000 72%, transparent 100%);
+}
+
+.topbar__blur > div:nth-child(1) {
+  -webkit-backdrop-filter: blur(0.0586px);
+  backdrop-filter: blur(0.0586px);
+  -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 0) 0%, #000 12.5%, #000 25%, rgba(0, 0, 0, 0) 37.5%);
+  mask-image: linear-gradient(to top, rgba(0, 0, 0, 0) 0%, #000 12.5%, #000 25%, rgba(0, 0, 0, 0) 37.5%);
+}
+
+.topbar__blur > div:nth-child(2) {
+  -webkit-backdrop-filter: blur(0.1172px);
+  backdrop-filter: blur(0.1172px);
+  -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 0) 12.5%, #000 25%, #000 37.5%, rgba(0, 0, 0, 0) 50%);
+  mask-image: linear-gradient(to top, rgba(0, 0, 0, 0) 12.5%, #000 25%, #000 37.5%, rgba(0, 0, 0, 0) 50%);
+}
+
+.topbar__blur > div:nth-child(3) {
+  -webkit-backdrop-filter: blur(0.2344px);
+  backdrop-filter: blur(0.2344px);
+  -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 0) 25%, #000 37.5%, #000 50%, rgba(0, 0, 0, 0) 62.5%);
+  mask-image: linear-gradient(to top, rgba(0, 0, 0, 0) 25%, #000 37.5%, #000 50%, rgba(0, 0, 0, 0) 62.5%);
+}
+
+.topbar__blur > div:nth-child(4) {
+  -webkit-backdrop-filter: blur(0.4688px);
+  backdrop-filter: blur(0.4688px);
+  -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 0) 37.5%, #000 50%, #000 62.5%, rgba(0, 0, 0, 0) 75%);
+  mask-image: linear-gradient(to top, rgba(0, 0, 0, 0) 37.5%, #000 50%, #000 62.5%, rgba(0, 0, 0, 0) 75%);
+}
+
+.topbar__blur > div:nth-child(5) {
+  -webkit-backdrop-filter: blur(0.9375px);
+  backdrop-filter: blur(0.9375px);
+  -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 0) 50%, #000 62.5%, #000 75%, rgba(0, 0, 0, 0) 87.5%);
+  mask-image: linear-gradient(to top, rgba(0, 0, 0, 0) 50%, #000 62.5%, #000 75%, rgba(0, 0, 0, 0) 87.5%);
+}
+
+.topbar__blur > div:nth-child(6) {
+  -webkit-backdrop-filter: blur(1.875px);
+  backdrop-filter: blur(1.875px);
+  -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 0) 62.5%, #000 75%, #000 87.5%, rgba(0, 0, 0, 0) 100%);
+  mask-image: linear-gradient(to top, rgba(0, 0, 0, 0) 62.5%, #000 75%, #000 87.5%, rgba(0, 0, 0, 0) 100%);
+}
+
+.topbar__blur > div:nth-child(7) {
+  -webkit-backdrop-filter: blur(3.75px);
+  backdrop-filter: blur(3.75px);
+  -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 0) 75%, #000 87.5%, #000 100%, rgba(0, 0, 0, 0) 112.5%);
+  mask-image: linear-gradient(to top, rgba(0, 0, 0, 0) 75%, #000 87.5%, #000 100%, rgba(0, 0, 0, 0) 112.5%);
+}
+
+.topbar__blur > div:nth-child(8) {
+  -webkit-backdrop-filter: blur(7.5px);
+  backdrop-filter: blur(7.5px);
+  -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 0) 87.5%, #000 100%, #000 112.5%, rgba(0, 0, 0, 0) 125%);
+  mask-image: linear-gradient(to top, rgba(0, 0, 0, 0) 87.5%, #000 100%, #000 112.5%, rgba(0, 0, 0, 0) 125%);
 }
 
 .topbar__inner {
@@ -89,6 +156,16 @@ body {
   line-height: var(--leading-ui);
   white-space: nowrap;
   will-change: transform;
+}
+
+/* Near-invisible white halo: no-op on white, gives dark backdrops a readable
+   edge as they scroll under the bar. */
+.topbar__brand,
+.topbar__links a {
+  text-shadow:
+    0 0 14px rgba(255, 255, 255, 0.65),
+    0 0 6px rgba(255, 255, 255, 0.6),
+    0 0 2px rgba(255, 255, 255, 0.5);
 }
 
 .topbar__links a {
@@ -142,7 +219,7 @@ a {
 
 .home {
   width: min(calc(100% - 48px), var(--page-width));
-  margin: 80px auto 0;
+  margin: var(--space-page-top) auto 0;
 }
 
 .hero {
@@ -212,8 +289,8 @@ a {
 .projects {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 24px;
-  margin-top: 71px;
+  gap: var(--space-row) var(--space-col);
+  margin-top: var(--space-section);
 }
 
 .project-card,
@@ -228,6 +305,9 @@ a {
   gap: 16px;
   transform-origin: center top;
   will-change: transform;
+  /* Lets the tag overlay measure the card width (cqw) to find the
+     bottom edge of the 638/392 media. */
+  container-type: inline-size;
 }
 
 a.project-card {
@@ -322,6 +402,19 @@ a.project-card {
   gap: 12px;
 }
 
+/* Overlay the tags on the media (its bottom edge sits at width x 392/638). */
+@supports (width: 100cqw) {
+  .project-card__tags {
+    position: absolute;
+    left: 14px;
+    right: 14px;
+    top: calc(100cqw * 392 / 638 - 14px);
+    transform: translateY(-100%);
+    z-index: 2;
+    pointer-events: none;
+  }
+}
+
 .project-card__tags span,
 .feature-link__tag {
   display: inline-flex;
@@ -340,17 +433,27 @@ a.project-card {
   white-space: nowrap;
 }
 
+/* Frosted-glass bubbles when sitting on the image. */
+.project-card__tags span {
+  border-color: rgba(255, 255, 255, 0.55);
+  background: rgba(255, 255, 255, 0.5);
+  color: var(--ink);
+  -webkit-backdrop-filter: blur(12px) saturate(160%);
+  backdrop-filter: blur(12px) saturate(160%);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
 .more-links {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 24px;
-  margin-top: 61px;
+  gap: var(--space-row) var(--space-col);
+  margin-top: var(--space-section);
 }
 
 .feature-link {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 16px;
   align-items: center;
   text-align: center;
   transform-origin: center top;
@@ -392,15 +495,16 @@ a.project-card {
   background: #3050ff;
 }
 
+/* Tags pop out like little bubbles on hover. */
 @media (hover: hover) and (pointer: fine) {
   .project-card__tags span,
   .feature-link__tag {
     opacity: 0;
-    transform: translate3d(0, 6px, 0) scale(0.96);
-    transform-origin: left center;
+    transform: translate3d(0, 8px, 0) scale(0.8);
+    transform-origin: center bottom;
     transition:
-      opacity 160ms ease,
-      transform 260ms cubic-bezier(0.16, 1, 0.3, 1);
+      opacity 180ms ease,
+      transform 380ms cubic-bezier(0.3, 1.4, 0.5, 1);
     transition-delay: 0ms;
     will-change: opacity, transform;
   }
@@ -411,6 +515,13 @@ a.project-card {
   .feature-link:focus-within .feature-link__tag {
     opacity: 0.72;
     transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  /* Glass bubbles on the image read at full strength; the frosted
+     background carries the transparency instead of element opacity. */
+  .project-card:hover .project-card__tags span,
+  .project-card:focus-within .project-card__tags span {
+    opacity: 1;
   }
 
   .project-card:hover .project-card__tags span:nth-child(2),
@@ -434,11 +545,20 @@ a.project-card {
   }
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .project-card__tags span,
+  .feature-link__tag {
+    animation: none !important;
+    transition: opacity 180ms ease;
+    transform: none;
+  }
+}
+
 .site-footer {
   width: min(calc(100% - 48px), var(--page-width));
-  min-height: 164px;
-  margin: 120px auto 0;
-  padding: 0;
+  min-height: auto;
+  margin: clamp(56px, 7vw, 88px) auto 0;
+  padding: clamp(28px, 3vw, 40px) 0 clamp(40px, 5vw, 60px);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -514,7 +634,6 @@ a.project-card {
 @media (max-width: 760px) {
   .home {
     width: min(calc(100% - 28px), 520px);
-    margin-top: 36px;
   }
 
   .hero {
@@ -545,12 +664,6 @@ a.project-card {
   .projects,
   .more-links {
     grid-template-columns: 1fr;
-    gap: 24px;
-    margin-top: 46px;
-  }
-
-  .more-links {
-    margin-top: 42px;
   }
 
   .project-card {
@@ -578,11 +691,10 @@ a.project-card {
     line-height: var(--leading-body);
   }
 
+  /* Keep the overlay anchor (container translateY) intact on touch —
+     only the spans are always-visible here. */
   .project-card__tags {
     gap: 7px;
-    opacity: 1;
-    transform: none;
-    transition: none;
   }
 
   .project-card__tags span,
@@ -621,8 +733,6 @@ a.project-card {
   .site-footer {
     width: min(calc(100% - 28px), 520px);
     min-height: auto;
-    margin-top: 96px;
-    padding: 42px 0 44px;
     flex-direction: column;
     align-items: flex-start;
     gap: 18px;
