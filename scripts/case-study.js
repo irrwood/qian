@@ -1,4 +1,161 @@
 (() => {
+  const initShowcaseDrag = () => {
+    const showcase = document.querySelector(".case-showcase");
+    const viewport = showcase?.querySelector(".case-showcase__viewport");
+    const track = showcase?.querySelector(".case-showcase__track");
+    const firstSet = showcase?.querySelector(".case-showcase__set");
+
+    if (!viewport || !track || !firstSet) {
+      return;
+    }
+
+    let dragState = null;
+
+    const getLoopDistance = () => {
+      const styles = window.getComputedStyle(track);
+      const gap = Number.parseFloat(styles.columnGap || styles.gap || "0") || 0;
+      return firstSet.getBoundingClientRect().width + gap;
+    };
+
+    const getAnimationDuration = () => {
+      const duration = window.getComputedStyle(track).animationDuration.split(",")[0]?.trim();
+
+      if (!duration) {
+        return 0;
+      }
+
+      if (duration.endsWith("ms")) {
+        return Number.parseFloat(duration);
+      }
+
+      return Number.parseFloat(duration) * 1000;
+    };
+
+    const getTrackX = () => {
+      const transform = window.getComputedStyle(track).transform;
+
+      if (!transform || transform === "none") {
+        return 0;
+      }
+
+      const matrix = transform.match(/^matrix\((.+)\)$/);
+
+      if (matrix) {
+        const values = matrix[1].split(",").map((value) => Number.parseFloat(value));
+        return values[4] || 0;
+      }
+
+      const matrix3d = transform.match(/^matrix3d\((.+)\)$/);
+
+      if (matrix3d) {
+        const values = matrix3d[1].split(",").map((value) => Number.parseFloat(value));
+        return values[12] || 0;
+      }
+
+      return 0;
+    };
+
+    const wrapOffset = (offset, distance) => {
+      if (distance <= 0) {
+        return offset;
+      }
+
+      const wrapped = (((-offset % distance) + distance) % distance) * -1;
+      return Object.is(wrapped, -0) ? 0 : wrapped;
+    };
+
+    const getClientX = (event) => event.touches?.[0]?.clientX ?? event.clientX;
+
+    const endDrag = (event) => {
+      if (!dragState) {
+        return;
+      }
+
+      if (event.pointerId != null && event.pointerId === dragState.pointerId) {
+        viewport.releasePointerCapture?.(event.pointerId);
+      }
+
+      const progress = Math.min(Math.max((-dragState.currentOffset || 0) / dragState.distance, 0), 1);
+      viewport.classList.remove("is-dragging");
+      track.style.animation = "";
+      track.style.animationDelay = `${progress * dragState.duration * -1}ms`;
+      track.style.transform = "";
+      dragState = null;
+    };
+
+    const startDrag = (event) => {
+      if (event.type === "mousedown" && event.button !== 0) {
+        return;
+      }
+
+      const duration = getAnimationDuration();
+      const distance = getLoopDistance();
+      const clientX = getClientX(event);
+
+      if (!Number.isFinite(duration) || duration <= 0 || distance <= 0 || clientX == null) {
+        return;
+      }
+
+      viewport.setPointerCapture?.(event.pointerId);
+      viewport.classList.add("is-dragging");
+      const startOffset = wrapOffset(getTrackX(), distance);
+      track.style.animation = "none";
+      track.style.transform = `translate3d(${startOffset}px, 0, 0)`;
+      dragState = {
+        distance,
+        duration,
+        pointerId: event.pointerId,
+        currentOffset: startOffset,
+        startOffset,
+        startX: clientX,
+      };
+    };
+
+    const moveDrag = (event) => {
+      if (!dragState || (event.pointerId != null && event.pointerId !== dragState.pointerId)) {
+        return;
+      }
+
+      const clientX = getClientX(event);
+
+      if (clientX == null) {
+        return;
+      }
+
+      const deltaX = clientX - dragState.startX;
+      dragState.currentOffset = wrapOffset(dragState.startOffset + deltaX, dragState.distance);
+      track.style.transform = `translate3d(${dragState.currentOffset}px, 0, 0)`;
+    };
+
+    if (window.PointerEvent) {
+      viewport.addEventListener("pointerdown", startDrag);
+      viewport.addEventListener("pointermove", moveDrag);
+      viewport.addEventListener("pointerup", endDrag);
+      viewport.addEventListener("pointercancel", endDrag);
+    } else {
+      viewport.addEventListener("mousedown", startDrag);
+      window.addEventListener("mousemove", moveDrag);
+      window.addEventListener("mouseup", endDrag);
+      viewport.addEventListener("touchstart", startDrag, { passive: true });
+      window.addEventListener("touchmove", moveDrag, { passive: true });
+      window.addEventListener("touchend", endDrag);
+      window.addEventListener("touchcancel", endDrag);
+    }
+
+    viewport.addEventListener("lostpointercapture", () => {
+      if (!dragState) {
+        return;
+      }
+
+      const progress = Math.min(Math.max((-dragState.currentOffset || 0) / dragState.distance, 0), 1);
+      viewport.classList.remove("is-dragging");
+      track.style.animation = "";
+      track.style.animationDelay = `${progress * dragState.duration * -1}ms`;
+      track.style.transform = "";
+      dragState = null;
+    });
+  };
+
   const initCaseStudyMotion = () => {
     const gsap = window.gsap;
     const ScrollTrigger = window.ScrollTrigger;
@@ -207,8 +364,12 @@
   };
 
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initCaseStudyMotion, { once: true });
+    document.addEventListener("DOMContentLoaded", () => {
+      initShowcaseDrag();
+      initCaseStudyMotion();
+    }, { once: true });
   } else {
+    initShowcaseDrag();
     initCaseStudyMotion();
   }
 })();

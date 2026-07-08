@@ -474,6 +474,9 @@ ul {
   display: flex;
   align-items: center;
   overflow: hidden;
+  cursor: grab;
+  touch-action: pan-y;
+  user-select: none;
 }
 
 .case-showcase__track {
@@ -482,6 +485,14 @@ ul {
   gap: var(--showcase-gap);
   animation: case-showcase-scroll 48s linear infinite;
   will-change: transform;
+}
+
+.case-showcase__viewport.is-dragging {
+  cursor: grabbing;
+}
+
+.case-showcase__viewport.is-dragging .case-showcase__track {
+  animation-play-state: paused;
 }
 
 .case-showcase__set {
