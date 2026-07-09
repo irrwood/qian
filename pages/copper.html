@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Copper - Institutional Custody, Prime Services &amp; Collateral Management for Digital Assets - Qian Zhao Portfolio</title>
+    <title>Copper - Qian Zhao Portfolio</title>
     <meta name="description" content="Institutional custody, prime services, and collateral management tools for digital asset operations." />
     <link rel="icon" type="image/png" href="https://cdn.prod.website-files.com/61df1511efa778a02b260c1c/61e1f174f4a5e11f9a74e916_ICO32%402x.png" />
     <script>document.documentElement.classList.add("case-motion-pending");</script>
@@ -33,7 +33,7 @@
       <section class="legacy-hero" aria-labelledby="project-title">
         <div class="legacy-hero__copy">
           <p class="legacy-hero__eyebrow">Product Design / SaaS / Web3</p>
-          <h1 id="project-title" data-gsap-reveal>Copper - Institutional Custody, Prime Services &amp; Collateral Management for Digital Assets</h1>
+          <h1 id="project-title" data-gsap-reveal>Copper</h1>
           <p class="legacy-hero__summary" data-gsap-reveal>Institutional custody, prime services, and collateral management tools for digital asset operations.</p>
           <div class="legacy-hero__meta" aria-label="Project tags" data-gsap-reveal>
             <span>Product Design</span>
@@ -42,7 +42,7 @@
           </div>
         </div>
         <figure class="legacy-hero__media" data-gsap-reveal>
-          <img src="../assets/webflow-projects/copper/image-01.png" alt="Copper - Institutional Custody, Prime Services &amp; Collateral Management for Digital Assets hero visual" />
+          <img src="../assets/webflow-projects/copper/image-01.png" alt="Copper hero visual" />
         </figure>
       </section>
 
@@ -55,19 +55,65 @@
           <p>Some work is confidential at the moment</p>
         </section>
         <figure class="legacy-flow__media" data-gsap-reveal>
-          <img loading="lazy" decoding="async" src="../assets/webflow-projects/copper/image-02.png" alt="Copper - Institutional Custody, Prime Services &amp; Collateral Management for Digital Assets project visual 2" />
+          <img loading="lazy" decoding="async" src="../assets/webflow-projects/copper/design-system-cover.png" alt="Copper design system cover" />
+        </figure>
+        <section class="legacy-flow__copy" data-gsap-reveal>
+          <h2>Building a scalable design system for institutional digital assets</h2>
+          <p>At Copper, I worked on a design system for a cryptocurrency custody company whose platforms help institutions manage digital assets. When I joined, the product had grown quickly, but the design foundation had not kept the same pace. There was an incomplete web design system, several different versions in development, and no unified mobile library. I helped create a new design system and built the mobile version from scratch.</p>
+          <p>The problem was not only visual inconsistency. Similar controls were solved in multiple ways, some components had accessibility issues, and repeated implementation work made the product harder to maintain. This also made communication between design and engineering more difficult, because teams were often discussing one-off screens instead of shared patterns.</p>
+        </section>
+        <figure class="legacy-flow__media" data-gsap-reveal>
+          <img loading="lazy" decoding="async" src="../assets/webflow-projects/copper/design-system-problems.png" alt="Copper design system problems: inconsistent visuals, repeated components, and difficult collaboration" />
+        </figure>
+        <section class="legacy-flow__copy" data-gsap-reveal>
+          <h3>System structure</h3>
+          <p>The design system followed atomic design principles: atoms, molecules, organisms, templates, and pages. This structure gave the system room to scale from foundational styles to complete product surfaces, while keeping visual language and interaction behavior consistent across web and iOS.</p>
+          <p>At the foundation, design tokens were used to manage core styles such as typography, color, spacing, and shared semantic values. Instead of redefining colors or type styles screen by screen, teams could reuse labelled tokens across the company. Shared elements such as icons could also be reused across iOS and web, helping preserve product semantics across platforms.</p>
+        </section>
+        <figure class="legacy-flow__media" data-gsap-reveal>
+          <img loading="lazy" decoding="async" src="../assets/webflow-projects/copper/design-system-atoms.png" alt="Copper design system atoms including typography, colors, and design tokens" />
+        </figure>
+        <section class="legacy-flow__copy" data-gsap-reveal>
+          <p>By combining atoms into molecules and organisms, teams could quickly build templates and pages. This was especially important for B2B products, where screens often include complex states, permissions, data density, and operational workflows. A reusable system allowed those states to be updated consistently when patterns changed.</p>
+        </section>
+        <figure class="legacy-flow__media" data-gsap-reveal>
+          <img loading="lazy" decoding="async" src="../assets/webflow-projects/copper/design-system-molecules-organisms.png" alt="Copper design system molecules and organisms for reusable interface patterns" />
         </figure>
         <figure class="legacy-flow__media" data-gsap-reveal>
-          <img loading="lazy" decoding="async" src="../assets/webflow-projects/copper/image-03.png" alt="Copper - Institutional Custody, Prime Services &amp; Collateral Management for Digital Assets project visual 3" />
+          <img loading="lazy" decoding="async" src="../assets/webflow-projects/copper/design-system-templates-pages.png" alt="Copper design system templates and pages applied to mobile settlement flows" />
+        </figure>
+        <section class="legacy-flow__copy" data-gsap-reveal>
+          <h3>Guidelines and documentation</h3>
+          <p>A key part of the work was not just designing components, but documenting how they should be used. I created guidelines for different component categories so designers could understand when and how to use each pattern, and how to contribute new components back into the system for other designers to reuse.</p>
+          <p>The same guidelines helped engineers understand interaction details, visual rules, and implementation expectations. Where useful, component documentation linked directly to development libraries, so implementation references were connected to the design source instead of living in separate conversations.</p>
+          <p>After the first phase of the design system was completed, we used the system itself to build a design system website. The site collected component specifications, usage rules, and front-end documentation in one place. Design files also linked relevant components and properties back to the website, so engineers could see which system components to use and how to configure them.</p>
+        </section>
+        <figure class="legacy-flow__media" data-gsap-reveal>
+          <img loading="lazy" decoding="async" src="../assets/webflow-projects/copper/design-system-guideline.png" alt="Copper icon guideline covering grid, alignment, consistency, and icon states" />
+        </figure>
+        <section class="legacy-flow__copy" data-gsap-reveal>
+          <h3>A shared workflow between design and engineering</h3>
+          <p>The design system became a bridge between design and development. Instead of design specifications being a black box for engineers, and engineering implementation being a black box for designers, both teams could reference the same source of truth. Designers gained a clearer understanding of engineering constraints, while engineers could better understand design intent and component behavior.</p>
+          <p>We also established a regular design system workflow. Design system meetings were used to discuss changes, common components from product work were marked and moved into the component library, and the final versions appeared on the design system website. User needs were informed by customer interviews, usability feedback, and product analytics such as Mixpanel. I also tried to align with engineering structures and naming conventions, including approaches such as BEM, so the system could be easier to translate into code.</p>
+          <p>When the system worked well, product teams could assemble prototypes and ideas more quickly, communication costs were reduced, and the overall development process became more standardized. For a complex institutional product, the design system improved not only consistency, but also speed, quality, and collaboration.</p>
+        </section>
+        <figure class="legacy-flow__media" data-gsap-reveal>
+          <img loading="lazy" decoding="async" src="../assets/webflow-projects/copper/design-system-cooperation.png" alt="Copper design system cooperation between code references and component playgrounds" />
         </figure>
         <figure class="legacy-flow__media" data-gsap-reveal>
-          <img loading="lazy" decoding="async" src="../assets/webflow-projects/copper/image-04.png" alt="Copper - Institutional Custody, Prime Services &amp; Collateral Management for Digital Assets project visual 4" />
+          <img loading="lazy" decoding="async" src="../assets/webflow-projects/copper/image-02.png" alt="Copper project visual 2" />
         </figure>
         <figure class="legacy-flow__media" data-gsap-reveal>
-          <img loading="lazy" decoding="async" src="../assets/webflow-projects/copper/image-05.png" alt="Copper - Institutional Custody, Prime Services &amp; Collateral Management for Digital Assets project visual 5" />
+          <img loading="lazy" decoding="async" src="../assets/webflow-projects/copper/image-03.png" alt="Copper project visual 3" />
         </figure>
         <figure class="legacy-flow__media" data-gsap-reveal>
-          <img loading="lazy" decoding="async" src="../assets/webflow-projects/copper/image-06.png" alt="Copper - Institutional Custody, Prime Services &amp; Collateral Management for Digital Assets project visual 6" />
+          <img loading="lazy" decoding="async" src="../assets/webflow-projects/copper/image-04.png" alt="Copper project visual 4" />
+        </figure>
+        <figure class="legacy-flow__media" data-gsap-reveal>
+          <img loading="lazy" decoding="async" src="../assets/webflow-projects/copper/image-05.png" alt="Copper project visual 5" />
+        </figure>
+        <figure class="legacy-flow__media" data-gsap-reveal>
+          <img loading="lazy" decoding="async" src="../assets/webflow-projects/copper/image-06.png" alt="Copper project visual 6" />
         </figure>
       </section>
     </main>
