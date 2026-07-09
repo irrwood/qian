@@ -392,6 +392,10 @@ ul {
   padding-top: 23px;
 }
 
+.case-copy--principles {
+  margin-top: 52px;
+}
+
 .case-copy h2 {
   color: var(--case-ink);
   font-size: 28px;
@@ -436,6 +440,27 @@ ul {
 .case-copy__body li::marker {
   color: var(--case-muted);
   font-size: 0.9em;
+}
+
+.case-principles {
+  display: grid;
+  gap: 20px;
+}
+
+.case-principle h3 {
+  margin: 0 0 6px;
+  color: var(--case-ink);
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 26px;
+}
+
+.case-principle p {
+  margin: 0;
+}
+
+.case-copy--principles + .case-media-grid {
+  margin-top: 64px;
 }
 
 .case-media-grid {

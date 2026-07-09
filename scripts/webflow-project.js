@@ -1,4 +1,55 @@
 (() => {
+  const initComparisonSliders = () => {
+    document.querySelectorAll("[data-compare]").forEach((compare) => {
+      const range = compare.querySelector(".legacy-compare__range");
+
+      if (!range) {
+        return;
+      }
+
+      const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      let targetValue = Number(range.value);
+      let currentValue = targetValue;
+      let frame = null;
+
+      const render = (value) => {
+        compare.style.setProperty("--compare-position", `${value}%`);
+        compare.style.setProperty("--compare-position-number", value);
+      };
+
+      const animate = () => {
+        currentValue += (targetValue - currentValue) * 0.18;
+
+        if (Math.abs(targetValue - currentValue) < 0.08) {
+          currentValue = targetValue;
+          frame = null;
+          render(currentValue);
+          return;
+        }
+
+        render(currentValue);
+        frame = requestAnimationFrame(animate);
+      };
+
+      const update = () => {
+        targetValue = Number(range.value);
+
+        if (reduceMotion) {
+          currentValue = targetValue;
+          render(currentValue);
+          return;
+        }
+
+        if (!frame) {
+          frame = requestAnimationFrame(animate);
+        }
+      };
+
+      render(currentValue);
+      range.addEventListener("input", update);
+    });
+  };
+
   const initLegacyProjectMotion = () => {
     const gsap = window.gsap;
     const ScrollTrigger = window.ScrollTrigger;
@@ -77,8 +128,12 @@
   };
 
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initLegacyProjectMotion, { once: true });
+    document.addEventListener("DOMContentLoaded", () => {
+      initComparisonSliders();
+      initLegacyProjectMotion();
+    }, { once: true });
   } else {
+    initComparisonSliders();
     initLegacyProjectMotion();
   }
 })();
