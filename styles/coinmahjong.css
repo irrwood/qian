@@ -1,45 +1,82 @@
-/* CoinMahjong case study — rebuilt from the flattened Figma design
-   (node 216:31861, 1700px canvas). Every collage piece is a transparent
-   export placed at its exact design rect, converted to % of the canvas:
-   left = x/1700, top = (y-1020)/4090, width = w/1700.
-   The grey wash lives on .cm-main as its own layer; images never carry
-   a background. Under 760px the collage reflows into a stacked layout.
-   Loads AFTER tokens.css and case-study.css (nav/footer/type come from there). */
-
-/* ---------- page chrome ---------- */
+/* CoinMahjong case study.
+   Figma node 216:33671 is a 2600px by 4859px artboard. This page keeps that
+   artboard as the layout model: max width 2600px, centered, then scaled by
+   available width without reflowing the visual composition. */
 
 .cm-page {
   background: #ffffff;
 }
 
 .cm-main {
-  overflow: clip;
-  /* Backdrop layer: soft white-to-grey wash behind the whole collage. */
-  background: linear-gradient(
-    180deg,
-    #ffffff 0%,
-    #ffffff 14%,
-    #f5f6f6 32%,
-    #eff0f1 58%,
-    #f0f1f2 100%
-  );
+  overflow-x: hidden;
+  background:
+    linear-gradient(180deg, #ffffff 0%, #ffffff 19.9%, #f1f1f1 50%, #f1f1f1 100%);
 }
 
-/* ---------- hero icon grid (7 cols, logo spans middle) ---------- */
-
-.cm-hero-grid {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  width: min(100%, 1920px);
+.cm-stage-viewport {
+  container-type: inline-size;
+  position: relative;
+  width: 100%;
+  height: 4859px;
   margin: 0 auto;
-  padding: calc(var(--nav-height) + 4.6%) 0.7% 0;
+  overflow: hidden;
 }
 
-.cm-hero-grid img {
+.cm-stage {
+  container-type: inline-size;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 2600px;
+  height: 4859px;
+  transform: translateX(-50%);
+  transform-origin: top center;
+  /* Clip horizontal bleed (keeps the design width crisp) but let the tablet,
+     which is placed past the artboard bottom, spill down into the viewport
+     instead of being cut off — the viewport is what bounds the page. */
+  overflow-x: clip;
+  overflow-y: visible;
+}
+
+.cm-stage > * {
+  position: absolute;
+  margin: 0;
+}
+
+.cm-stage img {
   display: block;
+  max-width: none;
+  height: auto;
+  user-select: none;
+}
+
+.cm-stage img:not(.cm-tablet-device) {
+  transform-origin: center;
+  transition:
+    transform 360ms cubic-bezier(0.18, 0.89, 0.32, 1.18),
+    filter 360ms cubic-bezier(0.18, 0.89, 0.32, 1.18);
+  will-change: transform;
+}
+
+.cm-stage img:not(.cm-tablet-device):hover {
+  transform: translate3d(0, -0.231cqw, 0) rotate(2.4deg) scale(1.012);
+  filter: drop-shadow(0 0.346cqw 0.769cqw rgba(17, 24, 39, 0.1));
+}
+
+/* ---------- hero icon field ---------- */
+
+.cm-icon-field {
+  left: 17.269%;
+  top: 2.15%;
+  display: grid;
+  grid-template-columns: repeat(7, 14.2857%);
+  width: 65.471%;
+}
+
+.cm-icon-field > img {
   width: 100%;
   aspect-ratio: 1;
-  height: auto;
+  object-fit: contain;
 }
 
 .cm-logo-cell {
@@ -52,18 +89,17 @@
   position: absolute;
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -50%);
   width: 76.2%;
   aspect-ratio: 555 / 111;
+  transform: translate(-50%, -50%);
 }
 
 .cm-logo .cm-logo-mark {
   position: absolute;
   left: 0;
   top: 0;
-  height: 100%;
   width: 20.04%;
-  aspect-ratio: auto;
+  height: 100%;
 }
 
 .cm-logo .cm-logo-word {
@@ -72,188 +108,268 @@
   top: 24.98%;
   width: 75.37%;
   height: 56.44%;
-  aspect-ratio: auto;
 }
 
-/* ---------- title section (reuses case-hero type) ---------- */
+/* ---------- title ---------- */
 
-.cm-title {
-  padding-top: 46px;
-}
-
-/* ---------- collage ---------- */
-
-.cm-band {
-  position: relative;
-  width: min(100%, 1920px);
-  margin: 0 auto;
-  overflow: clip;
-}
-
-.cm-band > * {
-  position: absolute;
-  margin: 0;
-}
-
-/* NOTE: no width here — each collage element carries its own % width;
-   a generic `.cm-band img { width:100% }` would out-specify those classes. */
-.cm-band img {
-  display: block;
-  height: auto;
-}
-
-.cm-collage {
-  aspect-ratio: 1700 / 4090;
-}
-
-/* room cards (float layers on the Figma canvas; positions match both nodes) */
-.cm-card-training { left: 19.2%; top: 2.59%; width: 17.4%; transform: rotate(-8.55deg); }
-.cm-card-japan { left: 36.8%; top: 1.49%; width: 25%; transform: rotate(2deg); z-index: 2; }
-.cm-card-tournament { left: 66.8%; top: 0.27%; width: 17.6%; transform: rotate(7deg); }
-
-/* flattened pieces — exact design rects (rotation/shadows baked in) */
-.cm-hand { left: 27.94%; top: -6.94%; width: 124.71%; z-index: 3; }
-.cm-tile-c2 { left: 10.12%; top: 15.82%; width: 17.35%; }
-.cm-phones-green { left: -0.53%; top: 24.43%; width: 69.24%; }
-.cm-tile-e { left: 68.71%; top: 24.43%; width: 13.29%; }
-.cm-tile-b1 { left: 74.47%; top: 38%; width: 16.76%; }
-.cm-tile-2c { left: 6.59%; top: 41.47%; width: 14.06%; z-index: 2; }
-.cm-tile-b9 { left: 55.71%; top: 46.06%; width: 16.59%; }
-.cm-phone-menu { left: 9.82%; top: 45.84%; width: 44.35%; }
-.cm-phone-action { left: 66.47%; top: 41.3%; width: 69.24%; }
-.cm-phone-room { left: -30.88%; top: 64.25%; width: 65%; }
-.cm-tile-g { left: 36.76%; top: 70.83%; width: 14.53%; }
-.cm-pill-home { left: 66.47%; top: 68.61%; width: 22.94%; }
-.cm-pill-lobby { left: 75.41%; top: 75.55%; width: 20.41%; }
-.cm-pill-tournament { left: 68.29%; top: 79.07%; width: 22%; }
-.cm-pill-friend { left: 75.41%; top: 83.79%; width: 20.76%; }
-.cm-streak { left: 40.29%; top: 79.07%; width: 32%; z-index: 2; }
-.cm-tile-n { left: 89%; top: 91.96%; width: 18.12%; }
-
-/* copy overlays (real text; reflow to sections on mobile) */
-.cm-copy-overlay {
+.cm-stage-title {
+  left: 50%;
+  top: 18.995%;
+  display: flex;
+  width: 42.308%;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.615cqw;
   color: var(--case-muted);
-  font-family: var(--font-main);
-  z-index: 4;
+  text-align: center;
+  transform: translateX(-50%);
 }
 
-.cm-copy-overlay h2 {
-  margin: 0 0 22px;
+.cm-stage-title h1 {
+  margin: 0;
+  width: 100%;
   color: var(--case-ink);
-  font-size: clamp(20px, 1.88vw, 32px);
+  font-size: 1.231cqw;
   font-weight: 600;
   line-height: 1.25;
   letter-spacing: -0.4px;
 }
 
-.cm-copy-overlay p {
+.cm-stage-title p {
   margin: 0;
-  font-size: clamp(13px, 1.06vw, 18px);
-  font-weight: 500;
+  width: 75.636%;
+  font-size: 0.692cqw;
+  font-weight: 400;
   line-height: 1.5;
 }
 
-.cm-copy-1 {
-  left: 36.35%;
-  top: 15.94%;
-  width: 27.35%;
+.cm-stage-date {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.308cqw;
+  font-size: 0.692cqw;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.cm-stage-date svg {
+  width: 0.923cqw;
+  height: 0.923cqw;
+}
+
+/* ---------- product composition ---------- */
+
+.cm-room-tournament {
+  left: 57.047%;
+  top: 22.124%;
+  width: 7.21%;
+  z-index: 4;
+}
+
+.cm-room-japan {
+  left: 44.585%;
+  top: 23.085%;
+  width: 10.638%;
+  z-index: 4;
+}
+
+.cm-room-training {
+  left: 35.77%;
+  top: 23.944%;
+  width: 6.993%;
+  z-index: 4;
+}
+
+.cm-hand {
+  left: 51.269%;
+  top: 26.014%;
+  width: 48.731%;
+  z-index: 20;
+}
+
+.cm-tile-character {
+  left: 30.301%;
+  top: 30.743%;
+  width: 8.026%;
+  z-index: 2;
+}
+
+.cm-game-phone {
+  left: 25.649%;
+  top: 34.846%;
+  width: 32.024%;
+  z-index: 1;
+}
+
+.cm-tile-east {
+  left: 59.332%;
+  top: 35.866%;
+  width: 6.149%;
+  z-index: 2;
+}
+
+.cm-tile-bird {
+  left: 61.999%;
+  top: 43.948%;
+  width: 7.754%;
+  z-index: 2;
+}
+
+.cm-tile-dots {
+  left: 30.6%;
+  top: 46.017%;
+  width: 6.503%;
+  z-index: 2;
+}
+
+.cm-tile-bamboo {
+  left: 53.319%;
+  top: 48.754%;
+  width: 7.673%;
+  z-index: 2;
+}
+
+.cm-phone-room {
+  left: 32.097%;
+  top: 48.622%;
+  width: 20.515%;
+  z-index: 1;
+}
+
+.cm-phone-lobby {
+  left: 13.268%;
+  top: 59.585%;
+  width: 30.065%;
+  z-index: 1;
+}
+
+.cm-phone-menu {
+  left: 58.299%;
+  top: 45.914%;
+  width: 32.024%;
+  z-index: 1;
+}
+
+.cm-tile-green {
+  left: 44.558%;
+  top: 63.5%;
+  width: 6.72%;
+  z-index: 2;
+}
+
+.cm-streak {
+  left: 46.191%;
+  top: 68.41%;
+  width: 14.802%;
+  z-index: 2;
+}
+
+.cm-nav-home {
+  left: 58.299%;
+  top: 62.175%;
+  width: 10.611%;
+  z-index: 3;
+}
+
+.cm-nav-lobby {
+  left: 62.434%;
+  top: 66.309%;
+  width: 9.441%;
+  z-index: 3;
+}
+
+.cm-nav-tournament {
+  left: 59.142%;
+  top: 68.408%;
+  width: 10.176%;
+  z-index: 3;
+}
+
+.cm-nav-friend {
+  left: 62.434%;
+  top: 71.218%;
+  width: 9.605%;
+  z-index: 3;
+}
+
+.cm-tile-north {
+  left: 68.72%;
+  top: 76.08%;
+  width: 8.38%;
+  z-index: 2;
+}
+
+.cm-tablet-device {
+  left: 9.677%;
+  top: 81.337%;
+  width: 80.646%;
+  z-index: 1;
+}
+
+/* ---------- text blocks ---------- */
+
+.cm-copy {
+  z-index: 4;
+  color: var(--case-muted);
+  font-family: var(--font-main);
+}
+
+.cm-copy h2 {
+  margin: 0 0 0.653cqw;
+  color: var(--case-ink);
+  font-size: 0.871cqw;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.283px;
+}
+
+.cm-copy p {
+  margin: 0;
+  font-size: 0.49cqw;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.cm-copy--intro {
+  left: 50%;
+  top: 31.428%;
+  width: 14.992%;
   text-align: center;
+  transform: translateX(-50%);
 }
 
-.cm-copy-2 {
-  left: 58.06%;
-  top: 61.78%;
-  width: 26.12%;
+.cm-copy--gameplay {
+  left: 54.407%;
+  top: 58.114%;
+  width: 12.081%;
 }
 
-.cm-copy-3 {
-  left: 12.29%;
-  top: 93.77%;
-  width: 27.35%;
+.cm-copy--tablet {
+  left: 33.239%;
+  top: 77.155%;
+  width: 12.652%;
 }
 
-/* ---------- tablet band ---------- */
-
-.cm-tablet {
-  aspect-ratio: 1700 / 1316;
-}
-
-.cm-tablet img {
-  left: -13.65%;
-  top: 0;
-  width: 129.47%;
-}
-
-/* ==================================================================
-   Mobile reflow (<760px): collage stacks, text becomes readable flow
-   ================================================================== */
-
-@media (max-width: 759px) {
-  .cm-hero-grid {
-    padding-top: calc(var(--nav-height) + 24px);
+@media (max-width: 979.98px) {
+  .cm-stage-viewport {
+    height: calc(4859 / 2600 * 100vw);
+    margin-top: max(0px, calc(var(--nav-height) + 16px - 5.769vw));
   }
 
-  .cm-collage,
-  .cm-tablet {
-    aspect-ratio: auto;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    gap: 24px;
-    padding: 40px 20px;
+  .cm-stage {
+    transform: translateX(-50%) scale(calc(100vw / 2600px));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cm-stage img:not(.cm-tablet-device) {
+    transition: none;
+    will-change: auto;
   }
 
-  .cm-band > * {
-    position: static;
+  .cm-stage img:not(.cm-tablet-device):hover {
     transform: none;
-  }
-
-  /* narrative order */
-  .cm-card-training { order: 1; width: 38%; transform: rotate(-8.55deg); }
-  .cm-card-japan { order: 1; width: 46%; transform: rotate(2deg); }
-  .cm-card-tournament { order: 1; width: 38%; transform: rotate(7deg); }
-  .cm-copy-1 { order: 2; }
-  .cm-phones-green { order: 3; width: 100%; }
-  .cm-tile-b9 { order: 4; width: 26%; }
-  .cm-copy-2 { order: 5; }
-  .cm-phone-menu { order: 6; width: 72%; }
-  .cm-phone-action { order: 7; width: 94%; }
-  .cm-tile-g { order: 8; width: 26%; }
-  .cm-pill-home,
-  .cm-pill-lobby,
-  .cm-pill-tournament,
-  .cm-pill-friend { order: 9; width: 44%; }
-  .cm-streak { order: 10; width: 78%; }
-  .cm-copy-3 { order: 11; }
-
-  /* pieces that only work as full-bleed canvas floaters */
-  .cm-collage .cm-hand,
-  .cm-collage .cm-phone-room,
-  .cm-collage .cm-tile-c2,
-  .cm-collage .cm-tile-e,
-  .cm-collage .cm-tile-b1,
-  .cm-collage .cm-tile-2c,
-  .cm-collage .cm-tile-n {
-    display: none;
-  }
-
-  .cm-copy-overlay {
-    position: static;
-    width: min(560px, 100%);
-    text-align: center;
-  }
-
-  .cm-copy-overlay h2 {
-    font-size: 24px;
-  }
-
-  .cm-copy-overlay p {
-    font-size: 15px;
-  }
-
-  .cm-tablet img {
-    position: static;
-    width: 100%;
+    filter: none;
   }
 }
