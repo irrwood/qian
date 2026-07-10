@@ -105,6 +105,10 @@
   border-top: 0;
 }
 
+.legacy-project--coinmahjong .legacy-flow {
+  border-top: 0;
+}
+
 .legacy-flow__copy {
   width: var(--copy-max);
   max-width: calc(100% - 48px);
@@ -409,6 +413,93 @@
   width: min(820px, 100%);
 }
 
+.coinmahjong-hero {
+  padding-top: 44px;
+}
+
+.coinmahjong-hero__icons {
+  width: min(1180px, calc(100% - 48px));
+  margin: 0 auto clamp(28px, 4.2vw, 54px);
+}
+
+.coinmahjong-hero__icons img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.coinmahjong-room-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.2fr) minmax(0, 0.9fr);
+  align-items: center;
+  gap: clamp(22px, 4vw, 64px);
+  width: min(980px, 100%);
+  margin: 0 auto;
+}
+
+.coinmahjong-room-card {
+  margin: 0;
+}
+
+.coinmahjong-room-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.coinmahjong-room-card--featured {
+  transform: translateY(22px);
+}
+
+.coinmahjong-media {
+  overflow: visible;
+}
+
+.coinmahjong-media img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 24px;
+  background: transparent;
+}
+
+.coinmahjong-media--landscape {
+  width: min(980px, 100%);
+}
+
+.coinmahjong-media--tablet {
+  width: min(1180px, 100%);
+}
+
+.coinmahjong-device-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr 0.9fr;
+  align-items: center;
+  gap: clamp(18px, 3.4vw, 48px);
+  width: min(1080px, 100%);
+  margin: 0 auto;
+}
+
+.coinmahjong-device {
+  margin: 0;
+}
+
+.coinmahjong-device img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 28px;
+}
+
+.coinmahjong-device--tall {
+  grid-row: span 2;
+}
+
+.coinmahjong-device--small {
+  width: min(100%, 72%);
+  justify-self: center;
+}
+
 @media (max-width: 860px) {
   .legacy-hero {
     padding-top: 56px;
@@ -439,6 +530,25 @@
 
   .legacy-ios-gallery {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .coinmahjong-room-grid,
+  .coinmahjong-device-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .coinmahjong-room-card,
+  .coinmahjong-room-card--featured {
+    width: min(360px, 100%);
+    justify-self: center;
+    transform: none;
+  }
+
+  .coinmahjong-device,
+  .coinmahjong-device--small {
+    width: min(360px, 100%);
+    justify-self: center;
   }
 
   .legacy-flow__media--phone {
@@ -488,6 +598,10 @@
 
   .legacy-flow__copy {
     max-width: calc(100% - 32px);
+  }
+
+  .coinmahjong-hero__icons {
+    width: calc(100% - 32px);
   }
 
   .legacy-flow__copy h2,
