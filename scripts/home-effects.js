@@ -77,7 +77,7 @@
       }
 
       const rect = heroLinks.getBoundingClientRect();
-      document.body.classList.toggle("topbar-visible", rect.bottom <= 18);
+      document.body.classList.toggle("topbar-condensed", rect.bottom <= 18);
     };
 
     updateTopbar();
@@ -157,7 +157,7 @@
           });
         };
 
-        gsap.utils.toArray(".pill, .topbar__brand, .topbar__links a, .site-footer__social a, .site-footer__brand").forEach((el) => {
+        gsap.utils.toArray(".pill, .site-footer__social a, .site-footer__brand").forEach((el) => {
           bindMagnet(el, { strength: 0.22, maxMove: 8, scale: 1.035 });
         });
 

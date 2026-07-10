@@ -25,12 +25,14 @@
     <script defer src="../assets/vendor/gsap.min.js"></script>
     <script defer src="../assets/vendor/ScrollTrigger.min.js"></script>
     <script defer src="../scripts/case-study.js"></script>
-    <script defer src="../scripts/cursor-fx.js"></script>
+    <script defer src="../scripts/magnetic-nav.js"></script>
+    <script defer src="../scripts/london-status.js"></script>
+    <script defer src="../scripts/best-nav-experiment.js"></script>
     <script defer src="../scripts/hero-rays.js"></script>
     <script defer src="../scripts/media-guard.js"></script>
   </head>
-  <body>
-    <header class="portfolio-nav" aria-label="Portfolio navigation">
+  <body class="best-nav-experiment">
+    <header class="portfolio-nav best-nav-expanded" aria-label="Portfolio navigation">
       <div class="portfolio-nav__blur" aria-hidden="true">
         <div></div>
         <div></div>
@@ -40,11 +42,20 @@
         <div></div>
       </div>
       <div class="portfolio-nav__inner">
-        <a class="portfolio-nav__brand" href="../index.html" aria-label="Qian Zhao portfolio home">Qian Zhao</a>
+        <a class="portfolio-nav__brand" href="../index.html" aria-label="Qian Zhao portfolio home">Qian</a>
         <nav class="portfolio-nav__links" aria-label="Main navigation">
           <a class="portfolio-nav__link" href="../index.html"><span class="portfolio-nav__link-label">Work</span></a>
           <a class="portfolio-nav__link" href="./resume.html"><span class="portfolio-nav__link-label">Resume</span></a>
-          <a class="portfolio-nav__link" href="./about.html"><span class="portfolio-nav__link-label">About Me</span></a>
+          <a class="portfolio-nav__link" href="./about.html"><span class="portfolio-nav__link-label">About</span></a>
+        </nav>
+      </div>
+    </header>
+    <header class="portfolio-nav best-nav-capsule" aria-label="Portfolio navigation">
+      <div class="portfolio-nav__inner">
+        <nav class="portfolio-nav__links" aria-label="Condensed navigation">
+          <a class="portfolio-nav__link" href="../index.html"><span class="portfolio-nav__link-label">Work</span></a>
+          <a class="portfolio-nav__link" href="./resume.html"><span class="portfolio-nav__link-label">Resume</span></a>
+          <a class="portfolio-nav__link" href="./about.html"><span class="portfolio-nav__link-label">About</span></a>
         </nav>
       </div>
     </header>
