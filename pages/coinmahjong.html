@@ -22,10 +22,6 @@
     </script>
     <link rel="stylesheet" href="../styles/tokens.css" />
     <link rel="stylesheet" href="../styles/case-study.css" />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@500;600;700&family=Barlow:wght@700&display=swap"
-    />
     <link rel="stylesheet" href="../styles/coinmahjong.css" />
     <script defer src="../assets/vendor/gsap.min.js"></script>
     <script defer src="../assets/vendor/ScrollTrigger.min.js"></script>
@@ -95,63 +91,41 @@
         </div>
       </section>
 
-      <!-- Band A: room cards + pointing hand -->
-      <section class="cm-band cm-a" aria-label="Game room cards" data-gsap-reveal>
-        <img class="cm-hand-shadow" src="../assets/coinmahjong/hand-point.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" />
+      <!-- Collage: transparent exports at their exact Figma rects (node 216:31861) -->
+      <section class="cm-band cm-collage" aria-label="CoinMahjong product collage" data-gsap-reveal>
         <img class="cm-card-training" src="../assets/coinmahjong/room-training.webp" alt="Training Room card with a 3D mahjong table scene" loading="lazy" decoding="async" />
-        <img class="cm-card-japan" src="../assets/coinmahjong/room-japan.webp" alt="Japan-style room card with players at a mahjong table" loading="lazy" decoding="async" />
+        <img class="cm-card-japan" src="../assets/coinmahjong/room-japan.webp" alt="Japan Mahjong room card with players at a table" loading="lazy" decoding="async" />
         <img class="cm-card-tournament" src="../assets/coinmahjong/room-tournament.webp" alt="Tournament room card with a blue table scene" loading="lazy" decoding="async" />
-        <img class="cm-hand" src="../assets/coinmahjong/hand-point.webp" alt="" loading="lazy" decoding="async" />
-      </section>
+        <img class="cm-hand" src="../assets/coinmahjong/fl-hand.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" />
 
-      <!-- Copy 1 -->
-      <section class="cm-copy cm-copy--intro" data-gsap-reveal>
-        <h2>Designing a lighter way into online mahjong</h2>
-        <p>
-          Transforms a complex tabletop game into a friendly digital experience with warm 3D room
-          cards, large touch targets, and clear mode choices, helping players feel oriented before
-          entering a game. The interface balances quick casual play with clear structure for room
-          types, tournaments, friends, progress rewards, and live table info.
-        </p>
-      </section>
+        <img class="cm-tile-c2" src="../assets/coinmahjong/fl-tile-c2.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" />
+        <img class="cm-phones-green" src="../assets/coinmahjong/fl-phones-green.webp" alt="CoinMahjong gameplay on two phones, table view in landscape" loading="lazy" decoding="async" />
+        <img class="cm-tile-e" src="../assets/coinmahjong/fl-tile-e.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" />
+        <img class="cm-tile-b1" src="../assets/coinmahjong/fl-tile-b1.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" />
+        <img class="cm-tile-2c" src="../assets/coinmahjong/fl-tile-2c.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" />
+        <img class="cm-tile-b9" src="../assets/coinmahjong/fl-tile-b9.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" />
 
-      <!-- Band B: scattered tiles + green table phones -->
-      <section class="cm-band cm-b" aria-label="In-game table on mobile" data-gsap-reveal>
-        <span class="cm-tile cm-tile-c2" aria-hidden="true">
-          <img class="f1" src="../assets/coinmahjong/tile-c2-v1.svg" alt="" loading="lazy" />
-          <img class="f2" src="../assets/coinmahjong/tile-c2-v2.svg" alt="" loading="lazy" />
-          <img class="f3" src="../assets/coinmahjong/tile-c2-v3.svg" alt="" loading="lazy" />
-          <b>2</b>
-        </span>
-        <img class="cm-phone-landscape" src="../assets/coinmahjong/game-landscape.webp" alt="CoinMahjong gameplay on a phone in landscape, table view with a hand of tiles" loading="lazy" decoding="async" />
-        <img class="cm-phone-room" src="../assets/coinmahjong/mobile-room.webp" alt="Room details screen on a tilted phone" loading="lazy" decoding="async" />
-        <span class="cm-tile cm-tile-2c" aria-hidden="true">
-          <img class="f1" src="../assets/coinmahjong/tile-face-1.svg" alt="" loading="lazy" />
-          <b>2</b>
-        </span>
-        <span class="cm-tile cm-tile-e" aria-hidden="true">
-          <img class="f1" src="../assets/coinmahjong/tile-face-east.svg" alt="" loading="lazy" />
-          <b>E</b>
-        </span>
-        <span class="cm-tile cm-tile-b9" aria-hidden="true">
-          <img class="f1" src="../assets/coinmahjong/tile-face-b9.svg" alt="" loading="lazy" />
-          <b>9</b>
-        </span>
-        <span class="cm-tile cm-tile-b1" aria-hidden="true">
-          <img class="f1" src="../assets/coinmahjong/tile-face-b1.svg" alt="" loading="lazy" />
-          <b>1</b>
-        </span>
-      </section>
-
-      <!-- Band C: dark phones, copy overlays, nav pills, streak card -->
-      <section class="cm-band cm-c" aria-label="Lobby, profile and rewards" data-gsap-reveal>
         <img class="cm-phone-menu" src="../assets/coinmahjong/mobile-menu.webp" alt="Friend information screen on a dark themed phone" loading="lazy" decoding="async" />
-        <img class="cm-phone-action" src="../assets/coinmahjong/mobile-action.webp" alt="Lobby list screen on a tilted dark phone" loading="lazy" decoding="async" />
-        <span class="cm-phone3" aria-hidden="true">
-          <img class="cm-phone3-screen" src="../assets/coinmahjong/phone3-screen.webp" alt="" loading="lazy" decoding="async" />
-          <img class="cm-phone3-frame" src="../assets/coinmahjong/phone3-frame.webp" alt="" loading="lazy" decoding="async" />
-        </span>
+        <img class="cm-phone-action" src="../assets/coinmahjong/fl-phone-action.webp" alt="Lobby list screen on a tilted dark phone" loading="lazy" decoding="async" />
+        <img class="cm-phone-room" src="../assets/coinmahjong/fl-phone-room.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" />
 
+        <img class="cm-tile-g" src="../assets/coinmahjong/fl-tile-g.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" />
+        <img class="cm-pill-home" src="../assets/coinmahjong/nav-home.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" />
+        <img class="cm-pill-lobby" src="../assets/coinmahjong/fl-pill-lobby.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" />
+        <img class="cm-pill-tournament" src="../assets/coinmahjong/fl-pill-tournament.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" />
+        <img class="cm-pill-friend" src="../assets/coinmahjong/fl-pill-friend.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" />
+        <img class="cm-streak" src="../assets/coinmahjong/streak.webp" alt="3 days streak reward card with progress from day 1 to day 7" loading="lazy" decoding="async" />
+        <img class="cm-tile-n" src="../assets/coinmahjong/fl-tile-n.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" />
+
+        <div class="cm-copy-overlay cm-copy-1">
+          <h2>Designing a lighter way into online mahjong</h2>
+          <p>
+            Transforms a complex tabletop game into a friendly digital experience with warm 3D room
+            cards, large touch targets, and clear mode choices, helping players feel oriented before
+            entering a game. The interface balances quick casual play with clear structure for room
+            types, tournaments, friends, progress rewards, and live table info.
+          </p>
+        </div>
         <div class="cm-copy-overlay cm-copy-2">
           <h2>Readable gameplay at table scale</h2>
           <p>
@@ -160,36 +134,6 @@
             feeling alive without making the interface noisy.
           </p>
         </div>
-
-        <span class="cm-tile cm-tile-g" aria-hidden="true">
-          <img class="f1" src="../assets/coinmahjong/tile-face-green.svg" alt="" loading="lazy" />
-          <b>G</b>
-        </span>
-
-        <img class="cm-pill cm-pill-home" src="../assets/coinmahjong/nav-home.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" />
-        <span class="cm-pill cm-pill-lobby" aria-hidden="true">
-          <span class="cm-pill-plate"><img src="../assets/coinmahjong/pill-plate-green.webp" alt="" loading="lazy" /></span>
-          <img class="cm-pill-icon" src="../assets/coinmahjong/pill-icon-lobby.webp" alt="" loading="lazy" />
-          <span class="cm-pill-label">Lobby</span>
-        </span>
-        <span class="cm-pill cm-pill-tournament" aria-hidden="true">
-          <span class="cm-pill-plate"></span>
-          <img class="cm-pill-icon" src="../assets/coinmahjong/pill-icon-tournament.webp" alt="" loading="lazy" />
-          <span class="cm-pill-label">Tournament</span>
-        </span>
-        <span class="cm-pill cm-pill-friend" aria-hidden="true">
-          <span class="cm-pill-plate"></span>
-          <img class="cm-pill-icon" src="../assets/coinmahjong/pill-icon-friend.webp" alt="" loading="lazy" />
-          <span class="cm-pill-label">Friend</span>
-        </span>
-
-        <img class="cm-streak" src="../assets/coinmahjong/streak.webp" alt="3 days streak reward card with progress from day 1 to day 7" loading="lazy" decoding="async" />
-
-        <span class="cm-tile cm-tile-n" aria-hidden="true">
-          <img class="f1" src="../assets/coinmahjong/tile-face-north.svg" alt="" loading="lazy" />
-          <b>N</b>
-        </span>
-
         <div class="cm-copy-overlay cm-copy-3">
           <h2>Tablet experience for a complete table view</h2>
           <p>
@@ -201,8 +145,8 @@
       </section>
 
       <!-- Tablet band -->
-      <section class="cm-tablet" data-gsap-reveal>
-        <img src="../assets/coinmahjong/tablet-hands.webp" alt="Hands holding a tablet showing the full CoinMahjong table view" loading="lazy" decoding="async" />
+      <section class="cm-band cm-tablet" aria-label="Tablet table view held in hands" data-gsap-reveal>
+        <img src="../assets/coinmahjong/fl-tablet.webp" alt="Hands holding a tablet showing the full CoinMahjong table view" loading="lazy" decoding="async" />
       </section>
     </main>
 
