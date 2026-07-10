@@ -186,6 +186,7 @@
     });
 
     mm.add("(prefers-reduced-motion: no-preference)", () => {
+      const isBestWallet = document.body.classList.contains("best-nav-experiment");
       const heroItems = [".case-hero__intro > *", ".case-hero__media"];
       const startsScrolled = window.scrollY > 24;
       gsap.set(heroItems, startsScrolled ? { autoAlpha: 1, y: 0 } : { autoAlpha: 0 });
@@ -209,7 +210,7 @@
       // Magnetic pull: clickable text drifts toward the cursor, springs back on leave.
       if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
         const magnets = document.querySelectorAll(
-          ".portfolio-nav__brand, .portfolio-nav__link, .case-footer__brand, .case-footer__links a"
+          ".case-footer__brand, .case-footer__links a"
         );
         magnets.forEach((el) => {
           const xTo = gsap.quickTo(el, "x", { duration: 0.4, ease: "power3.out" });
@@ -252,9 +253,11 @@
           });
         };
 
-        gsap.utils.toArray(".case-hero__media").forEach((el) => {
-          bindMediaMagnet(el, { scale: null, strength: 0.014, maxMove: 5 });
-        });
+        if (!isBestWallet) {
+          gsap.utils.toArray(".case-hero__media").forEach((el) => {
+            bindMediaMagnet(el, { scale: null, strength: 0.014, maxMove: 5 });
+          });
+        }
 
         gsap.utils.toArray(".case-media-card").forEach((el) => {
           bindMediaMagnet(el, { scale: 1.035, strength: 0.03, maxMove: 8 });
@@ -320,14 +323,14 @@
           ".case-hero__media",
           { scale: 1, force3D: true },
           {
-            scale: 1.045,
+            scale: isBestWallet ? 1.02 : 1.045,
             force3D: true,
             ease: "none",
             scrollTrigger: {
               trigger: ".case-hero",
               start: "top top",
-              end: "+=360",
-              scrub: 0.8,
+              end: isBestWallet ? "+=520" : "+=360",
+              scrub: isBestWallet ? 1.4 : 0.8,
             },
           }
         );
