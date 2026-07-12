@@ -10,6 +10,8 @@
     }
 
     let dragState = null;
+    let inertiaFrame = 0;
+    const hasInertia = document.body.classList.contains("best-nav-experiment");
 
     const getLoopDistance = () => {
       const styles = window.getComputedStyle(track);
@@ -66,6 +68,39 @@
 
     const getClientX = (event) => event.touches?.[0]?.clientX ?? event.clientX;
 
+    const resumeAnimation = ({ currentOffset, distance, duration }) => {
+      const progress = Math.min(Math.max((-currentOffset || 0) / distance, 0), 1);
+      viewport.classList.remove("is-dragging");
+      track.style.animation = "";
+      track.style.animationDelay = `${progress * duration * -1}ms`;
+      track.style.transform = "";
+    };
+
+    const startInertia = (state) => {
+      let velocity = Math.max(-1.8, Math.min(1.8, state.velocity));
+      let offset = state.currentOffset;
+      let previousTime = performance.now();
+
+      const tick = (time) => {
+        const deltaTime = Math.min(time - previousTime, 32);
+        previousTime = time;
+        offset = wrapOffset(offset + velocity * deltaTime, state.distance);
+        velocity *= Math.pow(0.92, deltaTime / 16.67);
+        track.style.transform = `translate3d(${offset}px, 0, 0)`;
+
+        if (Math.abs(velocity) > 0.018) {
+          inertiaFrame = requestAnimationFrame(tick);
+          return;
+        }
+
+        inertiaFrame = 0;
+        resumeAnimation({ ...state, currentOffset: offset });
+      };
+
+      viewport.classList.remove("is-dragging");
+      inertiaFrame = requestAnimationFrame(tick);
+    };
+
     const endDrag = (event) => {
       if (!dragState) {
         return;
@@ -75,12 +110,14 @@
         viewport.releasePointerCapture?.(event.pointerId);
       }
 
-      const progress = Math.min(Math.max((-dragState.currentOffset || 0) / dragState.distance, 0), 1);
-      viewport.classList.remove("is-dragging");
-      track.style.animation = "";
-      track.style.animationDelay = `${progress * dragState.duration * -1}ms`;
-      track.style.transform = "";
+      const completedDrag = dragState;
       dragState = null;
+
+      if (hasInertia && Math.abs(completedDrag.velocity) > 0.04) {
+        startInertia(completedDrag);
+      } else {
+        resumeAnimation(completedDrag);
+      }
     };
 
     const startDrag = (event) => {
@@ -96,6 +133,11 @@
         return;
       }
 
+      if (inertiaFrame) {
+        cancelAnimationFrame(inertiaFrame);
+        inertiaFrame = 0;
+      }
+
       viewport.setPointerCapture?.(event.pointerId);
       viewport.classList.add("is-dragging");
       const startOffset = wrapOffset(getTrackX(), distance);
@@ -106,8 +148,11 @@
         duration,
         pointerId: event.pointerId,
         currentOffset: startOffset,
+        lastTime: performance.now(),
+        lastX: clientX,
         startOffset,
         startX: clientX,
+        velocity: 0,
       };
     };
 
@@ -123,6 +168,12 @@
       }
 
       const deltaX = clientX - dragState.startX;
+      const now = performance.now();
+      const deltaTime = Math.max(now - dragState.lastTime, 1);
+      const instantVelocity = (clientX - dragState.lastX) / deltaTime;
+      dragState.velocity = dragState.velocity * 0.65 + instantVelocity * 0.35;
+      dragState.lastX = clientX;
+      dragState.lastTime = now;
       dragState.currentOffset = wrapOffset(dragState.startOffset + deltaX, dragState.distance);
       track.style.transform = `translate3d(${dragState.currentOffset}px, 0, 0)`;
     };
@@ -147,11 +198,7 @@
         return;
       }
 
-      const progress = Math.min(Math.max((-dragState.currentOffset || 0) / dragState.distance, 0), 1);
-      viewport.classList.remove("is-dragging");
-      track.style.animation = "";
-      track.style.animationDelay = `${progress * dragState.duration * -1}ms`;
-      track.style.transform = "";
+      resumeAnimation(dragState);
       dragState = null;
     });
   };

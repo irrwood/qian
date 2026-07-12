@@ -638,4 +638,269 @@
   .legacy-flow__media--phone video {
     border-radius: 12px;
   }
+
+  /* Copper contains unusually long headings and dense explanatory copy.
+     Keep iOS Safari from independently inflating individual text blocks. */
+  .legacy-project--copper {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  .legacy-project--copper .legacy-flow {
+    width: 100%;
+    min-width: 0;
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+
+  .legacy-project--copper .legacy-flow__copy {
+    width: 100%;
+    min-width: 0;
+    max-width: none;
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+  .legacy-project--copper .legacy-flow__media,
+  .legacy-project--copper .legacy-compare,
+  .legacy-project--copper .legacy-ios-gallery {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .legacy-project--copper .legacy-ios-gallery {
+    display: flex;
+    width: 100%;
+    gap: 12px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 14px;
+    scroll-padding-inline: 14px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-inline: contain;
+    scrollbar-width: none;
+  }
+
+  .legacy-project--copper .legacy-ios-gallery::-webkit-scrollbar {
+    display: none;
+  }
+
+  .legacy-project--copper .legacy-ios-gallery__item {
+    flex: 0 0 clamp(132px, 42vw, 168px);
+    scroll-snap-align: start;
+  }
+
+  .legacy-project--copper .legacy-ios-gallery__item img {
+    width: 100%;
+    height: auto;
+  }
+
+  .legacy-project--copper .legacy-hero__summary,
+  .legacy-project--copper .legacy-flow__copy p,
+  .legacy-project--copper .legacy-flow__copy li {
+    font-size: 15px;
+    line-height: 1.62;
+    overflow-wrap: anywhere;
+  }
+
+  .legacy-project--copper .legacy-flow__copy h2,
+  .legacy-project--copper .legacy-flow__copy h3 {
+    font-size: clamp(21px, 6.4vw, 24px);
+    line-height: 1.28;
+    letter-spacing: -0.015em;
+    overflow-wrap: anywhere;
+    text-wrap: balance;
+  }
+
+  .legacy-project--copper .legacy-flow__copy h4 {
+    font-size: 18px;
+    line-height: 1.4;
+  }
+
+  .legacy-project--picture-video {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  .legacy-project--picture-video .legacy-flow {
+    width: 100%;
+    min-width: 0;
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+
+  .legacy-project--picture-video .legacy-flow__copy {
+    width: 100%;
+    min-width: 0;
+    max-width: none;
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+  .legacy-project--picture-video .legacy-flow__copy p,
+  .legacy-project--picture-video .legacy-flow__copy li {
+    font-size: 15px;
+    line-height: 1.62;
+    overflow-wrap: anywhere;
+  }
+
+  .legacy-project--picture-video .legacy-flow__copy h4 {
+    font-size: 18px;
+    line-height: 1.4;
+  }
+
+  .legacy-project--picture-video .legacy-flow__media,
+  .legacy-project--picture-video .legacy-flow__media-pair {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .legacy-project--behaviour-change {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  .legacy-project--behaviour-change .legacy-flow {
+    width: 100%;
+    min-width: 0;
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+
+  .legacy-project--behaviour-change .legacy-flow__copy {
+    width: 100%;
+    min-width: 0;
+    max-width: none;
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+  .legacy-project--behaviour-change .legacy-flow__copy p,
+  .legacy-project--behaviour-change .legacy-flow__copy li {
+    font-size: 15px;
+    line-height: 1.62;
+    overflow-wrap: anywhere;
+  }
+
+  .legacy-project--behaviour-change .legacy-flow__copy h2,
+  .legacy-project--behaviour-change .legacy-flow__copy h3 {
+    font-size: clamp(21px, 6.4vw, 24px);
+    line-height: 1.28;
+    overflow-wrap: anywhere;
+    text-wrap: balance;
+  }
+
+  .legacy-project--behaviour-change .legacy-flow__copy h4 {
+    font-size: 18px;
+    line-height: 1.4;
+  }
+
+  .legacy-project--behaviour-change .legacy-flow__media,
+  .legacy-project--behaviour-change .legacy-flow__media-pair {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .legacy-project--eui {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  .legacy-project--eui .legacy-flow {
+    width: 100%;
+    min-width: 0;
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+
+  .legacy-project--eui .legacy-flow__copy {
+    width: 100%;
+    min-width: 0;
+    max-width: none;
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+  .legacy-project--eui .legacy-flow__copy p,
+  .legacy-project--eui .legacy-flow__copy li {
+    font-size: 15px;
+    line-height: 1.62;
+    overflow-wrap: anywhere;
+  }
+
+  .legacy-project--eui .legacy-flow__copy h2,
+  .legacy-project--eui .legacy-flow__copy h3 {
+    font-size: clamp(21px, 6.4vw, 24px);
+    line-height: 1.28;
+    overflow-wrap: anywhere;
+    text-wrap: balance;
+  }
+
+  .legacy-project--eui .legacy-flow__copy h4 {
+    font-size: 18px;
+    line-height: 1.4;
+  }
+
+  .legacy-project--eui .legacy-flow__media,
+  .legacy-project--eui .legacy-flow__media-pair {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .legacy-project--service-spectacles,
+  .legacy-project--memo {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  .legacy-project--service-spectacles .legacy-flow,
+  .legacy-project--memo .legacy-flow {
+    width: 100%;
+    min-width: 0;
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+
+  .legacy-project--service-spectacles .legacy-flow__copy,
+  .legacy-project--memo .legacy-flow__copy {
+    width: 100%;
+    min-width: 0;
+    max-width: none;
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+  .legacy-project--service-spectacles .legacy-flow__copy p,
+  .legacy-project--service-spectacles .legacy-flow__copy li,
+  .legacy-project--memo .legacy-flow__copy p,
+  .legacy-project--memo .legacy-flow__copy li {
+    font-size: 15px;
+    line-height: 1.62;
+    overflow-wrap: anywhere;
+  }
+
+  .legacy-project--service-spectacles .legacy-flow__copy h2,
+  .legacy-project--service-spectacles .legacy-flow__copy h3,
+  .legacy-project--memo .legacy-flow__copy h2,
+  .legacy-project--memo .legacy-flow__copy h3 {
+    font-size: clamp(21px, 6.4vw, 24px);
+    line-height: 1.28;
+    overflow-wrap: anywhere;
+    text-wrap: balance;
+  }
+
+  .legacy-project--service-spectacles .legacy-flow__copy h4,
+  .legacy-project--memo .legacy-flow__copy h4 {
+    font-size: 18px;
+    line-height: 1.4;
+  }
+
+  .legacy-project--service-spectacles .legacy-flow__media,
+  .legacy-project--service-spectacles .legacy-flow__media-pair,
+  .legacy-project--memo .legacy-flow__media,
+  .legacy-project--memo .legacy-flow__media-pair {
+    min-width: 0;
+    max-width: 100%;
+  }
 }
