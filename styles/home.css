@@ -196,6 +196,7 @@ a {
   align-items: center;
   justify-content: center;
   padding: 14px 22px;
+  border: 0;
   border-radius: 64px;
   background: var(--soft);
   color: var(--ink);
@@ -203,10 +204,15 @@ a {
   font-weight: 600;
   line-height: var(--leading-ui);
   letter-spacing: -0.022em;
+  cursor: pointer;
   transition:
     background-color 180ms ease,
     color 180ms ease,
     transform 180ms ease;
+}
+
+.pill--playground {
+  margin-left: auto;
 }
 
 .pill:hover {
@@ -645,6 +651,10 @@ a.project-card {
     padding: 10px 14px;
     font-size: 13px;
     line-height: var(--leading-ui);
+  }
+
+  .pill--playground {
+    margin-left: 0;
   }
 
   .projects,

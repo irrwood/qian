@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vibe Playground - Qian Zhao</title>
+    <meta
+      name="description"
+      content="Qian Zhao's vibe coding playground — small ideas, playful prototypes, and experiments."
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="https://cdn.prod.website-files.com/61df1511efa778a02b260c1c/61e1f174f4a5e11f9a74e916_ICO32%402x.png"
+    />
+    <link rel="stylesheet" href="../styles/tokens.css" />
+    <link rel="stylesheet" href="../styles/playground.css" />
+    <script defer src="../scripts/playground.js"></script>
+  </head>
+  <body class="playground-page">
+    <main
+      class="playground"
+      data-infinite-canvas
+      tabindex="0"
+      aria-labelledby="playground-title"
+      aria-describedby="playground-instructions"
+    >
+      <a class="playground__back" href="../index.html" aria-label="Back to portfolio home">Back</a>
+
+      <div class="playground__grid" aria-hidden="true"></div>
+
+      <div class="playground__world" data-canvas-world>
+        <img class="playground__glow" src="../assets/playground/glow.svg" alt="" aria-hidden="true" draggable="false" />
+
+        <header class="playground__title">
+          <p>Vibe coding</p>
+          <h1 id="playground-title">Playground</h1>
+        </header>
+
+        <a
+          class="playground__card playground__card--linked playground__card--catfolio"
+          href="https://github.com/irrwood/catfolio"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Open CatFolio on GitHub"
+        >
+          <img
+            class="playground__preview"
+            src="../assets/playground/catfolio.png"
+            alt="CatFolio"
+            draggable="false"
+          />
+          <img class="playground__send" src="../assets/playground/send.svg" alt="" aria-hidden="true" draggable="false" />
+        </a>
+
+        <a
+          class="playground__card playground__card--linked playground__card--steamos"
+          href="https://github.com/irrwood/SteamOSuse"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Open SteamOS use on GitHub"
+        >
+          <img
+            class="playground__preview"
+            src="../assets/playground/steamos-use.png"
+            alt="SteamOS use"
+            draggable="false"
+          />
+          <img class="playground__send" src="../assets/playground/send.svg" alt="" aria-hidden="true" draggable="false" />
+        </a>
+
+        <a
+          class="playground__card playground__card--linked playground__card--catfill"
+          href="https://chromewebstore.google.com/detail/catfill-ai-form-autofill/dgkinncnpdfmfmhkgljkocnefdgohmgp?utm_source=ext_app_menu"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Open CatFill in the Chrome Web Store"
+        >
+          <img
+            class="playground__preview"
+            src="../assets/playground/browser-card.png"
+            alt="A minimal browser interface experiment"
+            draggable="false"
+          />
+          <img class="playground__send" src="../assets/playground/send.svg" alt="" aria-hidden="true" draggable="false" />
+        </a>
+      </div>
+
+      <p class="visually-hidden" id="playground-instructions">
+        Drag or use a trackpad to move around the canvas. Pinch or hold Control or Command while scrolling to zoom. Press 0 to reset the view.
+      </p>
+    </main>
+  </body>
+</html>
