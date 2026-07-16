@@ -109,6 +109,10 @@
   border-top: 0;
 }
 
+.legacy-project--memo .legacy-flow {
+  border-top: 0;
+}
+
 .legacy-flow__copy {
   width: var(--copy-max);
   max-width: calc(100% - 48px);
