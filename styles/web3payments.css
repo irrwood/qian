@@ -1,0 +1,166 @@
+.legacy-project--web3payments {
+  --web3-surface: var(--brand-soft);
+  --web3-line: var(--brand-line);
+  --web3-ink: var(--brand-ink);
+  --web3-muted: var(--brand-muted);
+}
+
+.legacy-project--web3payments .legacy-flow {
+  border-top: 0;
+}
+
+.web3-hero-media {
+  overflow: hidden;
+  border-radius: 20px;
+  background: var(--web3-surface);
+}
+
+.web3-hero-media img {
+  display: block;
+}
+
+.web3-intro h2 {
+  max-width: 650px;
+}
+
+.legacy-project--web3payments .legacy-flow__copy p + h3,
+.legacy-project--web3payments .legacy-flow__copy ul + h3 {
+  margin-top: 32px;
+}
+
+.legacy-project--web3payments .legacy-flow__copy h3 {
+  margin-bottom: 14px;
+  font-size: 20px;
+  line-height: 30px;
+}
+
+.web3-kicker {
+  margin-bottom: 12px !important;
+  color: var(--case-accent) !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.web3-overview {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  width: min(100%, 980px);
+  margin: 0 auto;
+  border-top: 1px solid var(--web3-line);
+  border-bottom: 1px solid var(--web3-line);
+}
+
+.web3-overview div {
+  display: grid;
+  gap: 8px;
+  padding: 24px 28px;
+}
+
+.web3-overview div + div {
+  border-left: 1px solid var(--web3-line);
+}
+
+.web3-overview span {
+  color: var(--web3-muted);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.web3-overview strong {
+  color: var(--web3-ink);
+  font-size: 15px;
+  line-height: 1.45;
+}
+
+.web3-media {
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.web3-media img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  background: transparent;
+}
+
+.web3-media--compact {
+  width: min(920px, 100%);
+}
+
+.web3-destinations {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 225px));
+  justify-content: center;
+  gap: clamp(18px, 3vw, 36px);
+  width: min(500px, calc(100% - 48px));
+  min-width: 0;
+  margin: 0 auto;
+}
+
+.web3-destinations figure {
+  width: 100%;
+  margin: 0;
+}
+
+.web3-destinations img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.web3-chart-pair {
+  width: min(100%, 1180px);
+}
+
+.web3-chart-pair .web3-media {
+  margin: 0;
+}
+
+.web3-formula {
+  margin-top: 28px !important;
+  padding-top: 18px;
+  border-top: 1px solid var(--web3-line);
+  color: var(--web3-ink) !important;
+  font-weight: 650 !important;
+  text-align: center;
+}
+
+.web3-outcome {
+  margin-bottom: clamp(32px, 7vw, 96px);
+  padding-top: clamp(28px, 4vw, 48px);
+  border-top: 1px solid var(--web3-line);
+}
+
+@media (max-width: 700px) {
+  .web3-overview {
+    grid-template-columns: 1fr;
+  }
+
+  .web3-overview div {
+    padding: 18px 0;
+  }
+
+  .web3-overview div + div {
+    border-top: 1px solid var(--web3-line);
+    border-left: 0;
+  }
+
+  .web3-chart-pair {
+    grid-template-columns: 1fr;
+  }
+
+  .web3-chart-pair .web3-media {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .web3-outcome {
+    max-width: calc(100% - 32px);
+    margin-inline: auto;
+  }
+}

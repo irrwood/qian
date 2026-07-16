@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web3Payments - Qian Zhao Portfolio</title>
+    <meta name="description" content="A Web3Payments analytics dashboard case study that helps teams understand presale performance, diagnose growth, and take action." />
+    <link rel="icon" type="image/png" href="https://cdn.prod.website-files.com/61df1511efa778a02b260c1c/61e1f174f4a5e11f9a74e916_ICO32%402x.png" />
+    <script>document.documentElement.classList.add("case-motion-pending");</script>
+    <link rel="stylesheet" href="../styles/tokens.css" />
+    <link rel="stylesheet" href="../styles/case-study.css" />
+    <link rel="stylesheet" href="../styles/webflow-project.css" />
+    <link rel="stylesheet" href="../styles/web3payments.css" />
+    <script defer src="../assets/vendor/gsap.min.js"></script>
+    <script defer src="../assets/vendor/ScrollTrigger.min.js"></script>
+    <script defer src="../scripts/webflow-project.js"></script>
+    <script defer src="../scripts/hero-rays.js"></script>
+    <script defer src="../scripts/magnetic-nav.js"></script>
+    <script defer src="../scripts/london-status.js"></script>
+    <script defer src="../scripts/best-nav-experiment.js"></script>
+  </head>
+  <body>
+    <header class="portfolio-nav" aria-label="Portfolio navigation">
+      <div class="portfolio-nav__blur" aria-hidden="true"><div></div><div></div><div></div><div></div><div></div><div></div></div>
+      <div class="portfolio-nav__inner">
+        <a class="portfolio-nav__brand" href="../index.html" aria-label="Qian Zhao portfolio home">Qian Zhao</a>
+        <nav class="portfolio-nav__links" aria-label="Main navigation">
+          <a class="portfolio-nav__link" href="../index.html"><span class="portfolio-nav__link-label">Work</span></a>
+          <a class="portfolio-nav__link" href="./resume.html"><span class="portfolio-nav__link-label">Resume</span></a>
+          <a class="portfolio-nav__link" href="./about.html"><span class="portfolio-nav__link-label">About Me</span></a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="legacy-project legacy-project--web3payments">
+      <section class="legacy-hero" aria-labelledby="project-title">
+        <div class="legacy-hero__copy">
+          <p class="legacy-hero__eyebrow">Product Design / SaaS / Web3</p>
+          <h1 id="project-title" data-gsap-reveal>Web3Payments</h1>
+          <p class="legacy-hero__summary" data-gsap-reveal>Redesigning presale analytics so teams can detect changes, investigate causes, and decide what to do next.</p>
+          <div class="legacy-hero__meta" aria-label="Project tags" data-gsap-reveal>
+            <span>Product Design</span>
+            <span>SaaS</span>
+            <span>Web3</span>
+          </div>
+        </div>
+        <figure class="legacy-hero__media web3-hero-media" data-gsap-reveal>
+          <img src="../assets/home/web3payments.png" alt="Web3Payments analytics dashboard displayed on a laptop" />
+        </figure>
+      </section>
+
+      <section class="legacy-flow" aria-label="Web3Payments project story">
+        <section class="legacy-flow__copy web3-intro" data-gsap-reveal>
+          <p class="web3-kicker">Background</p>
+          <h2>From seeing the numbers to understanding what happened</h2>
+          <p>A dashboard can contain dozens of metrics and still leave users unsure about what to do next.</p>
+          <p>The team already had extensive presale data, including visits, wallet connections, transactions, revenue, and country performance. But that data was scattered across tools, spreadsheets, and admin systems. Bringing it into one dashboard would not automatically help users understand what was happening—or tell them what to do next.</p>
+          <p>So I did not define the goal as “design a dashboard that shows more data.” I reframed it as: how might we help teams quickly detect change, understand its cause, and identify the next action worth taking?</p>
+          <h3>My contribution</h3>
+          <p>As Lead Product Designer, I defined the analytics information architecture, grouped the core business metrics, designed the Dashboard Overview and Marketing &amp; Performance experience, and translated the model into the final interface. This case study focuses on the dashboard and analytics scope of the wider Web3Payments product.</p>
+        </section>
+        <figure class="legacy-flow__media web3-media" data-gsap-reveal>
+          <img loading="lazy" decoding="async" src="../assets/web3payments/dashboard-overview.png" alt="Web3Payments Dashboard Overview and Marketing and Performance analytics screens" />
+        </figure>
+        <section class="legacy-flow__copy web3-intro" data-gsap-reveal>
+          <h3>Designed for a live presale environment</h3>
+          <p>A token presale is not a static marketing campaign. Fundraising performance can change rapidly in response to market activity, campaigns, community announcements, payment issues, or shifts in participant behaviour.</p>
+          <p>The dashboard therefore needed to support recurring questions: How much has the project raised? Is fundraising accelerating or slowing down? Are people visiting without completing a purchase? Are wallet connections converting into transactions? Is the current round on track? Which markets are generating meaningful participation? Does a sudden change require investigation?</p>
+          <p>I treated the dashboard not as a collection of reports, but as an operational overview for a team managing an active sale.</p>
+          <h3>Different teams watch different signals</h3>
+          <p>Founders care about fundraising health and round progress. Marketing teams need to know which regions and channels produce buyers. Operations teams need to locate transaction anomalies, wallet connection issues, and conversion drops.</p>
+          <p>Putting everything on one page would create a dense dashboard without a clear path through the information.</p>
+        </section>
+
+        <section class="legacy-flow__copy" data-gsap-reveal>
+          <p class="web3-kicker">01 / Information Architecture</p>
+          <h2>Overview first, explanation second</h2>
+          <p>I split the analytics experience into two levels: Dashboard Overview for quickly judging overall business health, and Marketing &amp; Performance for investigating conversion issues, comparing market efficiency, and finding growth opportunities.</p>
+          <p>This was not simply a page structure. It reflected two distinct cognitive tasks: Overview helps users detect a signal; Performance helps them explain it.</p>
+          <h3>Design principles</h3>
+          <ul>
+            <li>Put the most important outcome metrics at the top to answer, “How is the presale progressing?”</li>
+            <li>Use consistent time ranges and filtering logic to prevent misleading comparisons.</li>
+            <li>Move supporting detail into deeper analysis instead of overloading the overview.</li>
+          </ul>
+        </section>
+        <div class="web3-destinations" data-gsap-reveal aria-label="Two levels of product analytics">
+          <figure>
+            <img loading="lazy" decoding="async" src="../assets/web3payments/dashboard.png" alt="Dashboard entry point" />
+          </figure>
+          <figure>
+            <img loading="lazy" decoding="async" src="../assets/web3payments/marketing-performance.png" alt="Marketing and Performance entry point" />
+          </figure>
+        </div>
+        <section class="legacy-flow__copy" data-gsap-reveal>
+          <h3>Helping users assess overall status in seconds</h3>
+          <p>I placed the most important outcome metrics at the top because they answer the first question most users ask: “How is the presale progressing?”</p>
+          <p>This layout lets users scan the current state within seconds, then decide whether a deeper investigation is needed.</p>
+        </section>
+        <figure class="legacy-flow__media web3-media" data-gsap-reveal>
+          <img loading="lazy" decoding="async" src="../assets/web3payments/overview-metrics.png" alt="Fundraising, transaction, and visitor metrics in the Web3Payments overview" />
+        </figure>
+        <section class="legacy-flow__copy" data-gsap-reveal>
+          <p class="web3-kicker">02 / Revenue &amp; Transactions</p>
+          <h2>Connecting growth outcomes to their causes</h2>
+          <p>Revenue can rise because more users complete a purchase, average transaction value increases, a few large transactions occur, or a particular market or campaign suddenly grows. Cumulative revenue alone tells the team that growth happened, but not how it happened.</p>
+          <p>I therefore placed Project Revenue and Transactions side by side, with consistent time ranges, aggregation, and filters. Keeping the charts separate reduces reading complexity while preserving comparison, helping the team see whether a revenue peak came from many purchases or a small number of high-value transactions.</p>
+          <h3>Why two charts instead of one</h3>
+          <p>Revenue represents financial value; transactions represent buying activity. Combining them would save space but make the chart harder to read and blur the meaning of each measure. Separate charts preserve their individual semantics while consistent controls make comparison straightforward.</p>
+          <p class="web3-formula">Revenue = Transactions × Average Transaction Value</p>
+        </section>
+        <div class="legacy-flow__media-pair web3-chart-pair" data-gsap-reveal>
+          <figure class="legacy-flow__media web3-media">
+            <img loading="lazy" decoding="async" src="../assets/web3payments/project-revenue.png" alt="Project Revenue trend chart" />
+          </figure>
+          <figure class="legacy-flow__media web3-media">
+            <img loading="lazy" decoding="async" src="../assets/web3payments/transactions.png" alt="Transactions volume chart" />
+          </figure>
+        </div>
+
+        <section class="legacy-flow__copy" data-gsap-reveal>
+          <p class="web3-kicker">03 / Conversion Funnel</p>
+          <h2>A wallet connection is not success—it is a stage in the purchase journey</h2>
+          <p>Connecting a wallet is often treated as a high-intent signal, but a connection is not the same as a completed purchase. Users may leave because they selected the wrong network, lack sufficient funds, encounter an unclear flow, or experience a failed transaction.</p>
+          <p>In Overview, I placed Wallet Connections beside Conversion Rate. In the deeper analysis, I completed the funnel: Visitors → Wallet Connections → Unique Buyers. This helps the team determine whether the problem occurs between visiting and connecting, or between connecting and purchasing.</p>
+          <h3>The diagnostic value of the funnel</h3>
+          <p>If visitor-to-wallet conversion is low, the problem is more likely to be traffic quality, value communication, or the connection flow. If wallet-to-purchase conversion is low, the team should investigate network selection, insufficient balances, transaction failures, and unclear purchase steps.</p>
+        </section>
+        <figure class="legacy-flow__media web3-media" data-gsap-reveal>
+          <img loading="lazy" decoding="async" src="../assets/web3payments/wallet-conversion.png" alt="Wallet connection trends, conversion rate, and round target" />
+        </figure>
+
+        <section class="legacy-flow__copy" data-gsap-reveal>
+          <p class="web3-kicker">04 / Market Performance</p>
+          <h2>Focus on conversion efficiency, not only traffic volume</h2>
+          <p>Absolute traffic allows large markets to dominate attention and can hide smaller, higher-quality opportunities. I coloured countries by relative efficiency, comparing each market’s conversion rate with the overall average and grouping performance into High, Normal, Low Efficiency, and No Buyer Conversion.</p>
+          <p>The map no longer asks, “Where are the most people?” It asks, “Where is performance better or worse than expected?” The team can scale efficient markets and identify underperforming ones that need attention.</p>
+          <h3>How it is calculated</h3>
+          <p>The system compares each country’s purchase conversion rate with the project average. A market above 1.5× the average is marked High Efficiency; 0.7–1.5× is Normal; below 0.7× is Low Efficiency; markets with traffic but no buyers are shown separately. If the overall rate is 5% and a country converts at 10%, that market performs 2× better than average.</p>
+        </section>
+        <figure class="legacy-flow__media web3-media" data-gsap-reveal>
+          <img loading="lazy" decoding="async" src="../assets/web3payments/geographic-efficiency.png" alt="World map showing country performance by relative conversion efficiency" />
+        </figure>
+
+        <section class="legacy-flow__copy" data-gsap-reveal>
+          <p class="web3-kicker">05 / Prioritisation Model</p>
+          <h2>Turning market signals into priorities</h2>
+          <p>No single metric can show whether a market deserves investment. I combined traffic scale and revenue contribution in a two-dimensional model: high-traffic, high-revenue core markets should continue to scale; high-traffic, low-revenue markets need conversion improvements; low-traffic, high-revenue markets are opportunities to explore; and markets low on both dimensions should remain under observation.</p>
+          <p>This is a prioritisation matrix rather than a predictive score. It gives teams a shared language for deciding where to scale, investigate, test, or simply monitor.</p>
+          <h3>Four market types and corresponding actions</h3>
+          <ul>
+            <li><strong>Core Markets:</strong> high traffic and high revenue; continue scaling while maintaining conversion quality.</li>
+            <li><strong>Hidden Gems:</strong> lower traffic but strong revenue efficiency; test further and expand acquisition.</li>
+            <li><strong>Underperforming:</strong> high traffic but weak revenue efficiency; prioritise the landing page and purchase funnel.</li>
+            <li><strong>Low Priority:</strong> low traffic and low revenue contribution; monitor rather than prioritise investment.</li>
+          </ul>
+        </section>
+        <figure class="legacy-flow__media web3-media web3-media--compact" data-gsap-reveal>
+          <img loading="lazy" decoding="async" src="../assets/web3payments/market-value-score.png" alt="Two-dimensional model evaluating market value by traffic and revenue share" />
+        </figure>
+
+        <section class="legacy-flow__copy" data-gsap-reveal>
+          <p class="web3-kicker">06 / Key Design Trade-offs</p>
+          <h2>What I deliberately left out</h2>
+          <ul>
+            <li><strong>Every metric in Overview:</strong> this sacrifices completeness at first glance, but reduces cognitive load and creates a clearer investigation sequence.</li>
+            <li><strong>A single combined revenue chart:</strong> separate charts take more space, but preserve meaning and make comparison easier.</li>
+            <li><strong>Absolute traffic on the market map:</strong> relative efficiency is less immediately familiar, but better supports budget and market decisions.</li>
+          </ul>
+        </section>
+
+        <section class="legacy-flow__copy web3-outcome" data-gsap-reveal>
+          <p class="web3-kicker">Outcome &amp; Reflection</p>
+          <h2>A clearer path from signal to action</h2>
+          <p>The final system separates rapid monitoring from deeper investigation. Dashboard Overview surfaces fundraising health, transaction trends, wallet participation, round progress, and geographic signals. Marketing &amp; Performance provides the evidence needed to investigate conversion, country efficiency, and market priority.</p>
+          <p>The design outcome is a coherent analytics model and a high-fidelity interface. This case study does not claim post-launch business impact because production adoption and performance metrics are not included here.</p>
+          <h3>What I learned</h3>
+          <p>The hardest part was not drawing the charts; it was defining the relationships between them. The work shifted from displaying more metrics to deciding:</p>
+          <ul>
+            <li>Which metrics should appear together</li>
+            <li>Which information should be seen first</li>
+            <li>How an anomaly connects to underlying evidence</li>
+            <li>How an analytical result becomes a next action</li>
+          </ul>
+          <p>The dashboard therefore does more than report what happened. It gives the team a structured way to decide what deserves attention next.</p>
+        </section>
+      </section>
+    </main>
+
+    <footer class="case-footer" aria-label="Portfolio footer">
+      <div class="case-footer__inner" data-gsap-reveal>
+        <a class="case-footer__brand" href="../index.html">Qian Zhao</a>
+        <nav class="case-footer__links" aria-label="Social links">
+          <a href="https://dribbble.com/zhaoian">Dribbble</a>
+          <a href="https://www.instagram.com/oioaono/">Instagram</a>
+          <a href="https://twitter.com/oioaon">Twitter</a>
+          <a href="https://www.linkedin.com/in/qian-zhao-20bb66203/">Linkedin</a>
+        </nav>
+        <p class="case-footer__year">© 2026</p>
+      </div>
+    </footer>
+  </body>
+</html>
