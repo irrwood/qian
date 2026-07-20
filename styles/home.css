@@ -2,7 +2,7 @@
 
 /* Brand values alias styles/tokens.css; home keeps its own neutrals. */
 :root {
-  --page-width: 1080px;
+  --page-width: 888px;
   --blue: var(--brand-accent);
   --project-blue: #3850f5;
   --ink: #000000;
@@ -19,10 +19,10 @@
 
   /* Fluid vertical rhythm — scales with viewport, clamped to an 8px scale.
      Hierarchy: page-top ≥ section > grid row > grid column > card internals. */
-  --space-page-top: clamp(40px, 5.5vw, 72px);
-  --space-section: clamp(40px, 5vw, 64px);
-  --space-row: clamp(28px, 3.5vw, 40px);
-  --space-col: clamp(20px, 2.5vw, 28px);
+  --space-page-top: clamp(48px, 5vw, 64px);
+  --space-section: clamp(40px, 4.5vw, 56px);
+  --space-row: clamp(28px, 3vw, 36px);
+  --space-col: clamp(20px, 2vw, 24px);
 }
 
 * {
@@ -45,7 +45,9 @@ body {
 }
 
 .home-motion-pending .hero > *,
+.home-motion-pending .home-section-title,
 .home-motion-pending .project-card,
+.home-motion-pending .creative-showcase,
 .home-motion-pending .feature-link,
 .home-motion-pending .site-footer > * {
   opacity: 0;
@@ -161,13 +163,13 @@ a {
 
 .hero {
   display: grid;
-  gap: 32px;
+  gap: 28px;
   align-items: start;
 }
 
 .hero__avatar {
-  width: 84px;
-  height: 84px;
+  width: 76px;
+  height: 76px;
   border: 2.5px solid var(--ink);
   border-radius: 999px;
   object-fit: cover;
@@ -177,7 +179,7 @@ a {
   margin: 0;
   max-width: var(--page-width);
   color: var(--ink);
-  font-size: 36px;
+  font-size: 34px;
   font-weight: 500;
   line-height: var(--leading-display);
   letter-spacing: -0.01em;
@@ -186,21 +188,21 @@ a {
 .hero__links {
   display: flex;
   flex-wrap: wrap;
-  gap: 16px;
+  gap: 14px;
   align-items: center;
 }
 
 .pill {
   display: inline-flex;
-  min-height: 52px;
+  min-height: 46px;
   align-items: center;
   justify-content: center;
-  padding: 14px 22px;
+  padding: 12px 20px;
   border: 0;
   border-radius: 64px;
   background: var(--soft);
   color: var(--ink);
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 600;
   line-height: var(--leading-ui);
   letter-spacing: -0.022em;
@@ -236,6 +238,129 @@ a {
   margin-top: var(--space-section);
 }
 
+.project-archive,
+.more-work {
+  margin-top: 56px;
+}
+
+.home-section-title {
+  margin: 0 0 24px;
+  color: var(--ink);
+  font-size: 32px;
+  font-weight: 500;
+  line-height: var(--leading-display);
+  letter-spacing: -0.01em;
+}
+
+.project-thumbnails {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.project-card--compact {
+  display: block;
+  aspect-ratio: 638 / 392;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.project-card--compact .project-card__media {
+  height: 100%;
+  border-radius: 12px;
+  clip-path: inset(0 round 12px);
+}
+
+.creative-showcase {
+  position: relative;
+  height: 232px;
+  overflow: hidden;
+  border-radius: 18px;
+  background: #f7f7f7 url("../assets/home/motion-creative-grid.png") center / cover no-repeat;
+  isolation: isolate;
+}
+
+.creative-showcase__title {
+  position: absolute;
+  z-index: 6;
+  top: 59px;
+  left: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: #222222;
+  font-size: 29px;
+  font-weight: 400;
+  line-height: 1.15;
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
+
+.creative-showcase__title img {
+  width: 36px;
+  height: 36px;
+}
+
+.creative-showcase .creative-card {
+  position: absolute;
+  z-index: 2;
+  display: block;
+  width: 36%;
+  max-width: none;
+  aspect-ratio: 638 / 392;
+  gap: 0;
+  rotate: var(--creative-rotate);
+  translate: 0 0;
+  transition:
+    translate 420ms cubic-bezier(0.22, 1, 0.36, 1),
+    filter 320ms ease;
+}
+
+.creative-showcase .creative-card .project-card__media {
+  height: 100%;
+  border-radius: 14px;
+  clip-path: inset(0 round 14px);
+}
+
+.creative-card--pepe {
+  --creative-rotate: 10.26deg;
+  top: 59%;
+  left: -13%;
+}
+
+.creative-card--w3p {
+  --creative-rotate: -6.94deg;
+  top: 68%;
+  left: 11%;
+}
+
+.creative-card--moonshot {
+  --creative-rotate: 6.08deg;
+  top: 71%;
+  left: 41.5%;
+}
+
+.creative-card--playdoge {
+  --creative-rotate: -11.32deg;
+  top: 57%;
+  left: 66.8%;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .creative-showcase:hover .creative-card {
+    z-index: 7;
+    translate: 0 -16px;
+  }
+
+  .creative-showcase .creative-card:hover,
+  .creative-showcase .creative-card:focus-visible {
+    z-index: 8;
+    translate: 0 -48px;
+    filter: drop-shadow(0 18px 24px rgba(8, 15, 35, 0.16));
+  }
+}
+
 .project-card,
 .feature-link {
   min-width: 0;
@@ -245,7 +370,7 @@ a {
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 12px;
   transform-origin: center top;
   will-change: transform;
   /* Lets the tag overlay measure the card width (cqw) to find the
@@ -268,16 +393,16 @@ a.project-card {
 .project-card--pending::after {
   content: attr(data-status);
   position: absolute;
-  left: 18px;
-  top: 18px;
+  left: 14px;
+  top: 14px;
   z-index: 3;
-  max-width: min(250px, calc(100% - 36px));
-  padding: 10px 12px;
+  max-width: min(240px, calc(100% - 28px));
+  padding: 9px 11px;
   border: 1px solid rgba(255, 255, 255, 0.62);
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.72);
   color: var(--ink);
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 500;
   line-height: var(--leading-ui);
   box-shadow: 0 12px 30px rgba(8, 15, 35, 0.16);
@@ -303,10 +428,10 @@ a.project-card {
   width: 100%;
   height: auto;
   aspect-ratio: 638 / 392;
-  border-radius: 20px;
+  border-radius: 16px;
   object-fit: cover;
   background: var(--white);
-  clip-path: inset(0 round 20px);
+  clip-path: inset(0 round 16px);
   isolation: isolate;
   backface-visibility: hidden;
   -webkit-mask-image: -webkit-radial-gradient(white, black);
@@ -319,14 +444,14 @@ a.project-card {
 
 .project-card__copy {
   display: grid;
-  gap: 6px;
+  gap: 5px;
 }
 
 .project-card h2,
 .feature-link h2 {
   margin: 0;
   color: var(--ink);
-  font-size: 21px;
+  font-size: 18px;
   font-weight: 500;
   line-height: var(--leading-title);
 }
@@ -334,7 +459,7 @@ a.project-card {
 .project-card p {
   margin: 0;
   color: var(--muted);
-  font-size: 18px;
+  font-size: 15px;
   font-weight: 400;
   line-height: var(--leading-body);
 }
@@ -342,16 +467,16 @@ a.project-card {
 .project-card__tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 8px;
 }
 
 /* Overlay the tags on the media (its bottom edge sits at width x 392/638). */
 @supports (width: 100cqw) {
   .project-card__tags {
     position: absolute;
-    left: 14px;
-    right: 14px;
-    top: calc(100cqw * 392 / 638 - 14px);
+    left: 12px;
+    right: 12px;
+    top: calc(100cqw * 392 / 638 - 12px);
     transform: translateY(-100%);
     z-index: 2;
     pointer-events: none;
@@ -363,12 +488,12 @@ a.project-card {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 28px;
-  padding: 8px 10px;
+  min-height: 26px;
+  padding: 7px 9px;
   border: 1px solid var(--line);
   border-radius: 28px;
   color: var(--muted);
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 500;
   line-height: var(--leading-tag);
   letter-spacing: 1px;
@@ -390,13 +515,13 @@ a.project-card {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: var(--space-row) var(--space-col);
-  margin-top: var(--space-section);
+  margin-top: 24px;
 }
 
 .feature-link {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 12px;
   align-items: center;
   text-align: center;
   transform-origin: center top;
@@ -408,9 +533,9 @@ a.project-card {
   height: auto;
   aspect-ratio: 638 / 392;
   border: 0.5px solid #e8e8e8;
-  border-radius: 20px;
+  border-radius: 16px;
   object-fit: cover;
-  clip-path: inset(0 round 20px);
+  clip-path: inset(0 round 16px);
   isolation: isolate;
   backface-visibility: hidden;
   -webkit-mask-image: -webkit-radial-gradient(white, black);
@@ -419,7 +544,7 @@ a.project-card {
 
 .feature-link > div {
   display: grid;
-  gap: 12px;
+  gap: 10px;
   justify-items: center;
 }
 
@@ -604,11 +729,11 @@ a.project-card {
 @media (max-width: 1180px) {
   .home,
   .site-footer {
-    width: min(calc(100% - 40px), 900px);
+    width: min(calc(100% - 40px), var(--page-width));
   }
 
   .hero h1 {
-    font-size: clamp(28px, 4vw, 36px);
+    font-size: clamp(28px, 3.8vw, 34px);
   }
 
   .project-card,
@@ -621,6 +746,19 @@ a.project-card {
     height: auto;
     aspect-ratio: 638 / 392;
   }
+
+  .creative-showcase {
+    height: clamp(200px, 26.1vw, 232px);
+  }
+
+  .creative-showcase .creative-card {
+    width: 36%;
+  }
+
+  .creative-card--pepe { top: 59%; left: -13%; }
+  .creative-card--w3p { top: 68%; left: 11%; }
+  .creative-card--moonshot { top: 71%; left: 41.5%; }
+  .creative-card--playdoge { top: 57%; left: 66.8%; }
 }
 
 @media (max-width: 760px) {
@@ -661,6 +799,52 @@ a.project-card {
   .more-links {
     grid-template-columns: 1fr;
   }
+
+  .project-archive,
+  .more-work {
+    margin-top: 44px;
+  }
+
+  .home-section-title {
+    margin-bottom: 20px;
+    font-size: 28px;
+  }
+
+  .project-thumbnails {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .project-card--compact,
+  .project-card--compact .project-card__media {
+    border-radius: 10px;
+    clip-path: inset(0 round 10px);
+  }
+
+  .creative-showcase {
+    height: 210px;
+    border-radius: 14px;
+  }
+
+  .creative-showcase__title {
+    top: 48px;
+    gap: 5px;
+    font-size: 24px;
+  }
+
+  .creative-showcase__title img {
+    width: 32px;
+    height: 32px;
+  }
+
+  .creative-showcase .creative-card {
+    width: 62%;
+  }
+
+  .creative-card--pepe { top: 70%; left: -35%; }
+  .creative-card--w3p { top: 76%; left: 3%; }
+  .creative-card--moonshot { top: 78%; left: 42%; }
+  .creative-card--playdoge { top: 66%; left: 76%; }
 
   .project-card {
     gap: 12px;

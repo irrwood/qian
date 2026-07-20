@@ -85,7 +85,7 @@
     window.addEventListener("resize", updateTopbar);
 
     mm.add("(prefers-reduced-motion: reduce)", () => {
-      gsap.set(".hero > *, .project-card, .feature-link, .site-footer > *", { clearProps: "all" });
+      gsap.set(".hero > *, .home-section-title, .project-card, .creative-showcase, .feature-link, .site-footer > *", { clearProps: "all" });
       root.classList.remove("home-motion-pending");
     });
 
@@ -181,10 +181,10 @@
         return;
       }
 
-      gsap.set(".project-card, .feature-link", { y: 20, autoAlpha: 0, force3D: true });
+      gsap.set(".home-section-title, .project-card:not(.creative-card), .creative-showcase, .feature-link", { y: 20, autoAlpha: 0, force3D: true });
       gsap.set(".site-footer > *", { y: 12, autoAlpha: 0 });
 
-      ScrollTrigger.batch(".project-card", {
+      ScrollTrigger.batch(".project-card:not(.creative-card)", {
         start: "top bottom-=80",
         once: true,
         onEnter: (batch) => {
@@ -199,7 +199,7 @@
         },
       });
 
-      ScrollTrigger.batch(".feature-link, .site-footer > *", {
+      ScrollTrigger.batch(".home-section-title, .creative-showcase, .feature-link, .site-footer > *", {
         start: "top bottom-=60",
         once: true,
         onEnter: (batch) => {
