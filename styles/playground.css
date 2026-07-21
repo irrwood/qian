@@ -174,6 +174,13 @@ a {
   left: clamp(88px, 11.9vw, 200px);
 }
 
+.playground__card--hairy {
+  --card-rotation: 1.8deg;
+
+  top: clamp(150px, 18.75vh, 165px);
+  left: clamp(72px, 8.45vw, 142px);
+}
+
 .playground__card--steamos {
   --card-rotation: 2.4deg;
 
@@ -236,6 +243,209 @@ a {
   left: 15px;
   width: 30px;
   height: 30px;
+}
+
+.playground__sticker {
+  position: absolute;
+  z-index: 2;
+  display: block;
+  width: clamp(138px, 10.12vw, 170px);
+  height: auto;
+  border: 0;
+  outline: none;
+  background: transparent;
+  cursor: grab;
+  isolation: isolate;
+  touch-action: none;
+  user-select: none;
+  filter: drop-shadow(0 12px 18px var(--playground-shadow));
+  transform-origin: center;
+  will-change: transform, translate;
+  transition: transform 180ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.playground__sticker--cat-pencil {
+  top: calc(50% - 35px);
+  left: calc(50% - 360px);
+  rotate: -8deg;
+}
+
+.playground__sticker.is-card-dragging {
+  z-index: 6;
+  cursor: grabbing;
+  filter: drop-shadow(0 24px 28px color-mix(in srgb, var(--brand-ink) 24%, transparent));
+  transform: translateY(-8px) scale(1.065) rotate(2deg);
+  transition-duration: 120ms;
+}
+
+.playground__sticker-art,
+.playground__sticker-slices,
+.playground__sticker-sweep,
+.playground__sticker-ripple {
+  pointer-events: none;
+}
+
+.playground__sticker-art {
+  position: relative;
+  z-index: 2;
+  display: block;
+  width: 100%;
+  height: auto;
+  transform-origin: center;
+}
+
+.playground__sticker-slices,
+.playground__sticker-sweep {
+  position: absolute;
+  z-index: 3;
+  inset: 0;
+}
+
+.playground__sticker-slice {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  background: url("../assets/playground/cat-pencil-sticker.png") center / contain no-repeat;
+  transform-origin: center;
+}
+
+.playground__sticker-sweep {
+  z-index: 4;
+  overflow: hidden;
+  opacity: 0;
+  mix-blend-mode: screen;
+  -webkit-mask: url("../assets/playground/cat-pencil-sticker.png") center / contain no-repeat;
+  mask: url("../assets/playground/cat-pencil-sticker.png") center / contain no-repeat;
+}
+
+.playground__sticker-sweep::before {
+  position: absolute;
+  top: -12%;
+  bottom: -12%;
+  left: -100%;
+  width: 300%;
+  background: linear-gradient(
+    105deg,
+    transparent 5%,
+    #ff3b8d 20%,
+    #ffce45 34%,
+    #3ef4d0 49%,
+    #38a8ff 64%,
+    #a45bff 79%,
+    transparent 95%
+  );
+  content: "";
+  transform: translateX(-34%) skewX(-12deg);
+}
+
+.playground__sticker-ripple {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  width: 72%;
+  aspect-ratio: 1;
+  border: 3px solid color-mix(in srgb, var(--brand-accent) 72%, #ff55cc);
+  border-radius: 50%;
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.38);
+}
+
+.playground__sticker.is-reappearing .playground__sticker-art {
+  animation: sticker-base-return 760ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.playground__sticker.is-reappearing .playground__sticker-slice {
+  animation: sticker-slice-wave 610ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: calc(var(--slice-index) * 28ms);
+}
+
+.playground__sticker.is-reappearing .playground__sticker-sweep {
+  animation: sticker-rainbow-presence 760ms 80ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.playground__sticker.is-reappearing .playground__sticker-sweep::before {
+  animation: sticker-rainbow-sweep 760ms 80ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.playground__sticker.is-reappearing .playground__sticker-ripple {
+  animation: sticker-drop-ripple 680ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes sticker-base-return {
+  0% {
+    opacity: 0;
+    transform: scale(0.62) skewY(-4deg);
+  }
+  42% {
+    opacity: 0.88;
+    transform: scale(1.09) skewY(2deg);
+  }
+  68% {
+    opacity: 1;
+    transform: scale(0.965) skewY(-1deg);
+  }
+  84% {
+    transform: scale(1.02) skewY(0deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes sticker-slice-wave {
+  0% {
+    opacity: 0;
+    transform: translateY(var(--slice-wave)) scale(0.58);
+  }
+  38% {
+    opacity: 0.96;
+    transform: translateY(-4px) scale(1.12);
+  }
+  68% {
+    opacity: 0.72;
+    transform: translateY(2px) scale(0.975);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes sticker-rainbow-presence {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.78;
+  }
+  72% {
+    opacity: 0.62;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes sticker-rainbow-sweep {
+  0% {
+    transform: translateX(-34%) skewX(-12deg);
+  }
+  100% {
+    transform: translateX(34%) skewX(-12deg);
+  }
+}
+
+@keyframes sticker-drop-ripple {
+  0% {
+    opacity: 0.7;
+    transform: translate(-50%, -50%) scale(0.38);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1.72);
+  }
 }
 
 .visually-hidden {
@@ -302,6 +512,11 @@ a {
     left: 20px;
   }
 
+  .playground__card--hairy {
+    top: 120px;
+    left: -250px;
+  }
+
   .playground__card--steamos {
     top: 100px;
     left: calc(100vw - 120px);
@@ -311,11 +526,57 @@ a {
     top: calc(100svh - 270px);
     left: calc(100vw + 40px);
   }
+
+  .playground__sticker--cat-pencil {
+    top: calc(40% + 72px);
+    left: calc(50% - 250px);
+    width: 138px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .playground__back,
-  .playground__card {
+  .playground__card,
+  .playground__sticker {
     transition: none;
+  }
+
+  .playground__sticker-slice,
+  .playground__sticker-ripple {
+    display: none;
+  }
+
+  .playground__sticker.is-reappearing .playground__sticker-art {
+    animation: sticker-reduced-feedback 180ms cubic-bezier(0.22, 1, 0.36, 1) both !important;
+  }
+
+  .playground__sticker.is-reappearing .playground__sticker-sweep {
+    animation: sticker-reduced-color 180ms cubic-bezier(0.22, 1, 0.36, 1) both !important;
+  }
+
+  .playground__sticker.is-reappearing .playground__sticker-sweep::before {
+    animation: none;
+    transform: translateX(0) skewX(-12deg);
+  }
+}
+
+@keyframes sticker-reduced-feedback {
+  from {
+    opacity: 0.74;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes sticker-reduced-color {
+  0% {
+    opacity: 0;
+  }
+  45% {
+    opacity: 0.38;
+  }
+  100% {
+    opacity: 0;
   }
 }

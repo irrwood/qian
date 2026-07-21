@@ -2,6 +2,7 @@
   const canvas = document.querySelector("[data-infinite-canvas]");
   const world = document.querySelector("[data-canvas-world]");
   const grid = document.querySelector(".playground__grid");
+  const sticker = document.querySelector("[data-playground-sticker]");
 
   if (!canvas || !world || !grid) {
     return;
@@ -24,8 +25,43 @@
   let cardDrag = null;
   let cardMotion = null;
   let cardAnimationFrame = 0;
+  let stickerEffectTimer = 0;
 
   const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
+
+  if (sticker) {
+    const slicesHost = sticker.querySelector(".playground__sticker-slices");
+    const sliceCount = 8;
+
+    for (let index = 0; index < sliceCount; index += 1) {
+      const slice = document.createElement("span");
+      const left = (index / sliceCount) * 100;
+      const right = 100 - ((index + 1) / sliceCount) * 100;
+
+      slice.className = "playground__sticker-slice";
+      slice.style.clipPath = `inset(0 ${right}% 0 ${left}%)`;
+      slice.style.setProperty("--slice-index", String(index));
+      slice.style.setProperty("--slice-wave", `${index % 2 === 0 ? -13 : 13}px`);
+      slicesHost?.appendChild(slice);
+    }
+  }
+
+  // Adapt Sticker Forge's staggered entrance slices and spectral sweep to a
+  // lightweight DOM effect that can coexist with this page's infinite canvas:
+  // https://github.com/CatsJuice/sticker-forge
+  const playStickerDropEffect = (target) => {
+    if (!target) {
+      return;
+    }
+
+    window.clearTimeout(stickerEffectTimer);
+    target.classList.remove("is-reappearing");
+    void target.offsetWidth;
+    target.classList.add("is-reappearing");
+    stickerEffectTimer = window.setTimeout(() => {
+      target.classList.remove("is-reappearing");
+    }, 1050);
+  };
 
   const render = () => {
     world.style.transform = `translate3d(${camera.x}px, ${camera.y}px, 0) scale(${camera.scale})`;
@@ -181,7 +217,7 @@
 
     stopAnimation();
     canvas.focus({ preventScroll: true });
-    const card = event.target.closest(".playground__card");
+    const card = event.target.closest(".playground__card, [data-playground-sticker]");
     (card || canvas).setPointerCapture(event.pointerId);
 
     if (card) {
@@ -208,6 +244,10 @@
       };
 
       card.classList.add("is-card-dragging");
+      if (card.matches("[data-playground-sticker]")) {
+        window.clearTimeout(stickerEffectTimer);
+        card.classList.remove("is-reappearing");
+      }
       canvas.classList.add("is-dragging");
       return;
     }
@@ -292,6 +332,7 @@
   const releasePointer = (event) => {
     if (cardDrag?.pointerId === event.pointerId) {
       const { card, currentX, currentY, moved, lastMoveTime } = cardDrag;
+      const isSticker = card.matches("[data-playground-sticker]");
       const freshness = clamp(1 - (performance.now() - lastMoveTime) / 100, 0, 1);
       const releaseVelocityX = cardDrag.velocityX * freshness;
       const releaseVelocityY = cardDrag.velocityY * freshness;
@@ -306,7 +347,9 @@
       }, 0);
       cardDrag = null;
 
-      if (moved && event.type === "pointerup") {
+      if (isSticker && event.type === "pointerup") {
+        playStickerDropEffect(card);
+      } else if (moved && event.type === "pointerup") {
         startCardInertia(card, currentX, currentY, releaseVelocityX, releaseVelocityY);
       }
       return;
@@ -339,7 +382,7 @@
   canvas.addEventListener("pointercancel", releasePointer);
 
   canvas.addEventListener("dragstart", (event) => {
-    if (event.target.closest(".playground__card")) {
+    if (event.target.closest(".playground__card, [data-playground-sticker]")) {
       event.preventDefault();
     }
   });
