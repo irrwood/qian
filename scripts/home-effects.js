@@ -157,11 +157,36 @@
           });
         };
 
-        gsap.utils.toArray(".pill, .site-footer__social a, .site-footer__brand").forEach((el) => {
+        gsap.utils.toArray(".pill").forEach((el) => {
+          bindMagnet(el, {
+            strength: 0.22,
+            maxMove: 8,
+            scale: 1.035,
+            moveDuration: 0.18,
+            scaleInDuration: 0.14,
+            scaleOutDuration: 0.16,
+          });
+        });
+
+        gsap.utils.toArray(".site-footer__social a, .site-footer__brand").forEach((el) => {
           bindMagnet(el, { strength: 0.22, maxMove: 8, scale: 1.035 });
         });
 
-        gsap.utils.toArray(".project-card__media, .feature-link img").forEach((el) => {
+        gsap.utils.toArray(".project-card:not(.project-card--compact) > .project-card__media, .feature-link img").forEach((el) => {
+          bindMagnet(el, {
+            strength: 0.018,
+            maxMove: 6,
+            scale: 1.016,
+            moveDuration: 0.14,
+            moveEase: "power2.out",
+            scaleInDuration: 0.22,
+            scaleInEase: "expo.out",
+            scaleOutDuration: 0.2,
+            scaleOutEase: "power2.out",
+          });
+        });
+
+        gsap.utils.toArray(".project-card--compact").forEach((el) => {
           bindMagnet(el, {
             strength: 0.018,
             maxMove: 6,
