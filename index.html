@@ -178,6 +178,59 @@
           </a>
         </div>
 
+        <div class="motion-case-links" aria-label="Motion design case studies">
+          <article class="motion-case-link project-card">
+            <img
+              loading="lazy"
+              decoding="async"
+              class="project-card__media"
+              src="./assets/motion-design/motion-a-first-frame.jpg"
+              alt="Motion A opening frame with a colorful circular identity mark"
+            />
+            <div class="project-card__tags" aria-label="Project tags">
+              <span>Motion</span>
+            </div>
+            <button
+              class="motion-case-link__play"
+              type="button"
+              data-motion-play
+              data-youtube-id="pEcJ8w8REqw"
+              data-video-title="Motion A"
+              aria-label="Play Motion A"
+            >
+              <svg viewBox="0 0 12 12" aria-hidden="true">
+                <path d="M3.5 2.2 9.2 6l-5.7 3.8Z" />
+              </svg>
+              <span>Play</span>
+            </button>
+          </article>
+          <article class="motion-case-link project-card">
+            <img
+              loading="lazy"
+              decoding="async"
+              class="project-card__media"
+              src="./assets/motion-design/ta-video-first-frame.jpg"
+              alt="TA Video opening frame with a hand-drawn white symbol"
+            />
+            <div class="project-card__tags" aria-label="Project tags">
+              <span>Motion</span>
+            </div>
+            <button
+              class="motion-case-link__play"
+              type="button"
+              data-motion-play
+              data-youtube-id="je16k0r3EKQ"
+              data-video-title="TA Video"
+              aria-label="Play TA Video"
+            >
+              <svg viewBox="0 0 12 12" aria-hidden="true">
+                <path d="M3.5 2.2 9.2 6l-5.7 3.8Z" />
+              </svg>
+              <span>Play</span>
+            </button>
+          </article>
+        </div>
+
         <div class="more-links" aria-label="More portfolio links">
           <a class="feature-link" href="https://dribbble.com/zhaoian">
             <img loading="lazy" decoding="async" src="./assets/home/motion-design.png" alt="Motion design preview" />
@@ -207,5 +260,24 @@
       </nav>
       <p>© 2026</p>
     </footer>
+
+    <div class="motion-bubble" data-motion-bubble hidden>
+      <section
+        class="motion-bubble__shell"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Motion design video player"
+      >
+        <button class="motion-bubble__close motion-bubble__close--top" type="button" data-motion-close aria-label="Close video">
+          <span aria-hidden="true">×</span>
+        </button>
+        <div class="motion-bubble__player" data-motion-player></div>
+        <button class="motion-bubble__close motion-bubble__close--bottom" type="button" data-motion-close aria-label="Close video">
+          <span aria-hidden="true">×</span>
+        </button>
+      </section>
+    </div>
+
+    <script src="./scripts/motion-bubble-player.js"></script>
   </body>
 </html>

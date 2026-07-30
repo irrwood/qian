@@ -563,6 +563,197 @@ a.project-card {
   background: #3050ff;
 }
 
+.motion-case-links {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-row) var(--space-col);
+  margin-top: 24px;
+  margin-bottom: clamp(40px, 5vw, 64px);
+}
+
+.motion-case-link {
+  transform-origin: center;
+  will-change: transform;
+}
+
+.motion-case-link .project-card__tags span,
+.motion-case-link__play {
+  width: 82px;
+}
+
+.motion-case-link .project-card__tags span {
+  border-color: rgba(255, 255, 255, 0.32);
+  background: rgba(8, 15, 35, 0.58);
+  color: var(--white);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.16);
+}
+
+.motion-case-link__play {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  min-height: 26px;
+  padding: 7px 9px;
+  border: 1px solid rgba(255, 255, 255, 0.32);
+  border-radius: 28px;
+  background: rgba(8, 15, 35, 0.58);
+  color: var(--white);
+  font: inherit;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: var(--leading-tag);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  -webkit-backdrop-filter: blur(12px) saturate(160%);
+  backdrop-filter: blur(12px) saturate(160%);
+  cursor: pointer;
+  transition:
+    background-color 160ms cubic-bezier(0.23, 1, 0.32, 1),
+    transform 160ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.motion-case-link__play svg {
+  width: 12px;
+  height: 12px;
+  fill: currentColor;
+}
+
+.motion-case-link__play:active {
+  transform: scale(0.97);
+}
+
+.motion-bubble[hidden] {
+  display: none;
+}
+
+.motion-bubble {
+  position: fixed;
+  z-index: 1000;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: clamp(74px, 10vh, 104px) clamp(18px, 5vw, 72px);
+  background: rgba(6, 8, 14, 0.58);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  -webkit-backdrop-filter: blur(12px) saturate(130%);
+  backdrop-filter: blur(12px) saturate(130%);
+  transition:
+    opacity 180ms cubic-bezier(0.23, 1, 0.32, 1),
+    visibility 0s linear 180ms;
+}
+
+.motion-bubble.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transition:
+    opacity 200ms cubic-bezier(0.23, 1, 0.32, 1),
+    visibility 0s linear 0s;
+}
+
+.motion-bubble__shell {
+  --motion-from-x: 0px;
+  --motion-from-y: 0px;
+  position: relative;
+  width: min(960px, 100%);
+  aspect-ratio: 16 / 9;
+  opacity: 0;
+  transform: translate3d(var(--motion-from-x), var(--motion-from-y), 0) scale(0.94);
+  transform-origin: center;
+  will-change: transform, opacity;
+  transition:
+    opacity 180ms cubic-bezier(0.23, 1, 0.32, 1),
+    transform 280ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.motion-bubble.is-open .motion-bubble__shell {
+  opacity: 1;
+  transform: translate3d(0, 0, 0) scale(1);
+}
+
+.motion-bubble__player {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  border-radius: clamp(24px, 4vw, 48px);
+  background: #000;
+  box-shadow:
+    0 30px 90px rgba(0, 0, 0, 0.38),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  isolation: isolate;
+}
+
+.motion-bubble__player iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.motion-bubble__close {
+  position: absolute;
+  left: 50%;
+  z-index: 2;
+  display: grid;
+  width: 38px;
+  height: 38px;
+  place-items: center;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.86);
+  color: #111;
+  font: inherit;
+  font-size: 26px;
+  font-weight: 300;
+  line-height: 1;
+  opacity: 0;
+  transform: translate3d(-50%, var(--close-shift), 0) scale(0.94);
+  cursor: pointer;
+  -webkit-backdrop-filter: blur(12px) saturate(150%);
+  backdrop-filter: blur(12px) saturate(150%);
+  transition:
+    opacity 150ms cubic-bezier(0.23, 1, 0.32, 1) 60ms,
+    transform 220ms cubic-bezier(0.23, 1, 0.32, 1) 60ms,
+    background-color 140ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.motion-bubble__close span {
+  transform: translateY(-1px);
+}
+
+.motion-bubble__close--top {
+  --close-shift: 8px;
+  top: -52px;
+}
+
+.motion-bubble__close--bottom {
+  --close-shift: -8px;
+  bottom: -52px;
+}
+
+.motion-bubble.is-open .motion-bubble__close {
+  opacity: 1;
+  transform: translate3d(-50%, 0, 0) scale(1);
+}
+
+.motion-bubble__close:active {
+  transform: translate3d(-50%, 0, 0) scale(0.95);
+}
+
+body.motion-bubble-open {
+  overflow: hidden;
+}
+
 /* Tags pop out like little bubbles on hover. */
 @media (hover: hover) and (pointer: fine) {
   .project-card__tags span,
@@ -611,6 +802,21 @@ a.project-card {
   .project-card:focus-within .project-card__tags span:nth-child(5) {
     transition-delay: 168ms;
   }
+
+  .motion-case-link .project-card__tags span {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .motion-case-link__play:hover,
+  .motion-case-link__play:focus-visible {
+    background: rgba(8, 15, 35, 0.82);
+  }
+
+  .motion-bubble__close:hover {
+    background: rgba(255, 255, 255, 0.98);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -623,6 +829,16 @@ a.project-card {
   .feature-link__tag {
     animation: none !important;
     transition: opacity 180ms ease;
+    transform: none;
+  }
+
+  .motion-bubble,
+  .motion-bubble__shell,
+  .motion-bubble__close {
+    transition-duration: 140ms;
+  }
+
+  .motion-bubble__shell {
     transform: none;
   }
 }
@@ -796,7 +1012,8 @@ a.project-card {
   }
 
   .projects,
-  .more-links {
+  .more-links,
+  .motion-case-links {
     grid-template-columns: 1fr;
   }
 
@@ -888,6 +1105,15 @@ a.project-card {
     transform: none;
     transition: none;
     transition-delay: 0ms;
+  }
+
+  .motion-case-link__play {
+    width: 82px;
+    min-height: 22px;
+    padding: 6px 8px;
+    font-size: 10px;
+    line-height: var(--leading-tag);
+    letter-spacing: 0.6px;
   }
 
   .project-card:hover .project-card__tags span,

@@ -172,7 +172,7 @@
           bindMagnet(el, { strength: 0.22, maxMove: 8, scale: 1.035 });
         });
 
-        gsap.utils.toArray(".project-card:not(.project-card--compact) > .project-card__media, .feature-link img").forEach((el) => {
+        gsap.utils.toArray(".project-card:not(.project-card--compact):not(.motion-case-link) > .project-card__media, .feature-link img").forEach((el) => {
           bindMagnet(el, {
             strength: 0.018,
             maxMove: 6,
@@ -186,7 +186,7 @@
           });
         });
 
-        gsap.utils.toArray(".project-card--compact").forEach((el) => {
+        gsap.utils.toArray(".project-card--compact, .motion-case-link").forEach((el) => {
           bindMagnet(el, {
             strength: 0.018,
             maxMove: 6,
