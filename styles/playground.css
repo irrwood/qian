@@ -245,20 +245,20 @@ a {
   height: 30px;
 }
 
-.playground__sticker {
+.playground__sticker-shell {
+  --sticker-fill: 0.76;
+
   position: absolute;
   z-index: 2;
   display: block;
-  width: clamp(138px, 10.12vw, 170px);
-  height: auto;
+  width: clamp(215px, 15.5vw, 260px);
+  padding: 0;
   border: 0;
-  outline: none;
   background: transparent;
   cursor: grab;
   isolation: isolate;
   touch-action: none;
   user-select: none;
-  filter: drop-shadow(0 12px 18px var(--playground-shadow));
   transform-origin: center;
   will-change: transform, translate;
   transition: transform 180ms cubic-bezier(0.23, 1, 0.32, 1);
@@ -267,184 +267,83 @@ a {
 .playground__sticker--cat-pencil {
   top: calc(50% - 35px);
   left: calc(50% - 360px);
+  aspect-ratio: 846 / 802;
   rotate: -8deg;
 }
 
-.playground__sticker.is-card-dragging {
+.playground__sticker--book {
+  --sticker-fill: 0.8;
+
+  top: calc(50% + 105px);
+  left: calc(50% - 105px);
+  width: clamp(180px, 12.5vw, 210px);
+  aspect-ratio: 774 / 529;
+  rotate: 6deg;
+}
+
+.playground__sticker--device {
+  --sticker-fill: 0.8;
+
+  top: calc(50% - 205px);
+  left: calc(50% - 95px);
+  width: clamp(165px, 11.3vw, 190px);
+  aspect-ratio: 659 / 374;
+  rotate: -5deg;
+}
+
+.playground__sticker-fallback,
+.playground__sticker-forge {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.playground__sticker-fallback {
+  inset: auto;
+  top: 50%;
+  left: 50%;
+  object-fit: contain;
+  filter: drop-shadow(0 12px 18px var(--playground-shadow));
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(var(--sticker-fill));
+}
+
+.playground__sticker-forge {
+  min-width: 0;
+  min-height: 0;
+  opacity: 0;
+}
+
+.playground__sticker-shell.is-forge-playing .playground__sticker-fallback {
+  opacity: 0;
+}
+
+.playground__sticker-shell.is-forge-playing .playground__sticker-forge {
+  opacity: 1;
+}
+
+.playground__sticker-shell.is-forge-fallback .playground__sticker-fallback {
+  opacity: 1;
+}
+
+.playground__sticker-shell.is-card-dragging {
   z-index: 6;
   cursor: grabbing;
-  filter: drop-shadow(0 24px 28px color-mix(in srgb, var(--brand-ink) 24%, transparent));
   transform: translateY(-8px) scale(1.065) rotate(2deg);
   transition-duration: 120ms;
 }
 
-.playground__sticker-art,
-.playground__sticker-slices,
-.playground__sticker-sweep,
-.playground__sticker-ripple {
-  pointer-events: none;
+.playground__sticker-shell:focus-visible {
+  outline: 3px solid var(--brand-accent);
+  outline-offset: 4px;
 }
 
-.playground__sticker-art {
-  position: relative;
-  z-index: 2;
-  display: block;
-  width: 100%;
-  height: auto;
-  transform-origin: center;
-}
-
-.playground__sticker-slices,
-.playground__sticker-sweep {
-  position: absolute;
-  z-index: 3;
-  inset: 0;
-}
-
-.playground__sticker-slice {
-  position: absolute;
-  inset: 0;
-  opacity: 0;
-  background: url("../assets/playground/cat-pencil-sticker.png") center / contain no-repeat;
-  transform-origin: center;
-}
-
-.playground__sticker-sweep {
-  z-index: 4;
-  overflow: hidden;
-  opacity: 0;
-  mix-blend-mode: screen;
-  -webkit-mask: url("../assets/playground/cat-pencil-sticker.png") center / contain no-repeat;
-  mask: url("../assets/playground/cat-pencil-sticker.png") center / contain no-repeat;
-}
-
-.playground__sticker-sweep::before {
-  position: absolute;
-  top: -12%;
-  bottom: -12%;
-  left: -100%;
-  width: 300%;
-  background: linear-gradient(
-    105deg,
-    transparent 5%,
-    #ff3b8d 20%,
-    #ffce45 34%,
-    #3ef4d0 49%,
-    #38a8ff 64%,
-    #a45bff 79%,
-    transparent 95%
-  );
-  content: "";
-  transform: translateX(-34%) skewX(-12deg);
-}
-
-.playground__sticker-ripple {
-  position: absolute;
-  z-index: 1;
-  top: 50%;
-  left: 50%;
-  width: 72%;
-  aspect-ratio: 1;
-  border: 3px solid color-mix(in srgb, var(--brand-accent) 72%, #ff55cc);
-  border-radius: 50%;
-  opacity: 0;
-  transform: translate(-50%, -50%) scale(0.38);
-}
-
-.playground__sticker.is-reappearing .playground__sticker-art {
-  animation: sticker-base-return 760ms cubic-bezier(0.16, 1, 0.3, 1) both;
-}
-
-.playground__sticker.is-reappearing .playground__sticker-slice {
-  animation: sticker-slice-wave 610ms cubic-bezier(0.16, 1, 0.3, 1) both;
-  animation-delay: calc(var(--slice-index) * 28ms);
-}
-
-.playground__sticker.is-reappearing .playground__sticker-sweep {
-  animation: sticker-rainbow-presence 760ms 80ms cubic-bezier(0.22, 1, 0.36, 1) both;
-}
-
-.playground__sticker.is-reappearing .playground__sticker-sweep::before {
-  animation: sticker-rainbow-sweep 760ms 80ms cubic-bezier(0.22, 1, 0.36, 1) both;
-}
-
-.playground__sticker.is-reappearing .playground__sticker-ripple {
-  animation: sticker-drop-ripple 680ms cubic-bezier(0.22, 1, 0.36, 1) both;
-}
-
-@keyframes sticker-base-return {
-  0% {
-    opacity: 0;
-    transform: scale(0.62) skewY(-4deg);
-  }
-  42% {
-    opacity: 0.88;
-    transform: scale(1.09) skewY(2deg);
-  }
-  68% {
-    opacity: 1;
-    transform: scale(0.965) skewY(-1deg);
-  }
-  84% {
-    transform: scale(1.02) skewY(0deg);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-@keyframes sticker-slice-wave {
-  0% {
-    opacity: 0;
-    transform: translateY(var(--slice-wave)) scale(0.58);
-  }
-  38% {
-    opacity: 0.96;
-    transform: translateY(-4px) scale(1.12);
-  }
-  68% {
-    opacity: 0.72;
-    transform: translateY(2px) scale(0.975);
-  }
-  100% {
-    opacity: 0;
-    transform: translateY(0) scale(1);
-  }
-}
-
-@keyframes sticker-rainbow-presence {
-  0% {
-    opacity: 0;
-  }
-  20% {
-    opacity: 0.78;
-  }
-  72% {
-    opacity: 0.62;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-
-@keyframes sticker-rainbow-sweep {
-  0% {
-    transform: translateX(-34%) skewX(-12deg);
-  }
-  100% {
-    transform: translateX(34%) skewX(-12deg);
-  }
-}
-
-@keyframes sticker-drop-ripple {
-  0% {
-    opacity: 0.7;
-    transform: translate(-50%, -50%) scale(0.38);
-  }
-  100% {
-    opacity: 0;
-    transform: translate(-50%, -50%) scale(1.72);
+@media (hover: hover) and (pointer: fine) {
+  .playground__sticker-shell:not(.is-card-dragging):hover {
+    transform: scale(1.025);
   }
 }
 
@@ -530,53 +429,26 @@ a {
   .playground__sticker--cat-pencil {
     top: calc(40% + 72px);
     left: calc(50% - 250px);
-    width: 138px;
+    width: 190px;
+  }
+
+  .playground__sticker--book {
+    top: calc(40% - 140px);
+    left: calc(50% + 70px);
+    width: 168px;
+  }
+
+  .playground__sticker--device {
+    top: calc(40% + 220px);
+    left: calc(50% - 290px);
+    width: 165px;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .playground__back,
   .playground__card,
-  .playground__sticker {
+  .playground__sticker-shell {
     transition: none;
-  }
-
-  .playground__sticker-slice,
-  .playground__sticker-ripple {
-    display: none;
-  }
-
-  .playground__sticker.is-reappearing .playground__sticker-art {
-    animation: sticker-reduced-feedback 180ms cubic-bezier(0.22, 1, 0.36, 1) both !important;
-  }
-
-  .playground__sticker.is-reappearing .playground__sticker-sweep {
-    animation: sticker-reduced-color 180ms cubic-bezier(0.22, 1, 0.36, 1) both !important;
-  }
-
-  .playground__sticker.is-reappearing .playground__sticker-sweep::before {
-    animation: none;
-    transform: translateX(0) skewX(-12deg);
-  }
-}
-
-@keyframes sticker-reduced-feedback {
-  from {
-    opacity: 0.74;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes sticker-reduced-color {
-  0% {
-    opacity: 0;
-  }
-  45% {
-    opacity: 0.38;
-  }
-  100% {
-    opacity: 0;
   }
 }

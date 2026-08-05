@@ -15,6 +15,8 @@
     />
     <link rel="stylesheet" href="../styles/tokens.css" />
     <link rel="stylesheet" href="../styles/playground.css" />
+    <script defer src="https://sticker.oooo.so/embed/sticker-forge.iife.js"></script>
+    <script defer src="../scripts/playground-sticker-sources.js"></script>
     <script defer src="../scripts/playground.js"></script>
   </head>
   <body class="playground-page">
@@ -101,21 +103,67 @@
           <img class="playground__send" src="../assets/playground/send.svg" alt="" aria-hidden="true" draggable="false" />
         </a>
 
-        <div
-          class="playground__sticker playground__sticker--cat-pencil"
+        <button
+          class="playground__sticker-shell playground__sticker--cat-pencil"
+          type="button"
           data-playground-sticker
-          aria-hidden="true"
+          data-sticker-key="cat"
+          data-sticker-name="Cat pencil sticker"
+          aria-label="Drag the cat sticker; release it to replay the animation"
         >
           <img
-            class="playground__sticker-art"
+            class="playground__sticker-fallback"
             src="../assets/playground/cat-pencil-sticker.png"
             alt=""
             draggable="false"
           />
-          <span class="playground__sticker-slices" aria-hidden="true"></span>
-          <span class="playground__sticker-sweep" aria-hidden="true"></span>
-          <span class="playground__sticker-ripple" aria-hidden="true"></span>
-        </div>
+          <sticker-forge
+            class="playground__sticker-forge"
+            aria-hidden="true"
+          ></sticker-forge>
+        </button>
+
+        <button
+          class="playground__sticker-shell playground__sticker--book"
+          type="button"
+          data-playground-sticker
+          data-sticker-key="book"
+          data-sticker-name="Red book sticker"
+          data-sticker-fill="0.8"
+          aria-label="Drag the red book sticker; release it to replay the animation"
+        >
+          <img
+            class="playground__sticker-fallback"
+            src="../assets/playground/book-sticker.png"
+            alt=""
+            draggable="false"
+          />
+          <sticker-forge
+            class="playground__sticker-forge"
+            aria-hidden="true"
+          ></sticker-forge>
+        </button>
+
+        <button
+          class="playground__sticker-shell playground__sticker--device"
+          type="button"
+          data-playground-sticker
+          data-sticker-key="device"
+          data-sticker-name="Retro device sticker"
+          data-sticker-fill="0.8"
+          aria-label="Drag the retro device sticker; release it to replay the animation"
+        >
+          <img
+            class="playground__sticker-fallback"
+            src="../assets/playground/device-sticker.png"
+            alt=""
+            draggable="false"
+          />
+          <sticker-forge
+            class="playground__sticker-forge"
+            aria-hidden="true"
+          ></sticker-forge>
+        </button>
       </div>
 
       <p class="visually-hidden" id="playground-instructions">
