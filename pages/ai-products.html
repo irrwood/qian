@@ -1,12 +1,12 @@
 <!doctype html>
-<html lang="zh-CN">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>我用 AI 做了三个产品，也重新学会了怎么做产品 - Qian Zhao</title>
+    <title>Building Three Products with AI Changed How I Build - Qian Zhao</title>
     <meta
       name="description"
-      content="从 Catfolio、Catfill 到 MOMO，一次关于 AI 编程、产品边界和设计判断的实验。"
+      content="From Catfolio and Catfill to MOMO: when development speed is no longer the bottleneck, the real challenges are boundaries, judgment, and trade-offs."
     />
     <link
       rel="icon"
@@ -28,10 +28,10 @@
       </div>
       <div class="portfolio-nav__inner">
         <a class="portfolio-nav__brand" href="../index.html" aria-label="Qian Zhao portfolio home">Qian Zhao</a>
-        <nav class="portfolio-nav__links" aria-label="Main navigation">
-          <a class="portfolio-nav__link" href="../index.html"><span class="portfolio-nav__link-label">Work</span></a>
-          <a class="portfolio-nav__link" href="./resume.html"><span class="portfolio-nav__link-label">Resume</span></a>
-          <a class="portfolio-nav__link" href="./about.html"><span class="portfolio-nav__link-label">About Me</span></a>
+        <nav class="portfolio-nav__links" aria-label="Language switcher">
+          <a class="portfolio-nav__link article-language-toggle" href="?lang=zh" data-language-toggle>
+            <span class="portfolio-nav__link-label">中文</span>
+          </a>
         </nav>
       </div>
     </header>
@@ -39,45 +39,59 @@
     <main>
       <article class="product-essay">
         <header class="article-hero" aria-labelledby="article-title">
-          <h1 id="article-title">我用 AI 做了三个产品，也重新学会了怎么做产品</h1>
+          <h1 id="article-title">Building Three Products with AI Changed How I Build</h1>
           <p class="article-kicker">Product notes · AI coding</p>
           <p class="article-hero__summary">
-            从 Catfolio、Catfill 到 MOMO，一次关于 AI 编程、产品边界和设计判断的实验。
+            From Catfolio and Catfill to MOMO: when development speed is no longer the bottleneck, the real challenges are boundaries, judgment, and trade-offs.
           </p>
         </header>
 
         <div class="article-layout" id="article-start">
-          <aside class="article-rail" aria-label="文章章节">
+          <aside class="article-rail" aria-label="Article sections">
             <a class="article-rail__back" href="../index.html">←&nbsp; Index</a>
-            <p class="article-rail__title">我用 AI 做了三个产品</p>
+            <p class="article-rail__title">Three Products Built with AI</p>
             <nav>
-              <a href="#catfolio" data-section-link="catfolio">Catfolio：想法与失控</a>
-              <a href="#catfill" data-section-link="catfill">Catfill：清晰的边界</a>
-              <a href="#momo" data-section-link="momo">MOMO：从收集一切，到先做好一次旅行</a>
-              <a href="#judgement" data-section-link="judgement">AI 与产品判断</a>
+              <a href="#catfolio" data-section-link="catfolio">Catfolio: Ideas and Sprawl</a>
+              <a href="#catfill" data-section-link="catfill">Catfill: Clear Boundaries</a>
+              <a href="#momo" data-section-link="momo">MOMO: Start with One Trip</a>
+              <a href="#judgement" data-section-link="judgement">AI and Product Judgment</a>
             </nav>
           </aside>
 
           <div class="article-content">
-            <section class="article-lede article-reveal" aria-label="文章引言">
+            <section class="article-lede article-reveal" aria-label="Introduction">
               <p class="article-lede__opening">
-                这几个月，我一直在做各种实验：把脑海里的一些想法，真正做成可以运行、甚至可以上线的产品。
+                Over the past few months, I have been experimenting with turning ideas in my head into products that actually run—and can even be launched.
               </p>
               <p>
-                目前，这些产品的大多数用户仍然是我自己。但在这个过程中，我学到了很多关于 AI 编程的技巧，也踩了不少坑。
+                For now, I am still the main user of most of them. Along the way, though, I have learned a great deal about coding with AI—and run into plenty of problems.
               </p>
               <p>
-                这不是一篇 AI 编程教程，更像是一份阶段性的产品记录。它可能有一点长，也不一定提供标准答案，但我希望这些真实的经历，能对同样在使用 AI 做产品的人有所帮助。
+                This is not a tutorial on AI coding. It is more like a record of where my product practice currently stands. It may be a little long, and it does not offer universal answers, but I hope these honest experiences are useful to others building products with AI.
               </p>
+
+              <ul class="article-product-intros" aria-label="Three product introductions">
+                <li>
+                  <span class="article-product-intros__name">Catfolio</span>
+                  <span class="article-product-intros__description">Turning scattered investment activity into a clear view of portfolio performance.</span>
+                </li>
+                <li>
+                  <span class="article-product-intros__name">Catfill</span>
+                  <span class="article-product-intros__description">Turning repetitive form filling into a fast, user-controlled workflow.</span>
+                </li>
+                <li>
+                  <span class="article-product-intros__name">MOMO</span>
+                  <span class="article-product-intros__description">Turning fragmented personal information into an actionable workflow.</span>
+                </li>
+              </ul>
             </section>
 
             <section class="article-section article-reveal" id="catfolio" data-article-section>
               <header class="article-section__header">
-                <p class="article-section__number">01 / Catfolio</p>
-                <h2>AI 把我的想法全部做了出来，也把问题全部放大了</h2>
+                <h2>Catfolio: AI Built Every Idea I Had—and Magnified Every Problem</h2>
               </header>
 
-              <div class="article-carousel" data-article-carousel aria-label="Catfolio 产品界面" aria-roledescription="carousel">
+              <div class="article-carousel" data-article-carousel aria-label="Catfolio product interface" aria-roledescription="carousel">
                 <div class="article-carousel__viewport">
                   <div class="article-carousel__track" id="catfolio-carousel-track" data-carousel-track>
                     <figure
@@ -93,15 +107,14 @@
                         type="button"
                         data-lightbox-trigger
                         data-lightbox-group="catfolio"
-                        aria-label="放大查看 Catfolio 成本与市场价值走势"
+                        aria-label="Enlarge Catfolio cost and market value chart"
                         aria-haspopup="dialog"
                       >
                         <img
                           src="../assets/ai-products/catfolio-cost-value.webp"
-                          alt="Catfolio 投资组合 Dashboard 的成本与市场价值走势组件"
+                          alt="Catfolio portfolio dashboard showing cost and market value over time"
                         />
                       </button>
-                      <figcaption>Catfolio · Cost vs market value</figcaption>
                     </figure>
 
                     <figure
@@ -119,17 +132,16 @@
                         type="button"
                         data-lightbox-trigger
                         data-lightbox-group="catfolio"
-                        aria-label="放大查看 Catfolio 收益日历"
+                        aria-label="Enlarge Catfolio profit calendar"
                         aria-haspopup="dialog"
                       >
                         <img
                           src="../assets/ai-products/catfolio-profit-calendar.webp"
-                          alt="Catfolio 收益日历，按日期展示每日收益、股息和现金利息"
+                          alt="Catfolio profit calendar showing daily returns, dividends, and cash interest"
                           loading="lazy"
                           decoding="async"
                         />
                       </button>
-                      <figcaption>Catfolio · Profit calendar</figcaption>
                     </figure>
 
                     <figure
@@ -147,17 +159,16 @@
                         type="button"
                         data-lightbox-trigger
                         data-lightbox-group="catfolio"
-                        aria-label="放大查看 Catfolio 回撤水下曲线"
+                        aria-label="Enlarge Catfolio drawdown chart"
                         aria-haspopup="dialog"
                       >
                         <img
                           src="../assets/ai-products/catfolio-drawdown.webp"
-                          alt="Catfolio 回撤水下曲线，展示投资组合在不同时间的回撤幅度"
+                          alt="Catfolio underwater drawdown chart showing portfolio declines over time"
                           loading="lazy"
                           decoding="async"
                         />
                       </button>
-                      <figcaption>Catfolio · Drawdown underwater curve</figcaption>
                     </figure>
 
                     <figure
@@ -175,17 +186,16 @@
                         type="button"
                         data-lightbox-trigger
                         data-lightbox-group="catfolio"
-                        aria-label="放大查看 Catfolio 持仓详情"
+                        aria-label="Enlarge Catfolio holding details"
                         aria-haspopup="dialog"
                       >
                         <img
                           src="../assets/ai-products/catfolio-holdings.webp"
-                          alt="Catfolio 持仓详情表格，展示资产价格、收益和市场价值"
+                          alt="Catfolio holdings table showing asset prices, returns, and market value"
                           loading="lazy"
                           decoding="async"
                         />
                       </button>
-                      <figcaption>Catfolio · Holding details</figcaption>
                     </figure>
                   </div>
 
@@ -193,90 +203,82 @@
                     class="article-carousel__nav article-carousel__nav--previous"
                     type="button"
                     data-carousel-previous
-                    aria-label="查看上一张 Catfolio 图片"
+                    aria-label="View previous Catfolio image"
                     aria-controls="catfolio-carousel-track"
                   >←</button>
                   <button
                     class="article-carousel__nav article-carousel__nav--next"
                     type="button"
                     data-carousel-next
-                    aria-label="查看下一张 Catfolio 图片"
+                    aria-label="View next Catfolio image"
                     aria-controls="catfolio-carousel-track"
                   >→</button>
                 </div>
 
-                <div class="article-carousel__footer">
-                  <div class="article-carousel__dots" role="tablist" aria-label="选择 Catfolio 图片">
-                    <button class="is-active" type="button" role="tab" data-carousel-dot aria-label="成本与市场价值" aria-controls="catfolio-slide-cost" aria-selected="true"></button>
-                    <button type="button" role="tab" data-carousel-dot aria-label="收益日历" aria-controls="catfolio-slide-calendar" aria-selected="false"></button>
-                    <button type="button" role="tab" data-carousel-dot aria-label="回撤水下曲线" aria-controls="catfolio-slide-drawdown" aria-selected="false"></button>
-                    <button type="button" role="tab" data-carousel-dot aria-label="持仓详情" aria-controls="catfolio-slide-holdings" aria-selected="false"></button>
-                  </div>
-                  <span class="article-carousel__count" data-carousel-count aria-live="polite">01 / 04</span>
-                </div>
               </div>
 
               <div class="article-prose">
-                <p>我最开始做的产品，是一个管理个人股票投资组合的 Dashboard，叫作 <strong>Catfolio</strong>。</p>
-                <p>这个想法来自一个很实际的问题。</p>
+                <p>The first product I built was a dashboard for managing a personal stock portfolio. I called it <strong>Catfolio</strong>.</p>
+                <p>The idea came from a very practical problem.</p>
                 <p>
-                  我有多个投资账户，在不同时间买入和卖出股票。如果想知道真实的持仓成本、投资收益，以及整个 Portfolio 的表现，手动计算会非常麻烦。
+                  I have several investment accounts and buy and sell stocks at different times. Working out my real cost basis, investment returns, and the performance of the portfolio as a whole was painfully tedious by hand.
                 </p>
                 <p>
-                  与此同时，我也在学习一些量化投资知识。我希望有一个属于自己的平台，可以测试不同的算法、指标和投资策略，而不是只能使用现成工具提供的固定功能。
+                  At the same time, I was learning about quantitative investing. I wanted a platform of my own where I could test different algorithms, indicators, and strategies instead of being limited to the fixed features of existing tools.
                 </p>
-                <p>所以，我决定自己做一个。</p>
+                <p>So I decided to build one myself.</p>
                 <p>
-                  从项目开始，我就做了一个比较激进的决定：<strong>不使用 Figma，也不采用传统的产品设计和开发流程，直接让 AI 完成整个产品。</strong>
-                </p>
-                <p>
-                  界面由 Claude Code 设计，代码也几乎全部由 AI 编写。我通过 Design System 管理组件和样式，再不断地告诉 AI 增加新的功能。
-                </p>
-                <p>一开始，这种感觉非常好。</p>
-                <p>
-                  一个想法只要说出来，很快就能变成一个真实的功能。过去可能需要设计师和工程师花几天完成的工作，现在几个小时就能看到结果。
-                </p>
-                <p>但当产品发展到一定规模后，问题开始出现。</p>
-                <p>
-                  功能越来越多，图表越来越多，页面之间的关系变得越来越复杂。AI 每次都可以完成眼前的任务，却很难主动判断这个功能到底应不应该存在，以及它与整个产品之间是什么关系。
-                </p>
-                <p>结果就是，产品虽然一直在增长，却逐渐失去了清晰的核心。</p>
-                <p>
-                  代码也开始变得难以管理。一个功能的修改会影响其他页面，新的 Bug 不断出现，AI 为了修复一个问题，又可能制造出另外几个问题。项目越大，AI Coding 反而变得越慢。
-                </p>
-                <p>视觉上也有类似的问题。</p>
-                <p>
-                  即使建立了 Design System，整个产品看起来依然有很强的“AI 味”：组件是统一的，间距也基本正确，但缺少真正的层级、节奏和细致的判断。
-                </p>
-                <p class="article-emphasis">我后来意识到，Design System 可以让一个产品保持一致，却不能自动让一个产品拥有品味。</p>
-                <p>为了解决这些问题，我停止继续增加功能，重新回到产品本身。</p>
-                <p>
-                  我砍掉了大部分图表，只保留真正能够帮助我理解投资组合的几个核心视图；重新规划了信息架构，调整了功能优先级，也重新安排了页面层级。
+                  At the start of the project, I made a fairly radical decision: <strong>no Figma, no traditional product design and development process—AI would build the entire product directly.</strong>
                 </p>
                 <p>
-                  在视觉上，我重新手动设计了主要界面，重新处理字体、间距、信息密度和交互细节，尽量洗掉产品中那种模板化的 AI 感。
+                  Claude Code designed the interface, and AI wrote almost all of the code. I used a design system to manage components and styles, then kept asking AI to add more features.
+                </p>
+                <p>At first, it felt fantastic.</p>
+                <p>
+                  An idea could become a working feature almost as soon as I described it. Work that might once have taken a designer and engineer several days could now appear in a few hours.
+                </p>
+                <p>But once the product reached a certain scale, problems began to appear.</p>
+                <p>
+                  There were more features, more charts, and increasingly complex relationships between pages. AI could complete each task in front of it, but it rarely asked whether a feature should exist at all or how it related to the product as a whole.
+                </p>
+                <p>The product kept growing, but gradually lost its clear centre.</p>
+                <p>
+                  The code also became difficult to manage. Changing one feature affected other pages. New bugs appeared constantly, and fixing one problem with AI could create several more. The larger the project became, the slower AI coding felt.
+                </p>
+                <p>The same thing happened visually.</p>
+                <p>
+                  Even with a design system, the product still had a strong “AI-made” quality. The components were consistent and the spacing was mostly correct, but the interface lacked real hierarchy, rhythm, and careful judgment.
+                </p>
+                <p class="article-emphasis article-emphasis--circled">
+                  <span class="article-hand-circle" data-hand-circle>A design system can keep a product consistent, but it cannot give it taste.</span>
+                </p>
+                <p>To address these problems, I stopped adding features and returned to the product itself.</p>
+                <p>
+                  I removed most of the charts and kept only the core views that genuinely helped me understand the portfolio. I reworked the information architecture, reset feature priorities, and reorganised the page hierarchy.
                 </p>
                 <p>
-                  现在，我正在逐步加回之前的一些好想法，但不再只是把它们直接堆进产品，而是以更有规则、更容易维护的方式加入。
+                  Visually, I redesigned the main interfaces by hand, revisiting typography, spacing, information density, and interaction details to remove as much of that templated AI feeling as possible.
+                </p>
+                <p>
+                  I am now gradually bringing back some of the better ideas, but adding them through clearer rules and a more maintainable structure instead of simply piling them into the product.
                 </p>
               </div>
 
               <blockquote class="article-lesson">
-                <span>Catfolio 给我的第一个教训</span>
-                <p>AI 可以非常快地执行一个方向，但它不会主动告诉你，这个方向是不是错的。</p>
+                <span>Catfolio’s first lesson</span>
+                <p>AI can execute a direction incredibly quickly, but it will not tell you when that direction is wrong.</p>
               </blockquote>
 
               <div class="article-prose">
                 <p>
-                  当工具变得更快时，模糊的产品方向反而会变得更加危险。因为在你意识到问题之前，AI 可能已经沿着错误的方向跑了很远。
+                  As tools get faster, an unclear product direction becomes more dangerous. By the time you notice the problem, AI may already have travelled a long way in the wrong direction.
                 </p>
               </div>
             </section>
 
             <section class="article-section article-reveal" id="catfill" data-article-section>
               <header class="article-section__header">
-                <p class="article-section__number">02 / Catfill</p>
-                <h2>一个足够小、足够清晰的产品</h2>
+                <h2>Catfill: A Product Small Enough—and Clear Enough—to Finish</h2>
               </header>
 
               <figure class="article-media article-media--catfill">
@@ -285,45 +287,43 @@
                   type="button"
                   data-lightbox-trigger
                   data-lightbox-group="catfill"
-                  aria-label="放大查看 Catfill 浏览器插件"
+                  aria-label="Enlarge Catfill browser extension"
                   aria-haspopup="dialog"
                 >
-                  <img loading="lazy" decoding="async" src="../assets/playground/catfill.png" alt="Catfill AI 自动填表浏览器插件与手绘猫咪插图" />
+                  <img loading="lazy" decoding="async" src="../assets/playground/catfill.png" alt="Catfill AI form-filling browser extension with hand-drawn cat illustrations" />
                 </button>
-                <figcaption>Catfill · AI form autofill browser extension</figcaption>
               </figure>
 
               <div class="article-prose">
-                <p>第二个产品是 <strong>Catfill</strong>。</p>
+                <p>The second product is <strong>Catfill</strong>.</p>
                 <p>
-                  Catfill 是一个 Chrome 填表插件。用户可以让它学习自己的个人资料，也可以手动导入内容。之后在遇到表单时，只需要点击一次，它就可以自动填写页面中的大部分字段。
+                  Catfill is a Chrome extension for filling in forms. Users can let it learn their personal details or import information manually. When they encounter a form, one click fills most of the fields on the page.
                 </p>
-                <p>但它有一个非常重要的边界：</p>
-                <p class="article-emphasis">Catfill 只负责填写，不负责提交。</p>
+                <p>But it has one very important boundary:</p>
+                <p class="article-emphasis">Catfill fills the form. It never submits it.</p>
                 <p>
-                  无论是求职申请、注册资料，还是其他重要表单，最终的检查和提交都必须由用户自己完成。
+                  Whether it is a job application, registration, or another important form, the final review and submission always remain with the user.
                 </p>
-                <p>它可以减少重复劳动，但不会替用户做重要决定。</p>
+                <p>It reduces repetitive work without making important decisions on someone’s behalf.</p>
               </div>
 
-              <div class="article-media-gallery" aria-label="Catfill 产品界面">
+              <div class="article-media-gallery" aria-label="Catfill product interface">
                 <figure class="article-media article-media--catfill-detail">
                   <button
                     class="article-media__trigger"
                     type="button"
                     data-lightbox-trigger
                     data-lightbox-group="catfill"
-                    aria-label="放大查看 Catfill 填写模式"
+                    aria-label="Enlarge Catfill filling modes"
                     aria-haspopup="dialog"
                   >
                     <img
                       src="../assets/ai-products/catfill-modes.webp"
-                      alt="Catfill 插件主界面，提供 AI 填写、无 AI 填写以及学习并保存资料三种功能"
+                      alt="Catfill extension interface with AI fill, non-AI fill, and learn-and-save options"
                       loading="lazy"
                       decoding="async"
                     />
                   </button>
-                  <figcaption>Catfill · Choose an autofill mode</figcaption>
                 </figure>
 
                 <figure class="article-media article-media--catfill-detail">
@@ -332,87 +332,84 @@
                     type="button"
                     data-lightbox-trigger
                     data-lightbox-group="catfill"
-                    aria-label="放大查看 Catfill 资料导入界面"
+                    aria-label="Enlarge Catfill data import interface"
                     aria-haspopup="dialog"
                   >
                     <img
                       src="../assets/ai-products/catfill-import.webp"
-                      alt="Catfill 资料导入界面，可从 PDF、Excel、图片或文本文件中读取个人资料"
+                      alt="Catfill import interface for reading personal details from PDF, Excel, images, or text files"
                       loading="lazy"
                       decoding="async"
                     />
                   </button>
-                  <figcaption>Catfill · Import saved details from a file</figcaption>
                 </figure>
               </div>
 
               <div class="article-prose">
                 <p>
-                  和 Catfolio 相比，Catfill 的功能非常简单，也非常清晰。它不是一个大而全的平台，只解决一个具体的问题：<strong>帮助用户更快地填写重复表单。</strong>
+                  Compared with Catfolio, Catfill is very simple and very clear. It is not an all-purpose platform. It solves one specific problem: <strong>helping people complete repetitive forms faster.</strong>
                 </p>
-                <p>这一次，我改变了使用 AI 的方式。</p>
+                <p>This time, I changed how I used AI.</p>
                 <p>
-                  在开始写代码之前，我先调研了产品的技术细节，了解浏览器插件可以读取哪些内容、不同表单组件应该如何识别，以及哪些操作可能存在风险。
+                  Before writing any code, I researched the technical details: what a browser extension could read, how different form controls should be recognised, and which actions might introduce risk.
                 </p>
                 <p>
-                  然后，我先设计完整的产品流程，确定功能边界和异常情况，再把相对明确的任务交给 AI 实现。
+                  I then designed the complete product flow, defined the feature boundaries and edge cases, and handed AI a set of relatively well-specified implementation tasks.
                 </p>
                 <p class="article-key-line">
-                  <span class="article-hand-underline" data-hand-underline>这一次，我明显感觉自己重新掌握了方向盘。</span>
+                  <span class="article-hand-underline" data-hand-underline>This time, I clearly felt that I had the steering wheel again.</span>
                 </p>
                 <p>
-                  AI 不再负责决定产品应该是什么，而是负责帮助我更快地实现已经想清楚的方案。
+                  AI was no longer deciding what the product should be. It was helping me implement a solution I had already thought through.
                 </p>
                 <p>
-                  因为范围足够明确，代码也更容易维护。遇到问题时，我能够判断问题出在哪里，而不是让 AI 在一个越来越复杂的系统里反复尝试。
+                  Because the scope was clear, the code was easier to maintain. When something went wrong, I could identify the source instead of asking AI to keep trying inside an increasingly complex system.
                 </p>
-                <p>我还为 Catfill 手绘了几张插图，希望它不仅是一个有用的工具，也能够拥有一些属于自己的性格。</p>
-                <p>最终，这个产品真正上线了。</p>
+                <p>I also drew several illustrations for Catfill. I wanted it to be useful, but also to have a personality of its own.</p>
+                <p>In the end, the product actually launched.</p>
                 <p>
-                  我甚至开始尝试推广它。虽然推广和商业化仍然是我接下来需要继续学习的部分，但 Catfill 至少让我第一次完整地经历了从想法、设计、开发、测试到发布的全过程。
+                  I even began experimenting with promotion. Marketing and commercialisation are still things I need to learn, but Catfill gave me my first complete journey from idea and design through development, testing, and release.
                 </p>
                 <p>
-                  Catfill 让我意识到，AI 最适合执行的，不是一个模糊而宏大的愿景，而是一个边界清晰、逻辑明确的问题。
+                  Catfill taught me that AI is best at executing a clearly bounded, logically defined problem—not a vague and expansive vision.
                 </p>
-                <p>在使用 AI 编程之前，最重要的可能不是写出一个更好的 Prompt，而是先回答几个更基础的问题：</p>
+                <p>Before coding with AI, the most important task may not be writing a better prompt. It may be answering a few more fundamental questions:</p>
               </div>
 
-              <ul class="article-questions" aria-label="开始 AI 编程前需要回答的问题">
-                <li>这个产品到底解决什么问题？</li>
-                <li>它不解决什么问题？</li>
-                <li>哪些事情可以自动完成？</li>
-                <li>哪些决定必须留给用户？</li>
+              <ul class="article-questions" aria-label="Questions to answer before coding with AI">
+                <li>What exact problem does this product solve?</li>
+                <li>What does it deliberately not solve?</li>
+                <li>Which tasks can be automated?</li>
+                <li>Which decisions must stay with the user?</li>
               </ul>
 
               <div class="article-prose">
-                <p>当这些问题足够清楚时，AI 才真正开始变得高效。</p>
+                <p>AI becomes genuinely efficient only when these answers are clear.</p>
               </div>
             </section>
 
             <section class="article-section article-reveal" id="momo" data-article-section>
               <header class="article-section__header">
-                <p class="article-section__number">03 / MOMO</p>
-                <h2>MOMO：从收集一切，到先做好一次旅行</h2>
+                <h2>MOMO: From Collecting Everything to Getting One Trip Right</h2>
               </header>
 
-              <div class="article-media-gallery article-media-gallery--section-lead" aria-label="MOMO 产品界面">
+              <div class="article-media-gallery article-media-gallery--section-lead" aria-label="MOMO product interface">
                 <figure class="article-media article-media--momo">
                   <button
                     class="article-media__trigger"
                     type="button"
                     data-lightbox-trigger
                     data-lightbox-group="momo"
-                    aria-label="放大查看 MOMO 旅行报告与下一步建议"
+                    aria-label="Enlarge MOMO travel report and next-step suggestions"
                     aria-haspopup="dialog"
                   >
                     <img
                       src="../assets/ai-products/momo-travel-report.webp"
-                      alt="MOMO 旅行报告界面，展示马略卡岛航班、酒店以及下一步建议"
+                      alt="MOMO travel report showing Mallorca flights, accommodation, and next-step suggestions"
                       loading="lazy"
                       decoding="async"
                     />
                   </button>
-                  <figcaption>MOMO · Travel report and next steps</figcaption>
                 </figure>
 
                 <figure class="article-media article-media--momo">
@@ -421,148 +418,151 @@
                     type="button"
                     data-lightbox-trigger
                     data-lightbox-group="momo"
-                    aria-label="放大查看 MOMO 旅行时间线与 AI 助手"
+                    aria-label="Enlarge MOMO travel timeline and AI assistant"
                     aria-haspopup="dialog"
                   >
                     <img
                       src="../assets/ai-products/momo-ai-assistant.webp"
-                      alt="MOMO 旅行时间线界面，展示马略卡岛行程和能够查询邮件预订信息的 AI 助手"
+                      alt="MOMO travel timeline showing a Mallorca itinerary and an AI assistant that can check booking emails"
                       loading="lazy"
                       decoding="async"
                     />
                   </button>
-                  <figcaption>MOMO · Trip timeline and AI assistant</figcaption>
                 </figure>
               </div>
 
               <div class="article-prose">
-                <p>第三个产品是 <strong>MOMO</strong>。</p>
-                <p>MOMO 的设想比前两个产品都更大。</p>
+                <p>The third product is <strong>MOMO</strong>.</p>
+                <p>The vision for MOMO was bigger than either of the first two products.</p>
                 <p>
-                  我希望它能够收集和理解一个人的各种信息，包括浏览记录、邮件、笔记、照片、日程、待办事项和会议记录。
+                  I wanted it to collect and understand many kinds of personal information—browsing history, email, notes, photos, calendars, tasks, and meeting records—while running entirely on the user’s device.
                 </p>
                 <p>
-                  当用户需要时，它可以自动整理相关资料，以一种清晰、漂亮的方式呈现出来，并根据现有信息提出下一步建议，帮助用户做决定。
+                  None of this information leaves the device. In the future, I may also use the Foundation Models framework in macOS 27 so that information understanding and AI analysis remain local as well. For MOMO, privacy is not a feature to add later. It is a fundamental design constraint.
                 </p>
                 <p>
-                  比如，当用户正在计划一次旅行时，MOMO 可以知道哪些酒店和机票已经预订，哪些租车公司只是浏览过，哪些活动还没有决定。
-                </p>
-                <p>它不只是保存信息，而是希望理解这些信息之间的关系。</p>
-                <p>这一次，我吸取了 Catfolio 的教训。</p>
-                <p>
-                  我先手动设计界面，再交给 AI 实现。在正式开发之前，我也和 AI 进行了很长时间的技术讨论，寻找合适的实现方案，研究是否有成熟的开源组件可以使用，尽量避免重复造轮子。
+                  When needed, MOMO could organise relevant material, present it clearly and beautifully, and suggest what to do next based on the information already available.
                 </p>
                 <p>
-                  我还专门选择了相对成熟、对 AI 编程比较友好的技术栈，希望减少 AI 在冷门框架和复杂环境中出错的概率。
+                  If someone were planning a trip, for example, MOMO could know which flights and hotels were booked, which car-rental companies had only been browsed, and which activities were still undecided.
+                </p>
+                <p>It would not merely store information. It would try to understand the relationships between pieces of information.</p>
+                <p>This time, I applied what Catfolio had taught me.</p>
+                <p>
+                  I designed the interface by hand before asking AI to implement it. Before development began, I also spent a long time discussing technical approaches with AI and investigating mature open-source components so I would not rebuild things unnecessarily.
                 </p>
                 <p>
-                  前端使用了 Electron。因为 Electron 本身带有浏览器能力，我希望未来在处理网页和浏览行为时，可以直接利用这些能力，而不是完全依赖外部浏览器。
-                </p>
-                <p>最初的进展非常顺利。</p>
-                <p>MOMO 可以记录用户的操作，也可以记录在 Chrome 中访问过的网页。</p>
-                <p>但很快，一个更根本的问题出现了：</p>
-                <p class="article-emphasis">它记录了用户访问过什么，却不真正理解用户看到了什么。</p>
-                <p>最开始，系统得到的主要信息只是网页标题和链接。</p>
-                <p>
-                  但一个网页标题和一个 URL，远远不足以告诉 AI 页面里真正重要的内容是什么。它不知道用户关注的是价格、日期、地点、产品参数，还是其中的一段文字。
+                  I deliberately chose a mature, AI-friendly technology stack to reduce the chance of errors in obscure frameworks or complex environments.
                 </p>
                 <p>
-                  这让我意识到，AI 产品的能力上限，很多时候并不取决于模型有多聪明，而取决于你给它的数据有多好。
+                  The front end uses Electron. Because Electron includes browser capabilities, I hoped to use them directly when working with web pages and browsing behaviour rather than relying entirely on an external browser.
                 </p>
-                <p>如果输入只是杂乱的浏览记录，模型就只能根据有限的信息进行猜测。</p>
+                <p>Early progress was very smooth.</p>
+                <p>MOMO could record user actions and the pages visited in Chrome.</p>
+                <p>But a more fundamental problem quickly appeared:</p>
+                <p class="article-emphasis">It knew what the user had visited, but not what the user had actually seen.</p>
+                <p>At first, the system mainly received page titles and links.</p>
                 <p>
-                  如果能够把网页中的正文、结构、价格、日期和用户真正关注的部分提取出来，并清洗成干净的上下文，AI 才有机会生成真正有价值的结果。
-                </p>
-                <p>于是，我开始加入新的内容提取和预处理组件，帮助系统清洗已经收集到的信息。</p>
-                <p>但这里仍然需要一定程度的人工干预。</p>
-                <p>
-                  用户需要通过自己的行为，或者通过明确的操作，告诉系统哪些内容是重要的。因为同一个网页里可能包含大量信息，但真正与当前任务有关的，可能只有其中很小的一部分。
-                </p>
-                <p>网页内容清洗得越准确，最终生成的报告就越有价值。</p>
-                <p>技术问题逐渐清楚以后，我又遇到了另一个更熟悉的问题。</p>
-                <p>我再次把产品想得太大了。</p>
-                <p>
-                  我希望 MOMO 可以统一管理所有个人信息，在任何场景里都能自动工作：旅行、研究、购物、求职、会议、日程和个人知识管理。
-                </p>
-                <p>它似乎什么都能做。</p>
-                <p>但换一个角度看，这也意味着它没有一个足够明确的起点。</p>
-                <p>
-                  我感觉自己不是在做一个产品，而是在尝试做一个新的个人操作系统。这已经远远超出了我和现阶段 AI 的能力。
+                  A page title and URL are nowhere near enough to tell AI what actually matters on the page. It cannot know whether the user cares about a price, date, location, product specification, or a particular paragraph.
                 </p>
                 <p>
-                  这其实是我在 Catfolio 中犯过的同一个错误：在一个场景还没有真正做好的时候，就开始想象一个可以覆盖所有场景的平台。
+                  This made me realise that the ceiling of an AI product often depends less on how intelligent the model is than on the quality of the data you give it.
                 </p>
-                <p>意识到这一点后，我砍掉了大部分功能，并重新建立了一个更小的产品分支。</p>
+                <p>If the input is only a messy browsing history, the model can do little more than guess from limited evidence.</p>
                 <p>
-                  这个版本只做一件事情：<strong>根据用户已经浏览、收到和保存的信息，生成一份完整的旅行报告。</strong>
+                  If the system can extract page content, structure, prices, dates, and the parts the user truly cares about—and clean them into usable context—then AI has a chance to generate something valuable.
                 </p>
-                <p>它仍然保留后台的信息收集和分析能力，但输出场景被限制在旅行规划中。</p>
-                <p>它需要先准确回答一些具体问题：</p>
+                <p>So I began adding content extraction and preprocessing components to clean the information the system had collected.</p>
+                <p>Some human input was still necessary.</p>
+                <p>
+                  Through behaviour or explicit actions, users need to tell the system what matters. A page may contain a huge amount of information, while only a small part of it is relevant to the task at hand.
+                </p>
+                <p>The more accurately the web content is cleaned, the more useful the final report becomes.</p>
+                <p>As the technical problem became clearer, I encountered another, more familiar one.</p>
+                <p>Once again, I had imagined the product on too large a scale.</p>
+                <p>
+                  I wanted MOMO to manage every kind of personal information and work automatically in every context: travel, research, shopping, job hunting, meetings, scheduling, and personal knowledge management.
+                </p>
+                <p>It seemed able to do everything.</p>
+                <p>Seen another way, that meant it had no sufficiently clear starting point.</p>
+                <p class="article-key-line">
+                  <span class="article-hand-underline" data-hand-underline>I felt less like I was building a product and more like I was attempting to build a new personal operating system—far beyond what either I or today’s AI could realistically deliver.</span>
+                </p>
+                <p>
+                  It was the same mistake I had made with Catfolio: imagining a platform that covered every scenario before making even one scenario work properly.
+                </p>
+                <p>Once I recognised this, I removed most of the features and created a smaller product branch.</p>
+                <p>
+                  This version does one thing: <strong>it creates a complete travel report from information the user has browsed, received, and saved.</strong>
+                </p>
+                <p>It retains the underlying collection and analysis capabilities, but limits the output to travel planning.</p>
+                <p>First, it needs to answer a few concrete questions accurately:</p>
               </div>
 
-              <ul class="article-questions" aria-label="MOMO 旅行报告需要回答的问题">
-                <li>哪些机票和酒店已经预订？</li>
-                <li>哪些内容只是浏览过？</li>
-                <li>还有哪些事项没有完成？</li>
-                <li>用户下一步应该做什么？</li>
+              <ul class="article-questions" aria-label="Questions the MOMO travel report must answer">
+                <li>Which flights and hotels are already booked?</li>
+                <li>Which options were only browsed?</li>
+                <li>What still needs to be completed?</li>
+                <li>What should the user do next?</li>
               </ul>
 
               <div class="article-prose">
                 <p>
-                  只有当旅行报告能够稳定、准确、完整地输出时，我才会考虑继续适配研究、购物或者其他场景。
+                  Only when the travel report can be produced reliably, accurately, and completely will I consider adapting the system to research, shopping, or other contexts.
                 </p>
-                <p>这一次，我不再从“它最终可以做什么”开始，而是从“它现在必须把哪一件事情做好”开始。</p>
+                <p class="article-key-line">
+                  <span class="article-hand-underline article-hand-underline--green" data-hand-underline>This time, I stopped asking what it might eventually do and started with the one thing it must do well now.</span>
+                </p>
               </div>
             </section>
 
             <section class="article-section article-section--closing article-reveal" id="judgement" data-article-section>
               <header class="article-section__header">
-                <p class="article-section__number">04 / Reflection</p>
-                <h2>AI 编程并没有减少产品判断的重要性</h2>
+                <h2>AI Coding Has Not Made Product Judgment Less Important</h2>
               </header>
 
               <div class="article-prose">
-                <p>回头看，这三个产品分别让我理解了 AI 产品开发的不同层面。</p>
+                <p>Looking back, each of these three products taught me something different about developing products with AI.</p>
                 <p>
-                  Catfolio 让我看到，当功能缺少控制时，AI 的高效率也会迅速制造大量产品债务和技术债务。
+                  Catfolio showed me how quickly AI’s efficiency can create product and technical debt when features are not kept under control.
                 </p>
-                <p>Catfill 让我理解，一个范围足够小、边界足够清晰的产品，更容易真正完成和上线。</p>
+                <p>Catfill taught me that a product with a small enough scope and clear enough boundaries is far more likely to be finished and launched.</p>
                 <p>
-                  MOMO 则让我意识到，对于 AI 产品来说，真正困难的往往不是调用模型，而是如何获得、清洗和组织高质量的上下文，以及如何找到一个足够具体的使用场景。
+                  MOMO made me realise that the hardest part of an AI product is often not calling a model. It is obtaining, cleaning, and organising high-quality context—and finding a use case specific enough to matter.
                 </p>
-                <p>AI 确实大幅降低了制作产品的门槛。</p>
+                <p>AI has dramatically lowered the barrier to building products.</p>
                 <p>
-                  它可以写代码、搭建界面、处理数据、修复 Bug，甚至提供产品建议。一个人现在可以完成过去需要一个小团队才能完成的事情。
+                  It can write code, build interfaces, process data, fix bugs, and even offer product suggestions. One person can now do work that once required a small team.
                 </p>
-                <p>但它并没有替代产品判断。</p>
-                <p>相反，因为实现变得更快，判断可能变得比以前更加重要。</p>
+                <p>But it has not replaced product judgment.</p>
+                <p>If anything, judgment may matter more now that implementation is faster.</p>
                 <p>
-                  现在的 AI 往往不会阻止一个不合理的需求。你提出一个没有边界、甚至不太靠谱的想法，它依然会非常积极地帮你实现。
+                  Today’s AI rarely stops an unreasonable request. Give it an unbounded—or even dubious—idea, and it will still enthusiastically help you build it.
                 </p>
-                <p>它不会自然地问你：</p>
+                <p>It does not naturally ask:</p>
               </div>
 
-              <ul class="article-questions article-questions--dark" aria-label="AI 不会主动提出的问题">
-                <li>这个功能真的有人需要吗？</li>
-                <li>它是不是让产品变得更复杂了？</li>
-                <li>这个问题是否值得解决？</li>
-                <li>我们是不是应该先停下来？</li>
+              <ul class="article-questions" aria-label="Questions AI will not ask on its own">
+                <li>Does anyone actually need this feature?</li>
+                <li>Is it making the product more complicated?</li>
+                <li>Is this problem worth solving?</li>
+                <li>Should we stop before building more?</li>
               </ul>
 
               <div class="article-prose">
                 <p>
-                  也许未来的模型会更擅长挑战用户的假设，但至少在现阶段，方向仍然需要人来控制。
+                  Future models may become better at challenging a user’s assumptions. For now, however, people still need to control the direction.
                 </p>
                 <p>
-                  人需要决定问题、边界、优先级、信息层级和产品品味，也需要知道什么时候应该继续，什么时候应该停下来砍掉功能。
+                  People need to decide the problem, boundaries, priorities, information hierarchy, and product taste. They also need to know when to continue—and when to stop and remove features.
                 </p>
-                <p>AI 更像是一支执行速度极快、永远充满热情，却不太会拒绝需求的团队。</p>
-                <p>而我们的责任，是在它开始快速执行之前，先想清楚什么值得被做。</p>
-                <p>这就是我最近几个月使用 AI 制作产品的最新记录。</p>
+                <p>AI is more like a team that executes incredibly fast, remains endlessly enthusiastic, and rarely says no to a request.</p>
+                <p>Our responsibility is to decide what is worth doing before that team begins moving at full speed.</p>
+                <p>This is where my work with AI products has brought me over the past few months.</p>
               </div>
 
               <blockquote class="article-final-quote">
-                <p>我现在越来越相信，真正重要的不是 AI 能帮我写多少代码，而是我能否在它写得太快之前，先把问题想清楚。</p>
+                <p>I increasingly believe that what matters is not how much code AI can write for me, but whether I can think the problem through before it starts writing too fast.</p>
               </blockquote>
             </section>
           </div>
@@ -576,7 +576,7 @@
         type="button"
         data-catfill-sticker
         data-sticker-direction="-1"
-        aria-label="让书本贴纸跳一下"
+        aria-label="Make the book sticker jump"
       >
         <img src="../assets/playground/book-sticker.png" alt="" aria-hidden="true" loading="lazy" decoding="async" />
       </button>
@@ -586,7 +586,7 @@
         type="button"
         data-catfill-sticker
         data-sticker-direction="1"
-        aria-label="让拿铅笔的猫咪贴纸跳一下"
+        aria-label="Make the cat-with-pencil sticker jump"
       >
         <img src="../assets/playground/cat-pencil-sticker.png" alt="" aria-hidden="true" loading="lazy" decoding="async" />
       </button>
@@ -596,26 +596,23 @@
         type="button"
         data-catfill-sticker
         data-sticker-direction="1"
-        aria-label="让设备贴纸跳一下"
+        aria-label="Make the device sticker jump"
       >
         <img src="../assets/playground/device-sticker.png" alt="" aria-hidden="true" loading="lazy" decoding="async" />
       </button>
     </aside>
 
-    <dialog class="article-lightbox" aria-labelledby="article-lightbox-caption">
+    <dialog class="article-lightbox" aria-label="Enlarged product image">
       <div class="article-lightbox__surface">
-        <button class="article-lightbox__close" type="button" data-lightbox-close aria-label="关闭大图">×</button>
-        <button class="article-lightbox__nav article-lightbox__nav--previous" type="button" data-lightbox-previous aria-label="查看上一张图片">←</button>
+        <button class="article-lightbox__close" type="button" data-lightbox-close aria-label="Close enlarged image">×</button>
+        <button class="article-lightbox__nav article-lightbox__nav--previous" type="button" data-lightbox-previous aria-label="View previous image">←</button>
 
         <figure class="article-lightbox__figure">
           <img data-lightbox-image alt="" />
-          <figcaption id="article-lightbox-caption">
-            <span data-lightbox-caption></span>
-            <span data-lightbox-count aria-live="polite"></span>
-          </figcaption>
+          <p class="article-lightbox__count" data-lightbox-count aria-live="polite"></p>
         </figure>
 
-        <button class="article-lightbox__nav article-lightbox__nav--next" type="button" data-lightbox-next aria-label="查看下一张图片">→</button>
+        <button class="article-lightbox__nav article-lightbox__nav--next" type="button" data-lightbox-next aria-label="View next image">→</button>
       </div>
     </dialog>
 

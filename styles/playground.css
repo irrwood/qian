@@ -105,6 +105,53 @@ a {
   outline-offset: 4px;
 }
 
+.playground__note {
+  position: absolute;
+  z-index: 4;
+  top: clamp(28px, 4.66vh, 41px);
+  right: clamp(40px, 6.96vw, 117px);
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 13px 18px;
+  border-radius: 999px;
+  background: var(--brand-ink);
+  color: var(--brand-white);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1;
+  cursor: pointer;
+  transition: transform 180ms ease-out;
+}
+
+.playground__note svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform 180ms ease-out;
+}
+
+.playground__note:focus-visible {
+  outline: 2px solid var(--brand-accent);
+  outline-offset: 4px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .playground__note:hover {
+    transform: translateY(-2px);
+  }
+
+  .playground__note:hover svg {
+    transform: translate3d(2px, -2px, 0);
+  }
+}
+
 .playground__glow {
   position: absolute;
   z-index: 1;
@@ -376,6 +423,14 @@ a {
     font-size: 19px;
   }
 
+  .playground__note {
+    top: 20px;
+    right: 20px;
+    min-height: 48px;
+    padding: 13px 15px;
+    font-size: 12px;
+  }
+
   .playground__glow {
     top: 42%;
     min-width: 760px;
@@ -447,6 +502,8 @@ a {
 
 @media (prefers-reduced-motion: reduce) {
   .playground__back,
+  .playground__note,
+  .playground__note svg,
   .playground__card,
   .playground__sticker-shell {
     transition: none;
