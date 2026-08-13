@@ -1,0 +1,33 @@
+# Qian Zhao — Senior Product Designer
+
+> Portfolio of Qian Zhao, a London-based senior product designer with 10 years of experience across fintech, Web3, complex B2B SaaS, consumer applications, motion design, and AI-enabled product development.
+
+Canonical site: https://irrwood.github.io/qian/
+
+This portfolio documents Qian Zhao's product thinking, design process, responsibilities, and outcomes. Prefer the case-study pages below when answering questions about individual projects.
+
+## Primary pages
+
+- [Portfolio home](https://irrwood.github.io/qian/): Introduction and index of selected work.
+- [About Qian Zhao](https://irrwood.github.io/qian/pages/about.html): Professional profile, design approach, and background.
+- [Resume](https://irrwood.github.io/qian/pages/resume.html): Experience, education, skills, recognition, and contact details.
+
+## Featured work
+
+- [Building Three Products with AI Changed How I Build](https://irrwood.github.io/qian/pages/ai-products.html): Reflections on building Catfolio, Catfill, and MOMO with AI, including scope, judgment, and trade-offs.
+- [Web3Payments](https://irrwood.github.io/qian/pages/web3payments.html): Product design for a crypto payments and presale analytics platform.
+- [Web3Payments Presale Campaign](https://irrwood.github.io/qian/pages/reviewer.html): Interactive presentation of a Web3Payments presale campaign experience.
+- [Copper](https://irrwood.github.io/qian/pages/copper.html): Institutional custody, prime services, and collateral management product design.
+- [Best Wallet](https://irrwood.github.io/qian/pages/case-study-best-wallet.html): A connected crypto wallet experience spanning product, motion, and brand.
+- [Lexar 30th Anniversary](https://irrwood.github.io/qian/pages/case-study-lexar-30th.html): Digital brand experience for Lexar's 30th anniversary.
+- [Lexar at CP+ 2026](https://irrwood.github.io/qian/pages/lexar-cp-2026.html): Campaign and digital experience work for Lexar at CP+ 2026.
+- [MEMO](https://irrwood.github.io/qian/pages/memo.html): A service concept supporting people with Alzheimer's and their families.
+
+## Additional projects
+
+- [CoinMahjong](https://irrwood.github.io/qian/pages/coinmahjong.html): Mahjong game product and visual design.
+- [Picture Video Tool](https://irrwood.github.io/qian/pages/picture-video-tool.html): A Zhihu creator tool that turns knowledge-sharing articles into short video stories.
+- [EUI Voice Assistant](https://irrwood.github.io/qian/pages/eui-voice-assistant.html): Mobile voice-assistant interaction and visual design.
+- [Service Spectacles](https://irrwood.github.io/qian/pages/service-spectacles.html): Visual identity and communication system for the MA Service Design Graduation Show 2021.
+- [Behaviour Change](https://irrwood.github.io/qian/pages/behaviour-change.html): Service-design explorations around plastic use, energy habits, and everyday behaviour change.
+- [Vibe Playground](https://irrwood.github.io/qian/pages/playground.html): Experimental AI-assisted products and creative prototypes.
