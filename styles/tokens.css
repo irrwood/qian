@@ -10,6 +10,27 @@
      palette (font only).
    ============================================================ */
 
+@font-face {
+  font-family: "Poppins";
+  src: url("../assets/fonts/Poppins-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("../assets/fonts/Poppins-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("../assets/fonts/Poppins-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-display: swap;
+}
+
 :root {
   /* Brand palette */
   --brand-accent: #0059ff; /* the one and only brand blue */
@@ -26,6 +47,37 @@
     "Montserrat", ui-sans-serif, system-ui, -apple-system,
     BlinkMacSystemFont, "Segoe UI", sans-serif;
   --brand-font-catfill-questions: "FontQu Smile Catfill Questions", var(--brand-font);
+
+  /* Best Wallet case study */
+  --best-wallet-blue: #5a63ff;
+  --best-wallet-blue-mid: #757dff;
+  --best-wallet-blue-soft: #adb1ff;
+  --best-wallet-cyan: #5affff;
+  --best-wallet-cyan-soft: #c8ffff;
+  --best-wallet-night: #0f102a;
+  --best-wallet-night-soft: #2d3280;
+  --best-wallet-ink: #1f2732;
+  --best-wallet-paper: #f7f6f2;
+  --best-wallet-soft: #f5f5f5;
+  --best-wallet-white: #ffffff;
+  --best-wallet-black: #000000;
+  --best-wallet-red: #ff1763;
+  --best-wallet-green: #44d244;
+  --best-wallet-line: rgba(31, 39, 50, 0.22);
+  --best-wallet-line-inverse: rgba(255, 255, 255, 0.24);
+  --best-wallet-nav-border: rgba(0, 0, 0, 0.07);
+  --best-wallet-nav-surface: rgba(255, 255, 255, 0.72);
+  --best-wallet-chapters-toggle: rgba(225, 246, 240, 0.94);
+  --best-wallet-chapters-panel: rgba(247, 246, 242, 0.97);
+  --best-wallet-shadow-soft: rgba(15, 16, 42, 0.14);
+  --best-wallet-shadow-deep: rgba(15, 16, 42, 0.24);
+  --best-wallet-shadow-black: rgba(0, 0, 0, 0.32);
+  --best-wallet-ink-48: rgba(31, 39, 50, 0.48);
+  --best-wallet-ink-50: rgba(31, 39, 50, 0.5);
+  --best-wallet-ink-68: rgba(31, 39, 50, 0.68);
+  --best-wallet-blue-11: rgba(90, 99, 255, 0.11);
+  --best-wallet-logo-system-surface: #eef0ff;
+  --best-wallet-font: "Poppins", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
 
   /* Shared layout */
   --brand-nav-max: 1200px;
