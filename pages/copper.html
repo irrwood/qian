@@ -3,17 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Copper - Qian Zhao Portfolio</title>
-    <meta name="description" content="Institutional custody, prime services, and collateral management tools for digital asset operations." />
-    <link rel="icon" type="image/png" href="https://cdn.prod.website-files.com/61df1511efa778a02b260c1c/61e1f174f4a5e11f9a74e916_ICO32%402x.png" />
-    <script>document.documentElement.classList.add("case-motion-pending");</script>
+    <title>Copper Product Design Case Study - Qian Zhao</title>
+    <meta name="description" content="Designing complex financial states across Copper's Core Platform, iOS app, and Design System." />
+    <link rel="icon" href="data:," />
     <link rel="stylesheet" href="../styles/tokens.css" />
     <link rel="stylesheet" href="../styles/case-study.css" />
-    <link rel="stylesheet" href="../styles/webflow-project.css" />
-    <script defer src="../assets/vendor/gsap.min.js"></script>
-    <script defer src="../assets/vendor/ScrollTrigger.min.js"></script>
-    <script defer src="../scripts/webflow-project.js"></script>
-    <script defer src="../scripts/hero-rays.js"></script>
+    <link rel="stylesheet" href="../styles/copper-editorial.css" />
+    <script defer src="../scripts/copper-editorial.js"></script>
     <script defer src="../scripts/magnetic-nav.js"></script>
     <script defer src="../scripts/london-status.js"></script>
     <script defer src="../scripts/best-nav-experiment.js"></script>
@@ -31,140 +27,181 @@
       </div>
     </header>
 
-    <main class="legacy-project legacy-project--copper">
-      <section class="legacy-hero" aria-labelledby="project-title">
-        <div class="legacy-hero__copy">
-          <p class="legacy-hero__eyebrow">Product Design / SaaS / Web3</p>
-          <h1 id="project-title" data-gsap-reveal>Copper</h1>
-          <p class="legacy-hero__summary" data-gsap-reveal>Institutional custody, prime services, and collateral management tools for digital asset operations.</p>
-          <div class="legacy-hero__meta" aria-label="Project tags" data-gsap-reveal>
-            <span>Product Design</span>
-            <span>SaaS</span>
-            <span>Web3</span>
-          </div>
-        </div>
-        <figure class="legacy-hero__media" data-gsap-reveal>
-          <img src="../assets/webflow-projects/copper/image-01.png" alt="Copper hero visual" />
-        </figure>
-      </section>
+    <main class="copper-page" id="main">
+      <aside class="copper-rail" aria-label="Article sections">
+        <a class="copper-rail__back" href="../index.html">← Back to portfolio</a>
+        <p class="copper-rail__title">Copper</p>
+        <nav>
+          <a href="#overview">Design challenge: users only saw Pending</a>
+          <a href="#mobile">Decision 01: system or user?</a>
+          <a href="#clearloop">Decision 02: can assets be used?</a>
+          <a href="#system">A system shaped by product needs</a>
+          <a href="#learning">Outcome and reflection</a>
+        </nav>
+      </aside>
 
-      <section class="legacy-flow" aria-label="Project story">
-        <section class="legacy-flow__copy" data-gsap-reveal>
-          <p>I helped maintain many of the features of the old platform and also helped the team migrate to the new platform , creating a completely new design for the settings panel and various trading features.</p>
-          <p>Designed the new iOS app and iOS design system from scratch to help make it easier for users to use our platform in a variety of scenarios.</p>
-          <p>Designed a new browser wallet app to help users manage and link to the Defi eco system.</p>
-          <p>I also created ICON for all platforms and a ICON Guideline .</p>
-          <p>Some work is confidential at the moment</p>
-        </section>
-        <section class="legacy-flow__copy" data-gsap-reveal>
-          <h2>Fintech Platform Design</h2>
-          <p>A side-by-side comparison of the legacy Copper platform and the redesigned dark interface. Drag the handle to see how the product evolved toward a clearer, denser, and more operational fintech workspace.</p>
-        </section>
-        <figure class="legacy-flow__media legacy-compare" data-compare data-gsap-reveal>
-          <div class="legacy-compare__stage">
-            <img class="legacy-compare__image" loading="lazy" decoding="async" src="../assets/webflow-projects/copper/fintech-platform-legacy.png" alt="Copper legacy fintech platform interface" />
-            <div class="legacy-compare__after" aria-hidden="true">
-              <img class="legacy-compare__image" loading="lazy" decoding="async" src="../assets/webflow-projects/copper/fintech-platform-new.png" alt="" />
+      <div class="copper-shell">
+        <header class="copper-hero">
+          <p class="copper-kicker">Copper · Product Design Case Study</p>
+          <h1>Designing complex financial states so users can act with confidence</h1>
+          <p class="copper-hero__summary">I led product design across Copper’s Core Platform, iOS app, and Design System. This case study focuses on how I clarified waiting states, organised asset states, and turned those decisions into reusable rules for the team.</p>
+          <figure class="platform-compare" data-compare>
+            <div class="platform-compare__stage">
+              <img class="platform-compare__image" src="../assets/webflow-projects/copper/fintech-platform-legacy.png" alt="Legacy Copper platform interface" fetchpriority="high" />
+              <div class="platform-compare__after" aria-hidden="true"><img class="platform-compare__image" src="../assets/webflow-projects/copper/fintech-platform-new.png" alt="" /></div>
+              <span class="platform-compare__label platform-compare__label--new">New</span>
+              <span class="platform-compare__label platform-compare__label--legacy">Legacy</span>
+              <input class="platform-compare__range" type="range" min="1" max="99" value="58" aria-label="Compare the new and legacy Copper platform designs" />
+              <span class="platform-compare__handle" aria-hidden="true"><span class="platform-compare__knob">↔</span></span>
             </div>
-            <span class="legacy-compare__label legacy-compare__label--new">New</span>
-            <span class="legacy-compare__label legacy-compare__label--legacy">Legacy</span>
-            <span class="legacy-compare__handle" aria-hidden="true"></span>
-            <input class="legacy-compare__range" type="range" min="0" max="100" value="58" aria-label="Compare new and legacy Copper fintech platform designs" />
-          </div>
-        </figure>
-        <section class="legacy-flow__copy" data-gsap-reveal>
-          <h3>iOS App</h3>
-          <p>The iOS app was designed to give institutional clients secure, on-the-go control of their Copper accounts. The experience translates custody, portfolio monitoring, withdrawal signing, transfer approval, settlement review, ClearLoop status, and real-time notifications into focused mobile flows. From a design perspective, the challenge was to keep high-trust financial actions clear and auditable while making dense account data, approval states, and security controls feel calm, readable, and fast to act on.</p>
-        </section>
-        <div class="legacy-ios-gallery" data-gsap-reveal>
-          <figure class="legacy-ios-gallery__item">
-            <img loading="lazy" decoding="async" src="../assets/webflow-projects/copper/ios-app-dashboard.png" alt="Copper iOS app dashboard and holdings screen" />
+            <figcaption>Drag the divider to compare the legacy and new platform designs.</figcaption>
           </figure>
-          <figure class="legacy-ios-gallery__item">
-            <img loading="lazy" decoding="async" src="../assets/webflow-projects/copper/ios-app-sell-settlement.png" alt="Copper iOS app sell settlement request screen" />
-          </figure>
-          <figure class="legacy-ios-gallery__item">
-            <img loading="lazy" decoding="async" src="../assets/webflow-projects/copper/ios-app-withdraw-approval.png" alt="Copper iOS app withdraw approval screen" />
-          </figure>
-          <figure class="legacy-ios-gallery__item">
-            <img loading="lazy" decoding="async" src="../assets/webflow-projects/copper/ios-app-transaction-signed.png" alt="Copper iOS app signed transaction confirmation screen" />
-          </figure>
-          <figure class="legacy-ios-gallery__item">
-            <img loading="lazy" decoding="async" src="../assets/webflow-projects/copper/ios-app-next-steps.png" alt="Copper iOS app next steps bottom sheet" />
-          </figure>
-        </div>
-        <figure class="legacy-flow__media" data-gsap-reveal>
-          <img loading="lazy" decoding="async" src="../assets/webflow-projects/copper/design-system-cover.png" alt="Copper design system cover" />
-        </figure>
-        <section class="legacy-flow__copy" data-gsap-reveal>
-          <h2>Building a scalable design system for institutional digital assets</h2>
-          <p>At Copper, I worked on a design system for a cryptocurrency custody company whose platforms help institutions manage digital assets. When I joined, the product had grown quickly, but the design foundation had not kept the same pace. There was an incomplete web design system, several different versions in development, and no unified mobile library. I helped create a new design system and built the mobile version from scratch.</p>
-          <p>The problem was not only visual inconsistency. Similar controls were solved in multiple ways, some components had accessibility issues, and repeated implementation work made the product harder to maintain. This also made communication between design and engineering more difficult, because teams were often discussing one-off screens instead of shared patterns.</p>
-        </section>
-        <figure class="legacy-flow__media" data-gsap-reveal>
-          <img loading="lazy" decoding="async" src="../assets/webflow-projects/copper/design-system-problems.png" alt="Copper design system problems: inconsistent visuals, repeated components, and difficult collaboration" />
-        </figure>
-        <section class="legacy-flow__copy" data-gsap-reveal>
-          <h3>System structure</h3>
-          <p>The design system followed atomic design principles: atoms, molecules, organisms, templates, and pages. This structure gave the system room to scale from foundational styles to complete product surfaces, while keeping visual language and interaction behavior consistent across web and iOS.</p>
-          <p>At the foundation, design tokens were used to manage core styles such as typography, color, spacing, and shared semantic values. Instead of redefining colors or type styles screen by screen, teams could reuse labelled tokens across the company. Shared elements such as icons could also be reused across iOS and web, helping preserve product semantics across platforms.</p>
-        </section>
-        <figure class="legacy-flow__media" data-gsap-reveal>
-          <img loading="lazy" decoding="async" src="../assets/webflow-projects/copper/design-system-atoms.png" alt="Copper design system atoms including typography, colors, and design tokens" />
-        </figure>
-        <section class="legacy-flow__copy" data-gsap-reveal>
-          <p>By combining atoms into molecules and organisms, teams could quickly build templates and pages. This was especially important for B2B products, where screens often include complex states, permissions, data density, and operational workflows. A reusable system allowed those states to be updated consistently when patterns changed.</p>
-        </section>
-        <figure class="legacy-flow__media" data-gsap-reveal>
-          <img loading="lazy" decoding="async" src="../assets/webflow-projects/copper/design-system-molecules-organisms.png" alt="Copper design system molecules and organisms for reusable interface patterns" />
-        </figure>
-        <figure class="legacy-flow__media" data-gsap-reveal>
-          <img loading="lazy" decoding="async" src="../assets/webflow-projects/copper/design-system-templates-pages.png" alt="Copper design system templates and pages applied to mobile settlement flows" />
-        </figure>
-        <section class="legacy-flow__copy" data-gsap-reveal>
-          <h3>Guidelines and documentation</h3>
-          <p>A key part of the work was not just designing components, but documenting how they should be used. I created guidelines for different component categories so designers could understand when and how to use each pattern, and how to contribute new components back into the system for other designers to reuse.</p>
-          <p>The same guidelines helped engineers understand interaction details, visual rules, and implementation expectations. Where useful, component documentation linked directly to development libraries, so implementation references were connected to the design source instead of living in separate conversations.</p>
-          <p>After the first phase of the design system was completed, we used the system itself to build a design system website. The site collected component specifications, usage rules, and front-end documentation in one place. Design files also linked relevant components and properties back to the website, so engineers could see which system components to use and how to configure them.</p>
-        </section>
-        <figure class="legacy-flow__media" data-gsap-reveal>
-          <img loading="lazy" decoding="async" src="../assets/webflow-projects/copper/design-system-guideline.png" alt="Copper icon guideline covering grid, alignment, consistency, and icon states" />
-        </figure>
-        <section class="legacy-flow__copy" data-gsap-reveal>
-          <h3>A shared workflow between design and engineering</h3>
-          <p>The design system became a bridge between design and development. Instead of design specifications being a black box for engineers, and engineering implementation being a black box for designers, both teams could reference the same source of truth. Designers gained a clearer understanding of engineering constraints, while engineers could better understand design intent and component behavior.</p>
-          <p>We also established a regular design system workflow. Design system meetings were used to discuss changes, common components from product work were marked and moved into the component library, and the final versions appeared on the design system website. User needs were informed by customer interviews, usability feedback, and product analytics such as Mixpanel. I also tried to align with engineering structures and naming conventions, including approaches such as BEM, so the system could be easier to translate into code.</p>
-          <p>When the system worked well, product teams could assemble prototypes and ideas more quickly, communication costs were reduced, and the overall development process became more standardized. For a complex institutional product, the design system improved not only consistency, but also speed, quality, and collaboration.</p>
-        </section>
-        <figure class="legacy-flow__media" data-gsap-reveal>
-          <img loading="lazy" decoding="async" src="../assets/webflow-projects/copper/design-system-cooperation.png" alt="Copper design system cooperation between code references and component playgrounds" />
-        </figure>
-        <figure class="legacy-flow__media" data-gsap-reveal>
-          <img loading="lazy" decoding="async" src="../assets/webflow-projects/copper/image-02.png" alt="Copper project visual 2" />
-        </figure>
-        <figure class="legacy-flow__media" data-gsap-reveal>
-          <img loading="lazy" decoding="async" src="../assets/webflow-projects/copper/image-03.png" alt="Copper project visual 3" />
-        </figure>
-        <figure class="legacy-flow__media" data-gsap-reveal>
-          <img loading="lazy" decoding="async" src="../assets/webflow-projects/copper/image-04.png" alt="Copper project visual 4" />
-        </figure>
-        <figure class="legacy-flow__media" data-gsap-reveal>
-          <img loading="lazy" decoding="async" src="../assets/webflow-projects/copper/image-05.png" alt="Copper project visual 5" />
-        </figure>
-        <figure class="legacy-flow__media" data-gsap-reveal>
-          <img loading="lazy" decoding="async" src="../assets/webflow-projects/copper/image-06.png" alt="Copper project visual 6" />
-        </figure>
-      </section>
+        </header>
+
+        <article class="copper-content">
+          <section class="copper-section" id="overview">
+            <header class="copper-section__header"><h2>Design challenge: the system knew what was happening; users only saw Pending</h2></header>
+            <div class="copper-lede">
+              <p>Copper provides institutional clients with digital asset custody, trading, and settlement services. The design was shaped by three constraints: real assets, multi-user permissions, and operations that move through several system stages.</p>
+              <p>While mapping the Staking, Approval, and ClearLoop flows, I found that the backend states were technically accurate but did not answer the questions users needed to make a decision: Who is handling this now? Do I need to act? Can these assets still be used? What happens next?</p>
+              <p>I therefore did not define the goal as reducing steps. Instead, I wanted to <strong>reduce the judgement required to understand the current state without hiding risk or responsibility.</strong></p>
+              <p class="copper-key-line">My design framework: current state → responsibility for action → impact on assets → next step</p>
+            </div>
+            <div class="decision-brief" aria-label="Case study constraints">
+              <div><strong>Constraint</strong><p>A single confirmation could transfer, lock, or reallocate real assets.</p></div>
+              <div><strong>My role</strong><p>Core Platform, iOS app, and building the Mobile Design System from scratch.</p></div>
+              <div><strong>Design focus</strong><p>Help users make the right decision without explaining every backend mechanism.</p></div>
+            </div>
+          </section>
+
+          <section class="copper-section" id="mobile">
+            <header class="copper-section__header"><h2>Design decision 01: separate waiting for the system from waiting for the user</h2></header>
+            <div class="copper-prose"><p>In the mobile flows, Pending collapsed two very different responsibilities into one label. Sometimes the system was processing and the user only needed to wait. At other times, the system was waiting for an authorised approver. I made “who owns the next step?” the first layer of the status design.</p></div>
+            <div class="decision-brief" aria-label="Design decision summary">
+              <div><strong>Problem</strong><p>The same Pending label could not tell users whether to wait or act.</p></div>
+              <div><strong>Decision</strong><p>A status must communicate the current stage, who is responsible, and the consequence of acting.</p></div>
+              <div><strong>Trade-off</strong><p>Keep more information after critical actions instead of mistaking the shortest flow for the best one.</p></div>
+            </div>
+            <div class="case-subsection">
+              <h3>I made Sign a step in the lifecycle, not the endpoint</h3>
+              <div class="mobile-case-grid">
+                <figure class="article-media phone-media"><img src="../assets/webflow-projects/copper/ios-app-next-steps.png" alt="Copper iOS Staking next steps screen showing the bonding period and asset restrictions" loading="lazy" decoding="async" /></figure>
+                <div class="copper-prose">
+                  <p>The original flow could easily stop at transaction completion: the user signs, the system shows Submitted, and the experience ends. But the Staking journey is not over. The assets still need to pass through a bonding period before they begin earning rewards.</p>
+                  <p class="article-emphasis">Set up → Review → Sign → Transaction submitted</p>
+                  <p>I redefined the endpoint of the flow and made the current stage answer three questions at once: Why am I waiting? How long will it take? What restrictions apply to my assets while I wait?</p>
+                  <div class="lifecycle" aria-label="Staking lifecycle">
+                    <div><b>01</b><strong>Set up transaction</strong><span>Done</span></div>
+                    <div><b>02</b><strong>Sign transaction</strong><span>Done</span></div>
+                    <div class="current"><b>03</b><strong>Bonding period</strong><span>Est. 2 weeks</span></div>
+                    <div><b>04</b><strong>Stake and earn rewards</strong><span>Next phase</span></div>
+                  </div>
+                  <p>The final screen shows completed steps, the current two-week bonding period, and the fact that assets cannot be traded or unstaked. The screen carries more information, but every detail affects availability and reward timing.</p>
+                  <aside class="article-lesson"><span>Design shift</span><p>Safety and trust come from setting the right expectations.</p></aside>
+                </div>
+              </div>
+            </div>
+            <div class="case-subsection">
+              <h3>How the same principle reshaped Approval</h3>
+              <figure class="ios-flow-strip" aria-label="Copper iOS flow from reviewing assets to signing a transaction">
+                <div class="ios-flow-strip__track">
+                  <img src="../assets/webflow-projects/copper/ios-app-dashboard.png" alt="Copper iOS asset dashboard" loading="lazy" decoding="async" />
+                  <img src="../assets/webflow-projects/copper/ios-app-sell-settlement.png" alt="Settlement review screen" loading="lazy" decoding="async" />
+                  <img src="../assets/webflow-projects/copper/ios-app-withdraw-approval.png" alt="Withdrawal approval screen" loading="lazy" decoding="async" />
+                  <img src="../assets/webflow-projects/copper/ios-app-transaction-signed.png" alt="Signed transaction confirmation screen" loading="lazy" decoding="async" />
+                </div>
+              </figure>
+              <div class="copper-prose">
+                <p>Approval represents the opposite state: the system has stopped because it is waiting for an authorised person. I changed the information order from status plus button to decision context plus action.</p>
+                <p>Before users approve, the interface prioritises the initiator, account, asset, amount, and outcome of confirming. This does not reduce clicks, but removes the need to move between screens simply to verify responsibility.</p>
+                <p class="copper-key-line">I was not optimising how quickly someone could Approve. I was improving the basis for that decision.</p>
+                <aside class="article-lesson"><span>Design shift</span><p>From providing an action button to helping users understand the responsibility they are taking on.</p></aside>
+              </div>
+            </div>
+          </section>
+
+          <section class="copper-section" id="clearloop">
+            <header class="copper-section__header"><h2>Design decision 02: organise balances by whether assets can be used</h2></header>
+            <div class="copper-prose"><p><strong>ClearLoop only needs one line of context:</strong> assets remain in Copper custody, while the institution can allocate the corresponding balance to an exchange for trading. This means where assets are held and whether they can be used are no longer the same question.</p></div>
+            <div class="decision-brief" aria-label="ClearLoop design decision summary">
+              <div><strong>Problem</strong><p>Total balance alone could not show which assets were immediately available.</p></div>
+              <div><strong>Decision</strong><p>Organise the home screen around user actions, not the backend account structure.</p></div>
+              <div><strong>Trade-off</strong><p>Add top-level categories so users understand asset use before opening details.</p></div>
+            </div>
+            <div class="clearloop-flow" aria-label="How ClearLoop works">
+              <div><b>01</b><strong>Assets remain at Copper</strong><span>No need to pre-fund an exchange wallet</span></div>
+              <div><b>02</b><strong>Balance allocated to an exchange</strong><span>A virtual balance becomes available for trading</span></div>
+              <div><b>03</b><strong>Trading results settle periodically</strong><span>Profit and loss is updated through ClearLoop</span></div>
+            </div>
+            <figure class="article-media clearloop-media"><img src="../assets/webflow-projects/copper/image-04.png" alt="Copper platform balance overview distinguishing Available, Processing, ClearLoop, and Staked assets" loading="lazy" decoding="async" /></figure>
+            <div class="copper-prose">
+              <p>I first listed the decisions users needed to make when reviewing a balance: How much can I use now? How much has been allocated for trading? How much is being processed? How much is locked?</p>
+              <p>I kept Total balance as an overview, then separated the balance into Available, ClearLoop, Processing, and Staked. Each category describes the asset’s current purpose and usability, not a backend service step.</p>
+              <div class="state-list">
+                <p><strong>Available:</strong> can be transferred or used now.</p><p><strong>ClearLoop:</strong> allocated to an exchange for trading.</p><p><strong>Processing:</strong> the system is completing a transfer or settlement.</p><p><strong>Staked:</strong> committed to Staking and temporarily unavailable.</p>
+              </div>
+              <aside class="article-lesson"><span>Design shift</span><p>From displaying account figures to helping users decide what each balance can do next.</p></aside>
+            </div>
+          </section>
+
+          <section class="copper-section" id="system">
+            <header class="copper-section__header"><h2>A design system shaped by real product needs</h2></header>
+            <div class="copper-prose">
+              <p>When I joined Copper, the product was growing quickly but its design foundations had not kept pace. The Web Design System was incomplete, multiple versions existed in development, and Mobile had no shared component library. I helped rebuild the Web system and created the Mobile Design System from scratch.</p>
+              <p>I started with real product problems rather than an ideal component library in isolation. Staking, Approval, and ClearLoop repeatedly exposed the same questions around states, confirmations, permissions, and next steps.</p>
+            </div>
+            <figure class="article-media wide-media"><img src="../assets/webflow-projects/copper/design-system-cover.png" alt="Copper Design System cover" loading="lazy" decoding="async" /></figure>
+            <div class="copper-prose"><h3>The problem I inherited was not simply visual</h3><p>Similar controls were implemented differently. Some components had accessibility issues, and design and engineering discussed one-off pages rather than reusable behaviours. The result was repeated design, repeated development, and gradual divergence.</p></div>
+            <figure class="article-media wide-media"><img src="../assets/webflow-projects/copper/design-system-problems.png" alt="Inconsistencies and duplicated components in the early Copper Design System" loading="lazy" decoding="async" /></figure>
+            <div class="copper-prose">
+              <h3>How I structured the system</h3>
+              <p>I used Atomic Design to create a clear dependency between foundational styles, reusable components, and complete business workflows. Typography, colour, spacing, semantic values, and icons became shared tokens across Web and iOS.</p>
+            </div>
+            <div class="system-model" aria-label="Working layers of the Copper Design System">
+              <div><b>01</b><strong>Audit the current state</strong><p>Identify duplication, divergence, and missing foundations.</p></div>
+              <div><b>02</b><strong>Build the foundations</strong><p>Unify tokens, icons, and component states across Web and Mobile.</p></div>
+              <div><b>03</b><strong>Extract product patterns</strong><p>Turn proven solutions into reusable rules.</p></div>
+              <div><b>04</b><strong>Connect design and code</strong><p>Bring usage guidance, contribution workflows, and front-end references together.</p></div>
+            </div>
+            <div class="system-gallery">
+              <figure class="article-media"><img src="../assets/webflow-projects/copper/design-system-atoms.png" alt="Typography, colour, and token foundations" loading="lazy" decoding="async" /></figure>
+              <figure class="article-media"><img src="../assets/webflow-projects/copper/design-system-molecules-organisms.png" alt="Molecules combined into organisms" loading="lazy" decoding="async" /></figure>
+              <figure class="article-media"><img src="../assets/webflow-projects/copper/design-system-templates-pages.png" alt="Templates and pages applied to mobile settlement flows" loading="lazy" decoding="async" /></figure>
+            </div>
+            <div class="copper-prose"><h3>Beyond components, I defined rules for use and contribution</h3><p>I documented when to use each pattern, how to configure its states, and how to contribute a new component. For Approval, documentation specified which details must appear before confirmation, how permissions should be handled, and how to explain what happens next.</p><p>The guidance linked to development libraries where useful, keeping design intent and implementation in the same conversation.</p></div>
+            <div class="system-gallery system-gallery--pair">
+              <figure class="article-media"><img src="../assets/webflow-projects/copper/design-system-guideline.png" alt="Copper Icon Guideline" loading="lazy" decoding="async" /></figure>
+              <figure class="article-media"><img src="../assets/webflow-projects/copper/design-system-cooperation.png" alt="Design specifications connected to code references" loading="lazy" decoding="async" /></figure>
+            </div>
+            <div class="copper-prose"><h3>I turned it into a shared workflow</h3><p>Reusable components discovered in product work were reviewed and moved into the library. Approved versions were published to a Design System website bringing together specifications, usage rules, and front-end documentation.</p><p>The system formed a loop: the product exposed a problem, the team validated a pattern, the system preserved the rule, and future product work tested it again.</p><aside class="article-lesson"><span>Operating principle</span><p>The system was not designed before the product. It grew out of real business needs, then returned to the product to be tested.</p></aside></div>
+          </section>
+
+          <section class="copper-section" id="learning">
+            <header class="copper-section__header"><h2>Outcome and reflection: the shortest flow is not always the clearest</h2></header>
+            <div class="copper-prose">
+              <p>This project did not leave behind quantitative results appropriate to share publicly, so I do not present invented efficiency metrics. What I can confirm is a change in how design and engineering discussed the work: around shared components, patterns, and documentation.</p>
+              <p>In a complex financial product, removing one step can remove critical decision-making information. Design cannot count clicks alone. It must consider the risk users carry, whether actions are reversible, and the cost of getting something wrong.</p>
+              <p>Across Staking, Approval, ClearLoop, and the Design System, I first identified the decision users needed to make, then decided what the interface should hide, what it must retain, and which step deserved to be deliberately slower.</p>
+            </div>
+            <blockquote class="final-quote">Simplify understanding, not responsibility.</blockquote>
+            <div class="copper-prose"><p>The best financial experience does not hide every layer of complexity. It reveals enough information at the right moment for users to understand the system and make the right decision.</p></div>
+          </section>
+
+          <section class="project-summary-gallery" aria-label="Copper project overview">
+            <figure><img src="../assets/webflow-projects/copper/image-02.png" alt="Copper Design System, iOS icons, and guidelines" loading="lazy" decoding="async" /></figure>
+            <figure><img src="../assets/webflow-projects/copper/image-03.png" alt="Copper iOS asset, transfer, and approval screens" loading="lazy" decoding="async" /></figure>
+            <figure><img src="../assets/webflow-projects/copper/image-05.png" alt="Copper iOS asset and transfer flows" loading="lazy" decoding="async" /></figure>
+            <figure><img src="../assets/webflow-projects/copper/image-06.png" alt="Copper Wallet browser flows" loading="lazy" decoding="async" /></figure>
+          </section>
+        </article>
+      </div>
     </main>
 
     <footer class="case-footer" aria-label="Portfolio footer">
-      <div class="case-footer__inner" data-gsap-reveal>
+      <div class="case-footer__inner">
         <a class="case-footer__brand" href="../index.html">Qian Zhao</a>
         <nav class="case-footer__links" aria-label="Social links">
-          <a href="https://dribbble.com/zhaoian">Dribbble</a>
-          <a href="https://www.instagram.com/oioaono/">Instagram</a>
-          <a href="https://twitter.com/oioaon">Twitter</a>
-          <a href="https://www.linkedin.com/in/qian-zhao-20bb66203/">Linkedin</a>
+          <a href="https://dribbble.com/zhaoian">Dribbble</a><a href="https://www.instagram.com/oioaono/">Instagram</a><a href="https://twitter.com/oioaon">Twitter</a><a href="https://www.linkedin.com/in/qian-zhao-20bb66203/">Linkedin</a>
         </nav>
         <p class="case-footer__year">© 2026</p>
       </div>
