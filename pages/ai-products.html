@@ -49,6 +49,10 @@
         <div class="article-layout" id="article-start">
           <aside class="article-rail" aria-label="Article sections">
             <a class="article-rail__back" href="../index.html">←&nbsp; Index</a>
+            <p class="article-rail__title">Personal Information AI</p>
+            <nav>
+              <a href="#personal-information-ai">A Personal Information Organising AI App</a>
+            </nav>
             <p class="article-rail__title">Three Products Built with AI</p>
             <nav>
               <a href="#catfolio" data-section-link="catfolio">Catfolio: Ideas and Sprawl</a>
@@ -59,6 +63,167 @@
           </aside>
 
           <div class="article-content">
+            <section class="article-section article-reveal" id="personal-information-ai">
+              <header class="article-section__header">
+                <h2>A Personal Information Organising AI App</h2>
+              </header>
+
+              <div class="article-prose">
+                <h3>Why I Wanted to Build This Product</h3>
+                <p>Every day, I generate a huge amount of browsing history, emails, documents, links, and scattered thoughts, but it is difficult to turn this information into knowledge that I can actually continue using.</p>
+                <p>After working on several AI projects, I noticed a very obvious pattern: <strong>the more complete the context you give AI, the better the final result usually becomes.</strong></p>
+                <p>That gave me an idea: build an AI-driven program that collects information scattered across different places, understands, categorises, and organises it, and finally generates structured reports automatically.</p>
+                <p><em>[[Image: Concept illustration or overall architecture diagram of the personal information organising AI app]]</em></p>
+              </div>
+
+              <div class="article-prose">
+                <h3>Let’s Build It</h3>
+                <p>The first step was to make sure the AI could find enough information.</p>
+                <p>I first tried building a program that recorded what I did on my computer, including the web pages and PDFs I had viewed, as well as articles and sentences I had copied. After that, I connected email, because email often contains very important confirmation information, such as orders, tickets, and booking records.</p>
+                <p>Years of design experience have taught me that, at this stage, the most important thing is not to keep adding features, but to test as quickly as possible whether the idea actually has value.</p>
+                <p>So my first test question was very simple:</p>
+                <p class="article-emphasis"><strong>Generate a travel report for my trip to Milan.</strong></p>
+                <p>The result was quite good. The AI found most of the ticket information and organised a rough itinerary, but it was not complete.</p>
+
+                <h3>What Was the Problem?</h3>
+                <p>I realised that AI’s ability to explore outward is actually quite limited.</p>
+                <p>If you ask it to search directly, it usually only looks for information that is directly related to the keywords. It rarely actively thinks about what other information might be involved in a trip. This greatly limits the final result.</p>
+
+                <h3>First Adjustment: Explore First, Then Search</h3>
+                <p>So I adjusted the process for the first time: when creating a new report, instead of searching immediately, the AI should first expand and break down the question, then search separately based on those directions.</p>
+                <p>The result did improve, but I quickly realised that this was still not enough.</p>
+                <p>Even if AI explores the problem in advance, it can still essentially become: <strong>generate more keywords first, then search those keywords.</strong></p>
+                <p>The second adjustment was when I really felt the result had changed.</p>
+
+                <h3>Second Adjustment: Not Searching, but Reconstructing What Actually Happened</h3>
+                <p>I stopped thinking of the task as:</p>
+                <p><code>search("Milan Lugano")</code></p>
+                <p>Instead, I redefined it as a higher-level problem:</p>
+                <p class="article-emphasis"><strong>“Reconstruct what actually happened during this trip from scattered information and evidence.”</strong></p>
+                <p>The difference may look small, but it changed the entire way the Agent worked.</p>
+                <p>For example, it first discovered an email:</p>
+                <p><strong>Airbnb · Lugano · Jul 2–4</strong></p>
+                <p>Previously, this might simply have been treated as a search result.</p>
+                <p>But now, it treated this piece of information as an <strong>anchor</strong>.</p>
+                <p>Once there was an anchor, new questions naturally appeared:</p>
+              </div>
+
+              <ul class="article-questions" aria-label="Questions created from the Lugano anchor">
+                <li>How did I get to Lugano?</li>
+                <li>Where was I before going to Lugano?</li>
+                <li>Where did I go after July 4?</li>
+                <li>Was this Airbnb only viewed, actually booked, or did I really stay there?</li>
+                <li>Was there any other evidence proving that this part of the trip actually happened?</li>
+              </ul>
+
+              <div class="article-prose">
+                <p>Every time a new piece of evidence was discovered, the direction of the next search changed.</p>
+                <p>Eventually, it gradually reconstructed the entire trip:</p>
+                <p class="article-key-line"><strong>London → Stansted → Malpensa → Milan → Chiasso → Lugano → Milan → Gatwick → London</strong></p>
+                <p>The second version of the travel report was already very close to what had actually happened.</p>
+                <p>It found my July 1 train ticket from London Liverpool Street to Stansted Airport, as well as the Malpensa Airport → Milan Central ticket after I arrived in Italy.</p>
+                <p>Then, from an Airbnb email, it discovered that I had made a last-minute booking in Lugano for July 2–4. Based on Trenord emails, it then found the Milano Centrale → Chiasso train ticket.</p>
+                <p>There was one missing piece of information during the return journey: it could not find a clear Lugano → Milan return ticket.</p>
+                <p>However, on July 5, it discovered that I had purchased a ticket to Triennale Milano, and that evening there was also a Deliveroo order delivered to an address in Milan.</p>
+                <p>So it could reasonably infer that: <strong>after leaving Lugano on July 4, I had already returned to Milan.</strong></p>
+                <p>Finally, on July 7, it found a Gatwick Airport → London Bridge train ticket, which made the timeline of the whole trip almost complete.</p>
+                <p><em>[[Image: Timeline of the second Milan / Lugano travel report]]</em></p>
+                <p>There was another very important change here: <strong>the AI began distinguishing between “facts” and “inferences.”</strong></p>
+                <p>For example:</p>
+                <p><code>Airbnb confirmation</code> can prove that a booking was made, so it is strong evidence.</p>
+                <p><code>Airbnb welcome + review</code> does not just show that it was booked, but provides further evidence that the stay actually happened.</p>
+                <p><code>Deliveroo Milano · Jul 5</code> is also a very strong location signal, suggesting that I was most likely in Milan that day. The fact that the AI made this inference by itself was quite surprising.</p>
+                <p>I was extremely satisfied with this change, and it significantly increased my confidence.</p>
+              </div>
+
+              <div class="article-prose">
+                <h3>From “Trying to Do Everything” to Deliberately Narrowing the Product</h3>
+                <p>One of the biggest temptations of AI is that implementing features becomes too easy.</p>
+                <p>After building a reasonably good MVP, I started constantly adding things to it.</p>
+                <p>For example, I wanted to predict what users might want to do next based on their browsing behaviour, so I built a Chrome extension to collect browsing information and clicks, then used open-source components to filter and understand web content.</p>
+                <p>The result was not very good.</p>
+                <p>There were several reasons:</p>
+              </div>
+
+              <ul class="article-questions" aria-label="Reasons the broader browsing approach did not work well">
+                <li>The information scope was too broad, making it difficult for AI to process effectively;</li>
+                <li>AI itself lacked initiative and needed clear goals and ways of working;</li>
+                <li>Web data is extremely complex, especially dynamic pages, which are difficult to record accurately, making the quality of the final information unstable;</li>
+                <li>Different types of data require different cleaning approaches, making it difficult to solve everything with one unified set of rules.</li>
+              </ul>
+
+              <div class="article-prose">
+                <h3>I Gradually Realised Several Problems</h3>
+              </div>
+              <ol class="article-questions" aria-label="Problems I gradually realised">
+                <li>Information cleaning is already a major problem in itself;</li>
+                <li>AI needs clear directions and rules;</li>
+                <li>“Technically possible” and “worth building as a product” are two completely different things.</li>
+              </ol>
+
+              <div class="article-prose">
+                <h3>AI Still Needs Human Judgment</h3>
+                <p>If you want AI to provide genuinely valuable information, you usually need to give it a framework first, something similar to a skill, a set of rules, or a workflow.</p>
+                <p>You cannot simply drop AI into an empty space and expect it to know what it should do.</p>
+                <p>At least for now, people still need to tell it: <strong>what is worth paying attention to, which directions it should think from, and what kind of result should be considered valuable.</strong></p>
+                <p>This may also be one of the important differences between AI and humans at the moment — perhaps one day it will be able to make these judgments itself.</p>
+
+                <h3>How Do You Control an Idea That Keeps Expanding?</h3>
+                <p>The product itself went through a similar process.</p>
+                <p>At the beginning, I wanted to do almost everything. But gradually, I realised that a product this broad, even with the help of AI, was far beyond what one person could realistically build well.</p>
+                <p>So I started narrowing it deliberately.</p>
+                <p>For now, I have decided to focus first on <strong>organising travel information</strong>: including future travel summaries and suggestions, task boards, booking organisation, and email follow-up.</p>
+                <p>This is still not a small scope, but at least it allows me to control the quality of the information and output, so that the AI can genuinely help users make decisions instead of simply generating more content.</p>
+                <p><em>[[Image: Product roadmap showing the shift from “trying to do everything” to focusing on travel organisation]]</em></p>
+              </div>
+
+              <div class="article-prose">
+                <h3>AI Made Me Truly Understand What “Building a Product” Means for the First Time</h3>
+                <p>In the past, I worked mainly as a Product Designer: understanding problems, designing experiences, building systems, and then working with Product and Engineering teams to bring them to life.</p>
+                <p>But this time, there were almost no clear role boundaries.</p>
+                <p>Product, Design, Engineering, Research, QA, and even part of Project Management were all mixed into the same loop.</p>
+                <p>AI certainly made many things faster, but its bigger impact was that it allowed us to reach the genuinely difficult problems much sooner.</p>
+                <p>The technology stack was one of the things I discussed most with AI:</p>
+                <p>Should I use Electron or build natively? Should I develop something myself or directly use mature open-source components? Which things are worth building from scratch, and which ones are simply reinventing the wheel?</p>
+                <p>At the same time, I also had to constantly suppress AI’s overconfidence, because it often underestimated the difficulty of real development and the large number of problems hidden in the details.</p>
+                <p>Eventually, my workflow gradually became:</p>
+                <p class="article-key-line"><strong>AI proposes an approach → check the documentation → inspect real projects → build a prototype → validate the risks → then decide whether to develop it</strong></p>
+                <p>For example, on macOS, I went from building my own AI Agent, to experimenting with integrating <strong>Pi, an AI Agent project</strong>, and later embedding OpenCode. I basically went through all the different technical approaches and their associated problems.</p>
+                <p>Through this process, I gradually realised that what really matters is not whether “AI can write it,” but whether the task boundaries are clear enough and whether the chosen technical approach has already been validated.</p>
+
+                <h3>The Boundaries of Technology Are Also the Boundaries of Reality</h3>
+                <p>Once the initial functionality started taking shape, I began thinking about how to make more people genuinely willing to use it.</p>
+                <p>The current design requires Full Disk Access on macOS, which naturally raises security and privacy concerns.</p>
+                <p>Even if all data processing happens locally and only the cleaned, necessary information is sent to AI, an unknown application asking for such a high level of system permission is still difficult for users to trust.</p>
+                <p>I tried applying for Google Auth and Outlook Auth, hoping to solve this through more transparent authorisation methods, but the formal approval processes on both sides were more complicated than I expected.</p>
+                <p>The testing stage can support around 100 users, but if I want to expand beyond that, I need to complete additional reviews and verification.</p>
+                <p>At one point, this was extremely frustrating.</p>
+                <p>Later, I started looking at the problem from another angle: perhaps I do not need to take responsibility for all of the AI capabilities and account authorisation myself.</p>
+                <p>If some of these capabilities could live inside ecosystems that GPT or Claude have already established, while my product only handled local information processing, organisation, and presentation, the entire problem might become much simpler.</p>
+                <p><em>[[Image: Privacy protection diagram showing local processing + transparent authorisation]]</em></p>
+              </div>
+
+              <div class="article-prose">
+                <h3>The Designer’s Advantage</h3>
+                <p>Since I started coding with AI, I have opened Figma noticeably less often.</p>
+                <p>But this has actually made me feel even more strongly that <strong>knowing how to use Figma — or more accurately, having a designer’s way of thinking visually — is still a very obvious advantage.</strong></p>
+                <p>The advantage of a designer is being able to “see” what the finished product will look like earlier than others, and therefore identify potential problems sooner.</p>
+                <p>Humans are visual creatures, after all. Visuals remain one of the most direct ways to understand complex things.</p>
+                <p>My working loop has now become:</p>
+                <p class="article-key-line"><strong>Idea → AI → Real interface → Modification</strong></p>
+                <p>This loop is extremely fast, but it also quickly exposed another problem: <strong>design lost a stable Source of Truth.</strong></p>
+                <p>I can see the page directly inside the real application, but it is difficult to freely adjust the entire interface in the same way I can in Figma.</p>
+                <p>If I go back to Figma to make changes, I then need to synchronise those changes back into the code.</p>
+                <p>At the same time, the global view of the product also begins to disappear.</p>
+                <p>It is very easy to get trapped inside individual pages and features, while the overall structure and logic of the product gradually becomes less clear.</p>
+                <p>To solve this problem, I started building an auxiliary tool:</p>
+                <p>A tool that allows a product with no traditional design files, and which is primarily written by AI, to still have a visual editing experience similar to a design tool, while shortening the synchronisation path between the application and the design as much as possible.</p>
+                <p>This is <strong>UI Sync</strong> — the name is temporary.</p>
+                <p>As I continued building it, I found myself liking this way of working more and more.</p>
+                <p>So this small tool, which originally existed only to make it easier for me to develop the main product, may eventually become an independent product of its own.</p>
+              </div>
+            </section>
+
             <section class="article-lede article-reveal" aria-label="Introduction">
               <p class="article-lede__opening">
                 Over the past few months, I have been experimenting with turning ideas in my head into products that actually run and can even be launched.
