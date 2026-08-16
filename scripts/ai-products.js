@@ -186,11 +186,12 @@
     document.getElementById("article-title").textContent = chineseCopy.heroTitle;
     document.querySelector(".article-hero__summary").textContent = chineseCopy.heroSummary;
     document.querySelector(".article-rail").setAttribute("aria-label", "文章章节");
-    document.querySelector(".article-rail__title").textContent = chineseCopy.railTitle;
+    const railTitles = Array.from(document.querySelectorAll(".article-rail__title"));
+    if (railTitles.length) railTitles.at(-1).textContent = chineseCopy.railTitle;
     applyHtmlList(Array.from(document.querySelectorAll("[data-section-link]")), chineseCopy.railLinks);
     document.querySelector(".article-lede").setAttribute("aria-label", "文章引言");
     applyHtmlList(Array.from(document.querySelectorAll(".article-lede > p")), chineseCopy.lede);
-    applyHtmlList(Array.from(document.querySelectorAll(".article-section__header h2")), chineseCopy.headings);
+    applyHtmlList(Array.from(document.querySelectorAll("[data-article-section] .article-section__header h2")), chineseCopy.headings);
     applySectionCopy("catfolio", chineseCopy.catfolio);
     applyHtmlList(Array.from(document.querySelectorAll("#catfolio .article-lesson > *")), chineseCopy.catfolioLesson);
     applySectionCopy("catfill", chineseCopy.catfill);
@@ -332,7 +333,7 @@
     let catfillIsVisible = false;
 
     const updatePlaygroundVisibility = () => {
-      const visible = catfillIsVisible && wideViewport.matches;
+      const visible = catfillIsVisible && wideViewport.matches && catfillSection.classList.contains("is-open");
       catfillPlayground.classList.toggle("is-visible", visible);
       catfillPlayground.setAttribute("aria-hidden", visible ? "false" : "true");
       catfillPlayground.inert = !visible;
@@ -348,6 +349,7 @@
 
     catfillObserver.observe(catfillSection);
     wideViewport.addEventListener("change", updatePlaygroundVisibility);
+    catfillSection.addEventListener("articlecollapsechange", updatePlaygroundVisibility);
     updatePlaygroundVisibility();
 
     catfillStickers.forEach((sticker) => {
@@ -553,5 +555,187 @@
         updateLightbox(currentIndex + 1);
       }
     });
+  }
+})();
+
+(() => {
+  const collapsibleSections = [
+    { id: "catfolio", index: "01" },
+    { id: "catfill", index: "02" },
+    { id: "momo", index: "03" },
+  ];
+
+  const style = document.createElement("style");
+  style.textContent = `
+    .article-collapsible {
+      padding: 0 !important;
+      border-top: 1px solid color-mix(in srgb, var(--article-line) 92%, transparent);
+      scroll-margin-top: 38px;
+    }
+
+    .article-collapsible:last-of-type {
+      border-bottom: 1px solid color-mix(in srgb, var(--article-line) 92%, transparent);
+    }
+
+    .article-collapsible > .article-section__header {
+      display: none;
+    }
+
+    .article-collapsible__summary {
+      display: grid;
+      width: 100%;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 24px;
+      align-items: center;
+      margin: 0;
+      padding: 26px 0;
+      border: 0;
+      background: transparent;
+      color: var(--article-ink);
+      font: inherit;
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .article-collapsible__title {
+      min-width: 0;
+      font-size: 24px;
+      font-weight: 520;
+      line-height: 1.18;
+      letter-spacing: -0.035em;
+      text-wrap: balance;
+      transition: opacity 160ms ease-out;
+    }
+
+    .article-collapsible__meta {
+      display: inline-flex;
+      gap: 10px;
+      align-items: center;
+      color: color-mix(in srgb, var(--article-ink) 42%, transparent);
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 1;
+      letter-spacing: -0.02em;
+      white-space: nowrap;
+    }
+
+    .article-collapsible__meta::after {
+      display: inline-block;
+      content: "↘";
+      font-size: 14px;
+      transform: translateY(-1px);
+      transition: transform 180ms ease-out;
+    }
+
+    .article-collapsible.is-open .article-collapsible__meta::after {
+      transform: translateY(-1px) rotate(180deg);
+    }
+
+    .article-collapsible__body {
+      padding: 8px 0 72px;
+    }
+
+    .article-collapsible__body[hidden] {
+      display: none !important;
+    }
+
+    .article-collapsible__summary:focus-visible {
+      outline: 2px solid var(--article-accent);
+      outline-offset: 6px;
+      border-radius: 2px;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      .article-collapsible__summary:hover .article-collapsible__title {
+        opacity: 0.56;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .article-collapsible__summary {
+        gap: 18px;
+        padding: 22px 0;
+      }
+
+      .article-collapsible__title {
+        font-size: 21px;
+        line-height: 1.22;
+      }
+
+      .article-collapsible__meta {
+        font-size: 14px;
+      }
+
+      .article-collapsible__body {
+        padding-top: 6px;
+        padding-bottom: 58px;
+      }
+    }
+  `;
+  document.head.append(style);
+
+  const toggleSection = (section, open, { scroll = false } = {}) => {
+    const summary = section.querySelector(":scope > .article-collapsible__summary");
+    const body = section.querySelector(":scope > .article-collapsible__body");
+    if (!summary || !body) return;
+
+    section.classList.toggle("is-open", open);
+    summary.setAttribute("aria-expanded", open ? "true" : "false");
+    body.hidden = !open;
+    section.dispatchEvent(new CustomEvent("articlecollapsechange", { bubbles: true }));
+
+    if (open && scroll) {
+      window.requestAnimationFrame(() => {
+        section.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    }
+  };
+
+  collapsibleSections.forEach(({ id, index }) => {
+    const section = document.getElementById(id);
+    const header = section?.querySelector(":scope > .article-section__header");
+    const heading = header?.querySelector("h2");
+    if (!section || !header || !heading) return;
+
+    const body = document.createElement("div");
+    body.className = "article-collapsible__body";
+    body.id = `${id}-content`;
+    body.hidden = true;
+
+    Array.from(section.children).forEach((child) => {
+      if (child !== header) body.append(child);
+    });
+
+    const summary = document.createElement("button");
+    summary.className = "article-collapsible__summary";
+    summary.type = "button";
+    summary.setAttribute("aria-expanded", "false");
+    summary.setAttribute("aria-controls", body.id);
+    summary.innerHTML = `
+      <span class="article-collapsible__title">${heading.innerHTML}</span>
+      <span class="article-collapsible__meta" aria-hidden="true">${index}</span>
+    `;
+
+    section.classList.add("article-collapsible");
+    header.remove();
+    section.prepend(summary);
+    section.append(body);
+
+    summary.addEventListener("click", () => {
+      toggleSection(section, !section.classList.contains("is-open"));
+    });
+
+    const railLink = document.querySelector(`[data-section-link="${id}"]`);
+    railLink?.addEventListener("click", (event) => {
+      event.preventDefault();
+      history.replaceState(null, "", `#${id}`);
+      toggleSection(section, true, { scroll: true });
+    });
+  });
+
+  const initialId = window.location.hash.slice(1);
+  if (collapsibleSections.some(({ id }) => id === initialId)) {
+    const initialSection = document.getElementById(initialId);
+    if (initialSection) toggleSection(initialSection, true);
   }
 })();
