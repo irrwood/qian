@@ -1,4 +1,29 @@
 (() => {
+  const pathname = window.location.pathname;
+  const isChineseArticle = new URLSearchParams(window.location.search).get("lang") === "zh";
+
+  if (pathname.endsWith("/pages/ai-products.html") && !isChineseArticle) {
+    const title = "Building an AI Research & Intelligence Assistant";
+    const summary = "Turning fragmented information into structured, actionable intelligence.";
+
+    document.title = `${title} - Qian Zhao`;
+    document.querySelector('meta[name="description"]')?.setAttribute("content", summary);
+    const heroTitle = document.getElementById("article-title");
+    const heroSummary = document.querySelector(".article-hero__summary");
+    if (heroTitle) heroTitle.textContent = title;
+    if (heroSummary) heroSummary.textContent = summary;
+  }
+
+  if (pathname.endsWith("/index.html") || pathname.endsWith("/qian/") || pathname === "/") {
+    const aiProjectCard = document.querySelector('a.project-card[href="./pages/ai-products.html"]');
+    if (aiProjectCard) {
+      const cardTitle = aiProjectCard.querySelector(".project-card__copy h2");
+      const cardSummary = aiProjectCard.querySelector(".project-card__copy p");
+      if (cardTitle) cardTitle.textContent = "Building an AI Research & Intelligence Assistant";
+      if (cardSummary) cardSummary.textContent = "Turning fragmented information into structured, actionable intelligence.";
+    }
+  }
+
   const footer = document.querySelector(".case-footer, .site-footer");
   let status = document.querySelector(".london-status");
 
