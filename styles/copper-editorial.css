@@ -25,8 +25,8 @@ body { background: var(--copper-paper); }
 .copper-rail nav a { color: var(--copper-muted); font-size: 13px; font-weight: 500; line-height: 1.28; letter-spacing: -.01em; transition: color 180ms ease; }
 .copper-rail nav a.is-active { color: var(--copper-ink); font-weight: 500; }
 .copper-content { width: min(var(--copper-wide), 100%); margin: 0 auto; }
-.copper-section { padding: 108px 0; border-top: 1px solid var(--copper-line); }
-.copper-section:first-child { border-top: 0; }
+.copper-section { position: relative; padding: 108px 0; }
+.copper-section + .copper-section::before { position: absolute; top: -6px; left: 0; display: grid; width: 100%; height: 13px; place-items: center; color: color-mix(in srgb, var(--copper-ink) 46%, transparent); content: "♦"; font-size: 11px; line-height: 1; pointer-events: none; }
 .copper-section__header { max-width: var(--copper-copy); margin-bottom: 32px; }
 .copper-section h2 { font-size: 16px; font-weight: 650; line-height: 22px; letter-spacing: -.018em; }
 .copper-section h3 { margin: 64px 0 24px; font-size: 16px; font-weight: 650; line-height: 1.55; letter-spacing: -.018em; }
@@ -38,7 +38,7 @@ body { background: var(--copper-paper); }
 .decision-brief > div { display: grid; grid-template-columns: 110px 1fr; gap: 24px; padding: 20px 0; background: var(--copper-paper); border-bottom: 1px solid var(--copper-line); }
 .decision-brief strong { display: block; margin-bottom: 10px; font-size: 11px; font-weight: 700; line-height: 1.4; letter-spacing: .055em; text-transform: uppercase; }
 .decision-brief p { color: var(--copper-muted); font-size: 14px; font-weight: 550; line-height: 1.5; letter-spacing: -.018em; }
-.platform-compare { --compare-position: 58%; --compare-position-number: 58; margin: 64px 0 0; padding: clamp(24px, 3.2vw, 44px); border: 1px solid var(--copper-line); border-radius: 20px; background: var(--copper-surface); }
+.platform-compare { --compare-position: 58%; --compare-position-number: 58; width: min(720px, calc(100vw - 48px)); margin: 64px 0 0 50%; padding: clamp(24px, 3.2vw, 44px); border: 1px solid var(--copper-line); border-radius: 20px; background: var(--copper-surface); transform: translateX(-50%); }
 .platform-compare__stage { position: relative; overflow: hidden; aspect-ratio: 16 / 10; border-radius: 8px; background: var(--copper-ink); cursor: ew-resize; user-select: none; }
 .platform-compare__image { display: block; width: 100%; height: 100%; border-radius: 0; background: transparent; object-fit: cover; pointer-events: none; }
 .platform-compare__after { position: absolute; inset: 0; width: var(--compare-position); overflow: hidden; }
@@ -58,7 +58,7 @@ body { background: var(--copper-paper); }
 .article-media { overflow: hidden; background: var(--copper-surface); border-radius: 18px; }
 .article-media img { width: 100%; }
 .phone-media { width: min(360px, 100%); margin-inline: auto; padding: 30px; }
-.phone-media img { width: 100%; max-height: 720px; object-fit: contain; }
+.phone-media img { width: 100%; max-height: 720px; border-radius: 14px; object-fit: contain; }
 .article-emphasis { margin: 30px 0; padding: 18px 22px; background: var(--copper-surface); font-size: 16px !important; font-weight: 650 !important; line-height: 1.55 !important; letter-spacing: -.018em !important; }
 .lifecycle { margin: 32px 0; border-top: 1px solid var(--copper-line); }
 .lifecycle div { display: grid; grid-template-columns: 40px 1fr auto; gap: 14px; padding: 15px 0; border-bottom: 1px solid var(--copper-line); }
@@ -88,7 +88,10 @@ body { background: var(--copper-paper); }
 .system-model p { color: var(--copper-muted); font-size: 14px; font-weight: 550; line-height: 1.5; letter-spacing: -.018em; }
 .system-gallery { display: grid; grid-template-columns: 1fr; gap: 18px; margin: 46px 0; }
 .system-gallery .article-media:first-child { grid-column: auto; }
-.final-quote { width: min(720px, 100%); margin: 54px 0 0; padding: 34px 0; border-top: 1px solid var(--copper-line); border-bottom: 1px solid var(--copper-line); font-size: 18px; font-weight: 600; line-height: 1.55; letter-spacing: -.022em; }
+.final-principle { width: min(var(--copper-copy), 100%); margin: 54px 0 0; padding: 28px; border-radius: 18px; background: var(--copper-surface); }
+.final-principle span { display: block; margin-bottom: 12px; color: var(--copper-muted); font-size: 10px; font-weight: 650; line-height: 16px; letter-spacing: .06em; text-transform: uppercase; }
+.final-principle blockquote { margin: 0; font-size: 20px; font-weight: 600; line-height: 1.45; letter-spacing: -.026em; }
+.final-principle p { margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--copper-line); color: var(--copper-muted); font-size: 15px; font-weight: 500; line-height: 1.62; letter-spacing: -.012em; }
 .project-summary-gallery { display: grid; gap: 22px; padding-bottom: 110px; }
 .project-summary-gallery figure { overflow: hidden; border-radius: 18px; }
 .project-summary-gallery img { width: 100%; }
@@ -119,6 +122,5 @@ body { background: var(--copper-paper); }
   .copper-section h3 { font-size: 17px; }
   .copper-key-line, .article-emphasis { font-size: 17px !important; }
   .article-lesson p { font-size: 20px; }
-  .final-quote { font-size: 20px; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }

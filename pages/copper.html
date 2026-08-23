@@ -35,6 +35,7 @@
           <a href="#overview">Design challenge: users only saw Pending</a>
           <a href="#mobile">Decision 01: system or user?</a>
           <a href="#clearloop">Decision 02: can assets be used?</a>
+          <a href="#workspace">Decision 03: act without leaving the data</a>
           <a href="#system">A system shaped by product needs</a>
           <a href="#learning">Outcome and reflection</a>
         </nav>
@@ -54,7 +55,6 @@
               <input class="platform-compare__range" type="range" min="1" max="99" value="58" aria-label="Compare the new and legacy Copper platform designs" />
               <span class="platform-compare__handle" aria-hidden="true"><span class="platform-compare__knob">↔</span></span>
             </div>
-            <figcaption>Drag the divider to compare the legacy and new platform designs.</figcaption>
           </figure>
         </header>
 
@@ -144,6 +144,18 @@
             </div>
           </section>
 
+          <section class="copper-section" id="workspace">
+            <header class="copper-section__header"><h2>Design decision 03: act without leaving the data</h2></header>
+            <div class="copper-prose">
+              <p>Product analytics showed that users repeatedly left the home dashboard to open a transaction, then returned to check balances and account details. In user research, they explained that they preferred to keep detailed data visible while taking action—a workflow familiar from Bloomberg.</p>
+            </div>
+            <figure class="article-media wide-media"><img src="../assets/webflow-projects/copper/transaction-side-panel.webp" alt="Copper platform showing portfolio data alongside a transfer transaction panel" loading="lazy" decoding="async" /></figure>
+            <div class="copper-prose">
+              <p>I redesigned transactions as a side panel, allowing users to view balances, holdings, and recent activity while completing an action on the same screen.</p>
+              <aside class="article-lesson"><span>Outcome</span><p>The new experience reduced unnecessary page switching, performed strongly in product data, and was well received by users.</p></aside>
+            </div>
+          </section>
+
           <section class="copper-section" id="system">
             <header class="copper-section__header"><h2>A design system shaped by real product needs</h2></header>
             <div class="copper-prose">
@@ -183,8 +195,11 @@
               <p>In a complex financial product, removing one step can remove critical decision-making information. Design cannot count clicks alone. It must consider the risk users carry, whether actions are reversible, and the cost of getting something wrong.</p>
               <p>Across Staking, Approval, ClearLoop, and the Design System, I first identified the decision users needed to make, then decided what the interface should hide, what it must retain, and which step deserved to be deliberately slower.</p>
             </div>
-            <blockquote class="final-quote">Simplify understanding, not responsibility.</blockquote>
-            <div class="copper-prose"><p>The best financial experience does not hide every layer of complexity. It reveals enough information at the right moment for users to understand the system and make the right decision.</p></div>
+            <aside class="final-principle" aria-label="Design principle">
+              <span>Design principle</span>
+              <blockquote>Simplify understanding, not responsibility.</blockquote>
+              <p>The best financial experience does not hide every layer of complexity. It reveals enough information at the right moment for users to understand the system and make the right decision.</p>
+            </aside>
           </section>
 
           <section class="project-summary-gallery" aria-label="Copper project overview">
