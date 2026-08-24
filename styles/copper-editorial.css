@@ -38,7 +38,7 @@ body { background: var(--copper-paper); }
 .decision-brief > div { display: grid; grid-template-columns: 110px 1fr; gap: 24px; padding: 20px 0; background: var(--copper-paper); border-bottom: 1px solid var(--copper-line); }
 .decision-brief strong { display: block; margin-bottom: 10px; font-size: 11px; font-weight: 700; line-height: 1.4; letter-spacing: .055em; text-transform: uppercase; }
 .decision-brief p { color: var(--copper-muted); font-size: 14px; font-weight: 550; line-height: 1.5; letter-spacing: -.018em; }
-.platform-compare { --compare-position: 58%; --compare-position-number: 58; width: min(720px, calc(100vw - 48px)); margin: 64px 0 0 50%; padding: clamp(24px, 3.2vw, 44px); border: 1px solid var(--copper-line); border-radius: 20px; background: var(--copper-surface); transform: translateX(-50%); }
+.platform-compare { --compare-position: 58%; --compare-position-number: 58; box-sizing: border-box; width: 100%; margin: 64px 0 0 50%; padding: clamp(16px, 2vw, 24px); border: 1px solid var(--copper-line); border-radius: 20px; background: var(--copper-surface); transform: translateX(-50%); }
 .platform-compare__stage { position: relative; overflow: hidden; aspect-ratio: 16 / 10; border-radius: 8px; background: var(--copper-ink); cursor: ew-resize; user-select: none; }
 .platform-compare__image { display: block; width: 100%; height: 100%; border-radius: 0; background: transparent; object-fit: cover; pointer-events: none; }
 .platform-compare__after { position: absolute; inset: 0; width: var(--compare-position); overflow: hidden; }
