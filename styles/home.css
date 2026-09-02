@@ -233,12 +233,75 @@ a {
 
 .projects {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: var(--space-row) var(--space-col);
+  width: 100%;
+  gap: clamp(40px, 3.2vw, 48px);
   margin-top: var(--space-section);
 }
 
-.project-archive,
+.project-category {
+  display: grid;
+  gap: 20px;
+  text-align: left;
+}
+
+.project-category__title {
+  margin: 0;
+}
+
+.project-category__grid,
+.project-thumbnails {
+  display: grid;
+  width: calc(100% + max(0px, (100vw - var(--page-width)) / 2 - 24px));
+  grid-auto-flow: column;
+  grid-auto-columns: clamp(300px, calc((100% - 48px) / 3), 370px);
+  gap: 24px;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  padding: 0 0 10px;
+  scroll-padding-inline: 0;
+  scroll-snap-type: inline mandatory;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.project-category__grid {
+  width: calc(100% + max(0px, (100vw - var(--page-width)) / 2 - 24px) + 20px);
+  margin: -10px -10px -20px;
+  padding: 10px 10px 20px;
+}
+
+.project-category__grid::-webkit-scrollbar,
+.project-thumbnails::-webkit-scrollbar {
+  display: none;
+}
+
+.project-category__grid:focus-visible,
+.project-thumbnails:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 4px;
+}
+
+.project-category__grid > .project-card,
+.project-thumbnails > .project-card {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+.project-archive {
+  width: 100%;
+  margin-top: clamp(48px, 4vw, 56px);
+}
+
+.project-archive .project-thumbnails {
+  grid-auto-flow: row;
+  grid-auto-columns: auto;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  overflow: visible;
+  padding-bottom: 0;
+  scroll-snap-type: none;
+}
+
 .more-work {
   margin-top: 56px;
 }
@@ -250,25 +313,6 @@ a {
   font-weight: 500;
   line-height: var(--leading-display);
   letter-spacing: -0.01em;
-}
-
-.project-thumbnails {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 16px;
-}
-
-.project-card--compact {
-  display: block;
-  aspect-ratio: 638 / 392;
-  overflow: hidden;
-  border-radius: 12px;
-}
-
-.project-card--compact .project-card__media {
-  height: 100%;
-  border-radius: 12px;
-  clip-path: inset(0 round 12px);
 }
 
 .creative-showcase {
@@ -445,9 +489,11 @@ a.project-card {
 .project-card__copy {
   display: grid;
   gap: 5px;
+  text-align: left;
 }
 
 .project-card h2,
+.project-card h3,
 .feature-link h2 {
   margin: 0;
   color: var(--ink);
@@ -957,6 +1003,21 @@ body.motion-bubble-open {
     min-height: auto;
   }
 
+  .projects {
+    width: 100%;
+  }
+
+  .project-category__grid,
+  .project-thumbnails {
+    grid-auto-columns: clamp(300px, calc((100% - 48px) / 3), 370px);
+    gap: 24px;
+  }
+
+  .project-archive .project-thumbnails {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+  }
+
   .project-card__media,
   .feature-link img {
     height: auto;
@@ -980,6 +1041,18 @@ body.motion-bubble-open {
 @media (max-width: 760px) {
   .home {
     width: min(calc(100% - 28px), 520px);
+  }
+
+  .projects {
+    width: 100%;
+    margin-left: 0;
+    transform: none;
+  }
+
+  .project-archive {
+    width: 100%;
+    margin-left: 0;
+    transform: none;
   }
 
   .hero {
@@ -1011,10 +1084,27 @@ body.motion-bubble-open {
     margin-left: 0;
   }
 
-  .projects,
   .more-links,
   .motion-case-links {
     grid-template-columns: 1fr;
+  }
+
+  .project-category__grid,
+  .project-thumbnails {
+    grid-auto-columns: minmax(260px, 86%);
+    gap: 16px;
+    margin-right: -14px;
+    padding-right: 14px;
+    scroll-padding-right: 14px;
+  }
+
+  .project-archive .project-thumbnails {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    overflow: visible;
+    margin-right: 0;
+    padding-bottom: 0;
+    padding-right: 0;
   }
 
   .project-archive,
@@ -1025,17 +1115,6 @@ body.motion-bubble-open {
   .home-section-title {
     margin-bottom: 20px;
     font-size: 22px;
-  }
-
-  .project-thumbnails {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 12px;
-  }
-
-  .project-card--compact,
-  .project-card--compact .project-card__media {
-    border-radius: 10px;
-    clip-path: inset(0 round 10px);
   }
 
   .creative-showcase {
@@ -1078,6 +1157,7 @@ body.motion-bubble-open {
   }
 
   .project-card h2,
+  .project-card h3,
   .feature-link h2 {
     font-size: 17px;
     line-height: var(--leading-title);
