@@ -487,6 +487,33 @@ a.project-card {
   background: var(--project-blue);
 }
 
+.project-card__media--catfolio {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: start;
+  gap: 2%;
+  padding: 8% 5% 0;
+  overflow: hidden;
+  background: var(--brand-white);
+  border: 1px solid var(--brand-line);
+}
+
+.project-card__media--catfolio > div {
+  min-width: 0;
+  overflow: hidden;
+}
+
+.project-card__media--catfolio > div:nth-child(2) {
+  margin-top: -12%;
+}
+
+.project-card__media--catfolio img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-top: -51.3%;
+}
+
 .project-card__copy {
   display: grid;
   gap: 5px;

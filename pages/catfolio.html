@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Catfolio iOS App - Qian Zhao Portfolio</title>
+    <meta name="description" content="Catfolio by Qian Zhao: an iOS investment app designed and built through an end-to-end AI workflow, bringing portfolios, trades, returns, and dividends into one place." />
+    <link rel="icon" type="image/png" href="https://cdn.prod.website-files.com/61df1511efa778a02b260c1c/61e1f174f4a5e11f9a74e916_ICO32%402x.png" />
+    <link rel="stylesheet" href="../styles/tokens.css" />
+    <link rel="stylesheet" href="../styles/case-study.css" />
+    <style>
+      /* The supplied App Store artwork is 1179 × 2556. Keep gallery images intact;
+         only the introductory composition crops the repeated marketing headings. */
+      .catfolio-page .case-hero p { max-width: 680px; }
+      .catfolio-page .case-hero__date { font-size: 14px; }
+      .catfolio-page .case-hero__media {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 24px;
+        aspect-ratio: 16 / 8.5;
+        padding: 32px 56px 0;
+      }
+      .catfolio-device { min-width: 0; overflow: hidden; }
+      .catfolio-device:not(:nth-child(2)) { margin-top: 64px; }
+      .catfolio-device img { width: 100%; height: auto; margin-top: -51.3%; }
+      .catfolio-page .case-media-grid {
+        width: min(var(--hero-max), calc(100% - 48px));
+        max-width: none;
+        margin: 64px auto 0;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        align-items: start;
+        gap: 24px;
+      }
+      .catfolio-page .case-media-card { aspect-ratio: 1179 / 2556; border-radius: 0; }
+      .catfolio-page .case-media-card img { width: 100%; height: auto; }
+      .catfolio-page .catfolio-overview-sequence { grid-row: span 2; aspect-ratio: 1179 / 5112; }
+      .catfolio-page .case-copy--role { margin-top: 80px; padding-top: 0; }
+      .catfolio-page .case-copy--role h2 { font-size: 28px; line-height: 38px; }
+      .catfolio-page .case-principles { margin-top: 32px; gap: 28px; }
+      .catfolio-page .case-principles + p { margin-top: 28px; }
+      .catfolio-page .case-copy__body a {
+        color: var(--case-accent);
+        text-decoration: underline;
+        text-underline-offset: 4px;
+      }
+      .catfolio-page .case-showcase { height: auto; margin-top: 80px; }
+      .catfolio-page .case-showcase__viewport {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        align-items: start;
+        gap: 24px;
+        width: min(var(--hero-max), calc(100% - 48px));
+        margin: 0 auto;
+        cursor: auto;
+        user-select: auto;
+      }
+      .catfolio-page .case-showcase__viewport img { width: 100%; height: auto; }
+      @media (max-width: 900px) {
+        .catfolio-page .case-hero__media { gap: 12px; padding: 20px 16px 0; }
+        .catfolio-device:not(:nth-child(2)) { margin-top: 32px; }
+        .catfolio-page .case-media-grid,
+        .catfolio-page .case-showcase__viewport { gap: 12px; }
+      }
+      @media (max-width: 680px) {
+        .catfolio-page .case-hero__media {
+          width: calc(100% - 32px);
+          aspect-ratio: 1.3;
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+          gap: 0;
+          padding: 16px 0 0;
+          overflow: visible;
+          clip-path: none;
+          -webkit-mask-image: none;
+        }
+        .catfolio-device { width: 135%; }
+        .catfolio-device:first-child { margin-left: -32%; }
+        .catfolio-device:nth-child(2) { margin-left: -17.5%; position: relative; z-index: 1; }
+        .catfolio-device:nth-child(3) { margin-left: -3%; }
+        .catfolio-page .case-media-grid,
+        .catfolio-page .case-showcase__viewport {
+          width: min(440px, calc(100% - 32px));
+          grid-template-columns: 1fr;
+          gap: 24px;
+        }
+        .catfolio-page .catfolio-overview-sequence { grid-row: auto; }
+        .catfolio-page .case-media-grid { margin-top: 40px; }
+        .catfolio-page .case-copy--role,
+        .catfolio-page .case-showcase { margin-top: 56px; }
+      }
+    </style>
+    <script defer src="../assets/vendor/gsap.min.js"></script>
+    <script defer src="../assets/vendor/ScrollTrigger.min.js"></script>
+    <script defer src="../scripts/case-study.js"></script>
+    <script defer src="../scripts/magnetic-nav.js"></script>
+  </head>
+  <body class="catfolio-page">
+    <header class="portfolio-nav" aria-label="Portfolio navigation">
+      <div class="portfolio-nav__blur" aria-hidden="true">
+        <div></div><div></div><div></div><div></div><div></div><div></div>
+      </div>
+      <div class="portfolio-nav__inner">
+        <a class="portfolio-nav__brand" href="../index.html" aria-label="Qian Zhao portfolio home">Qian Zhao</a>
+        <nav class="portfolio-nav__links" aria-label="Main navigation">
+          <a class="portfolio-nav__link" href="../index.html"><span class="portfolio-nav__link-label">Work</span></a>
+          <a class="portfolio-nav__link" href="./resume.html"><span class="portfolio-nav__link-label">Resume</span></a>
+          <a class="portfolio-nav__link" href="./about.html"><span class="portfolio-nav__link-label">About Me</span></a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="case-study">
+      <section class="case-hero" aria-labelledby="case-title">
+        <div class="case-hero__intro">
+          <h1 id="case-title">Catfolio</h1>
+          <p>An iOS investment app, designed and built through an end-to-end AI workflow.</p>
+          <div class="case-hero__date">Product design / iOS app / AI development</div>
+        </div>
+        <figure class="case-hero__media" aria-label="Catfolio portfolio overview, performance dashboard, and return comparison on iPhone">
+          <div class="catfolio-device">
+            <img src="../assets/catfolio/cat04.webp" srcset="../assets/catfolio/cat04-400.webp 400w, ../assets/catfolio/cat04.webp 960w" sizes="(max-width: 680px) 44vw, (max-width: 1120px) 30vw, 320px" width="960" height="2081" loading="eager" decoding="async" alt="Performance dashboard with gain, loss, return, and investment cycle views" />
+          </div>
+          <div class="catfolio-device">
+            <img src="../assets/catfolio/cat01.webp" srcset="../assets/catfolio/cat01-400.webp 400w, ../assets/catfolio/cat01.webp 960w" sizes="(max-width: 680px) 44vw, (max-width: 1120px) 30vw, 320px" width="960" height="2081" loading="eager" fetchpriority="high" decoding="async" alt="Portfolio value and cost basis chart with daily performance" />
+          </div>
+          <div class="catfolio-device">
+            <img src="../assets/catfolio/cat07.webp" srcset="../assets/catfolio/cat07-400.webp 400w, ../assets/catfolio/cat07.webp 960w" sizes="(max-width: 680px) 44vw, (max-width: 1120px) 30vw, 320px" width="960" height="2081" loading="eager" decoding="async" alt="Portfolio returns compared with stocks and market benchmarks" />
+          </div>
+        </figure>
+      </section>
+
+      <section class="case-copy case-copy--overview" aria-labelledby="overview-title">
+        <h2 id="overview-title" data-gsap-reveal>Your portfolio. One clear picture.</h2>
+        <div class="case-copy__body">
+          <p data-gsap-reveal>Catfolio started with a personal need: understanding investments spread across different accounts. Cost basis, individual trades, and overall returns were difficult to read together.</p>
+          <p data-gsap-reveal>The iOS app brings those views into one place. It connects the portfolio overview to the details behind it: when a trade happened, where gains came from, and how returns compare with the market.</p>
+        </div>
+      </section>
+
+      <section class="case-media-grid" aria-label="Portfolio overview, trades, performance, gain sources, return comparison, and market sentiment">
+        <figure class="case-media-card catfolio-overview-sequence" data-gsap-reveal>
+          <img src="../assets/catfolio/cat01.webp" width="960" height="2081" loading="lazy" decoding="async" alt="Your portfolio, all in one place: portfolio value, cost basis, and daily gains" />
+          <img src="../assets/catfolio/cat02.webp" width="960" height="2081" loading="lazy" decoding="async" alt="Every buy and sell directly on the chart: NVIDIA trade history with buy and sell markers" />
+        </figure>
+        <figure class="case-media-card" data-gsap-reveal>
+          <img src="../assets/catfolio/cat04.webp" width="960" height="2081" loading="lazy" decoding="async" alt="Performance overview with a holdings heatmap and separate gain, loss, return, and cycle views" />
+        </figure>
+        <figure class="case-media-card" data-gsap-reveal>
+          <img src="../assets/catfolio/cat07.webp" width="960" height="2081" loading="lazy" decoding="async" alt="Time-weighted portfolio returns compared with QQQ, SPY, and individual stocks" />
+        </figure>
+        <figure class="case-media-card" data-gsap-reveal>
+          <img src="../assets/catfolio/cat03.webp" width="960" height="2081" loading="lazy" decoding="async" alt="Gain sources shown as a stacked area chart and a ranked list of contributing holdings" />
+        </figure>
+        <figure class="case-media-card" data-gsap-reveal>
+          <img src="../assets/catfolio/cat05.webp" width="960" height="2081" loading="lazy" decoding="async" alt="Market sentiment gauge with volatility, risk appetite, and VIX context" />
+        </figure>
+      </section>
+
+      <section class="case-copy case-copy--role" aria-labelledby="role-title">
+        <h2 id="role-title" data-gsap-reveal>My role: from design to a working app.</h2>
+        <div class="case-copy__body">
+          <p data-gsap-reveal>I created Catfolio through an end-to-end AI workflow, bringing product direction, interface design, and implementation into one continuous process. AI helped turn ideas into working features; I shaped the priorities, information hierarchy, and visual detail.</p>
+          <div class="case-principles">
+            <div class="case-principle" data-gsap-reveal>
+              <h3>Start with an investment question</h3>
+              <p>Use the questions behind the numbers to define the product: what do I own, how is it performing, and what is driving the change?</p>
+            </div>
+            <div class="case-principle" data-gsap-reveal>
+              <h3>Build and refine with AI</h3>
+              <p>Turn a direction into a working interface, review it in context, and refine the layout, chart hierarchy, and interaction details through iteration.</p>
+            </div>
+            <div class="case-principle" data-gsap-reveal>
+              <h3>Keep product judgment in the loop</h3>
+              <p>Fast implementation makes it easy to add more. The harder design decision is choosing which views help someone understand their portfolio.</p>
+            </div>
+          </div>
+          <p data-gsap-reveal><a href="./ai-products.html#catfolio">Read what building Catfolio taught me about AI workflows</a></p>
+        </div>
+      </section>
+
+      <section class="case-copy case-copy--role" aria-labelledby="details-title">
+        <h2 id="details-title" data-gsap-reveal>The details behind the balance.</h2>
+        <div class="case-copy__body">
+          <p data-gsap-reveal>Dividend breakdowns make income visible. Broker connections and CSV import bring accounts together. Investor tracking adds another way to explore portfolios.</p>
+        </div>
+      </section>
+      <section class="case-showcase" aria-label="Dividend tracking, broker connections, and notable investors">
+        <div class="case-showcase__viewport">
+          <figure data-gsap-reveal>
+            <img src="../assets/catfolio/cat06.webp" width="960" height="2081" loading="lazy" decoding="async" alt="Dividend tracking with a breakdown by stock, total dividends, and expected annual income" />
+          </figure>
+          <figure data-gsap-reveal>
+            <img src="../assets/catfolio/cat08.webp" width="960" height="2081" loading="lazy" decoding="async" alt="Add account screen with broker connections and CSV import" />
+          </figure>
+          <figure data-gsap-reveal>
+            <img src="../assets/catfolio/cat09.webp" width="960" height="2081" loading="lazy" decoding="async" alt="Investor selection screen for following notable investors, with a separate test-data option" />
+          </figure>
+        </div>
+      </section>
+    </main>
+
+    <footer class="case-footer" aria-label="Portfolio footer">
+      <div class="case-footer__inner" data-gsap-reveal>
+        <a class="case-footer__brand" href="../index.html">Qian Zhao</a>
+        <nav class="case-footer__links" aria-label="Social links">
+          <a href="https://dribbble.com/zhaoian">Dribbble</a>
+          <a href="https://www.instagram.com/oioaono/">Instagram</a>
+          <a href="https://twitter.com/oioaon">Twitter</a>
+          <a href="https://www.linkedin.com/in/qian-zhao-20bb66203/">Linkedin</a>
+        </nav>
+        <p class="case-footer__year">© 2026</p>
+      </div>
+    </footer>
+  </body>
+</html>
