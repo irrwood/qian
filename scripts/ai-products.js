@@ -28,7 +28,7 @@
     ],
     catfolio: [
       [
-        "我最开始做的产品，是一个管理个人股票投资组合的 Dashboard，叫作 <strong>Catfolio</strong>。",
+        "我最开始做的产品，是一个管理个人股票投资组合的 Dashboard，叫作 <strong>Catfolio</strong>。<a href=\"https://apps.apple.com/ci/app/catfolio/id6810656291\" target=\"_blank\" rel=\"noopener noreferrer\">在 App Store 查看 Catfolio</a>。",
         "这个想法来自一个很实际的问题。",
         "我有多个投资账户，在不同时间买入和卖出股票。如果想知道真实的持仓成本、投资收益，以及整个 Portfolio 的表现，手动计算会非常麻烦。",
         "与此同时，我也在学习一些量化投资知识。我希望有一个属于自己的平台，可以测试不同的算法、指标和投资策略，而不是只能使用现成工具提供的固定功能。",

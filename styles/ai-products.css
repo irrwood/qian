@@ -389,6 +389,12 @@ body.article-page.has-open-lightbox {
   font-weight: 700;
 }
 
+.article-prose a {
+  color: var(--article-accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 .article-prose .article-key-line {
   margin-block: 30px;
   font-size: 16px;
