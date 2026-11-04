@@ -9,7 +9,7 @@
   page.classList.add("best-nav-experiment");
   expandedNav.classList.add("best-nav-expanded");
   const brand = expandedNav.querySelector(".portfolio-nav__brand");
-  if (brand) brand.textContent = "Qian";
+  if (brand) brand.textContent = "Qian Zhao";
 
   if (!document.querySelector(".best-nav-capsule")) {
     const capsule = expandedNav.cloneNode(true);
