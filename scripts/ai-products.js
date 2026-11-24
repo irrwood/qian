@@ -201,6 +201,9 @@
     applySectionCopy("judgement", chineseCopy.judgement);
     applyHtmlList(Array.from(document.querySelectorAll("#judgement .article-questions li")), chineseCopy.judgementQuestions);
     document.querySelector(".article-final-quote p").textContent = chineseCopy.finalQuote;
+    document.querySelector(".article-gallery-entry")?.setAttribute("aria-label", "截图");
+    const galleryMeta = document.querySelector("[data-gallery-entry-meta]");
+    if (galleryMeta) galleryMeta.textContent = "9 张截图";
   }
 
   if (languageToggle && languageToggleLabel) {
@@ -440,8 +443,9 @@
 
   const lightbox = document.querySelector(".article-lightbox");
   const lightboxTriggers = Array.from(document.querySelectorAll("[data-lightbox-trigger]"));
+  const galleryTriggers = Array.from(document.querySelectorAll("[data-lightbox-gallery]"));
 
-  if (lightbox && lightboxTriggers.length) {
+  if (lightbox && (lightboxTriggers.length || galleryTriggers.length)) {
     const lightboxImage = lightbox.querySelector("[data-lightbox-image]");
     const lightboxCount = lightbox.querySelector("[data-lightbox-count]");
     const closeButton = lightbox.querySelector("[data-lightbox-close]");
@@ -504,24 +508,44 @@
       closeTimer = window.setTimeout(finishClose, 180);
     };
 
-    const openLightbox = (selectedItem) => {
+    const openLightboxWith = (groupItems, index, trigger) => {
       window.clearTimeout(closeTimer);
       lightbox.classList.remove("is-closing");
-      items = allItems.filter((item) => item.group === selectedItem.group);
-      returnFocus = selectedItem.trigger;
-      updateLightbox(items.indexOf(selectedItem), false);
+      items = groupItems;
+      returnFocus = trigger;
+      updateLightbox(index, false);
 
       if (typeof lightbox.showModal === "function") {
         lightbox.showModal();
         document.body.classList.add("has-open-lightbox");
         closeButton.focus({ preventScroll: true });
       } else {
-        window.open(selectedItem.src, "_blank", "noopener");
+        window.open(items[currentIndex].src, "_blank", "noopener");
       }
+    };
+
+    const openLightbox = (selectedItem) => {
+      const groupItems = allItems.filter((item) => item.group === selectedItem.group);
+      openLightboxWith(groupItems, groupItems.indexOf(selectedItem), selectedItem.trigger);
     };
 
     allItems.forEach((item) => {
       item.trigger.addEventListener("click", () => openLightbox(item));
+    });
+
+    // Standalone galleries: a button whose images live in a <template>,
+    // so they only download when the lightbox shows them.
+    galleryTriggers.forEach((trigger) => {
+      const template = document.getElementById(trigger.dataset.lightboxGallery);
+      const galleryItems = Array.from(template?.content.querySelectorAll("img") || []).map((image) => ({
+        trigger,
+        group: trigger.dataset.lightboxGallery,
+        src: new URL(image.getAttribute("src"), document.baseURI).href,
+        alt: image.alt,
+      }));
+      if (!galleryItems.length) return;
+
+      trigger.addEventListener("click", () => openLightboxWith(galleryItems, 0, trigger));
     });
 
     closeButton.addEventListener("click", closeLightbox);
